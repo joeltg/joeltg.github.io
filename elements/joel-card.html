@@ -1,0 +1,87 @@
+<link rel="import" href="../components/paper-material/paper-material.html">
+<link rel="import" href="../components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="joel-card">
+    <style>
+        :host {
+            display: block;
+            @apply(--layout-vertical);
+            background: white;
+            margin: 20px;
+            border-radius: 2px;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .header {
+            @apply(--layout-horizontal --layout-center);
+        }
+        .card-header {
+            @apply(--layout-center);
+        }
+        .card-title {
+            margin: 5px;
+            margin-top: 15px;
+            margin-bottom: 0px;
+            font-weight: 300;
+            font-size: 36px;
+        }
+        .card-subtitle {
+            font-size: 14px;
+            color: grey;
+            margin: 3px;
+            margin-top: 10px;
+        }
+        .card-content {
+            font-size: 18px;
+            font-weight: 300;
+        }
+        .profile-pic {
+            width: 100px;
+            border-radius: 0%;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+    </style>
+
+    <template>
+
+        <paper-material elevation="3" style="border-radius: 2px; min-width: 428px; background: white;">
+
+            <div style="margin: 10px;">
+                <img class="profile-pic" src="../images/blackhat.png" style="position: relative; float: left;">
+                <div style="margin: 20px;">
+                    <h2 class="card-title">
+                        Joel Gustafson
+                    </h2>
+                    <div class="card-subtitle">
+                        <p class="card-subtitle">
+                            technology connoisseur
+                        </p>
+                        <a class="card-subtitle" href="http://xkcd.com">
+                            xkcd fanatic
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+                <p style="font-size: 18px; margin: 30px">
+                    I am a sophomore at MIT pursuing computer science, communication, and economics. I like UX and UI design, social psychology, linguistics, game theory, and everything by Christopher Nolan.
+                    <br><br>I also enjoy debate, deception, card games, magic, commas, and any permutation of the above.
+                </p>
+            </div>
+
+        </paper-material>
+
+    </template>
+
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'joel-card'
+    });
+</script>

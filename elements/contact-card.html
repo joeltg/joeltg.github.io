@@ -1,0 +1,88 @@
+<dom-module id="contact-card">
+    <link rel="import" href="contact-item.html">
+    <link rel="import" href="../components/polymer/polymer.html">
+    <script src="../components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../components/iron-ajax/iron-ajax.html">
+
+
+    <style>
+        :host {
+            display: block;
+            position: relative;
+            @apply(--layout-vertical);
+            background: white;
+            margin: 20px;
+            border-radius: 2px;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .header {
+            @apply(--layout-horizontal --layout-center);
+        }
+        .card-title {
+            margin: 5px;
+            margin-top: 15px;
+            margin-bottom: 0px;
+            font-weight: 300;
+            font-size: 36px;
+        }
+        .card-header {
+            @apply(--layout-center);
+        }
+        .card-title {
+            margin: 5px;
+            margin-bottom: 0px;
+            font-weight: 300;
+        }
+        .card-subtitle {
+            font-size: 14px;
+            color: grey;
+            margin: 3px;
+        }
+        .card-content {
+            margin: 10px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        .profile-pic {
+            width: 70px;
+            border-radius: 0%;
+            margin: 10px;
+        }
+    </style>
+
+    <template>
+
+        <paper-material elevation="3" style="border-radius: 2px; min-width: 428px; background: white;">
+
+            <div style="margin: 20px;">
+                <h2 class="card-title">
+                    Contact
+                </h2>
+            </div>
+
+            <div style="margin: 30px; margin-bottom: 20px; margin-top: 20px;">
+                <p>
+                    If you are unable to reach me by <a href="http://xkcd.com/1254/">carrier pigeon<a>, the following endpoints also expose my personal API, ordered by decreasing professionalism.
+                </p>
+            </div>
+
+            <div style="margin: 10px; margin-left: 30px; margin-right: 30px;">
+                <contact-item style="border-bottom: solid thin grey;" name="Résumé" image="../images/resume.png" link="../assets/Gustafson_Resume.pdf"></contact-item>
+                <contact-item style="border-bottom: solid thin grey;" name="Email" image="../images/inbox.png" link="mailto:joelg@mit.edu"></contact-item>
+                <contact-item style="border-bottom: solid thin grey;" name="LinkedIn" image="../images/linkedin.png" link="https://www.linkedin.com/profile/view?id=389407812"></contact-item>
+                <contact-item style="border-bottom: solid thin grey;" name="Facebook" image="../images/facebook.png" link="https://www.facebook.com/joeltgustafson"></contact-item>
+                <contact-item name="Twitter" image="../images/twitter.png" link="https://www.twitter.com/gustafjt"></contact-item>
+            </div>
+
+        </paper-material>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'contact-card',
+        });
+    </script>
+
+</dom-module>
