@@ -1,9 +1,0 @@
-<!--
-Joel Gustafson
--->
-
-<link rel="import" href="../polymer/polymer.html">
-
-<polymer-element name="joelg-element" noscript>
-
-</polymer-element>
