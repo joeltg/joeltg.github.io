@@ -224,8 +224,8 @@ var Projects = React.createClass({
             React.createElement(
                 Material.List,
                 { expandable: true },
-                React.createElement(Material.ListItem, { primaryText: 'LISP', href: '',
-                    secondaryText: 'LISP is the language of God, and parentheses are the frame of the universe',
+                React.createElement(Material.ListItem, { primaryText: 'GRASP', href: 'grasp/',
+                    secondaryText: 'GRASP visualizes Lisp/CL/Scheme code in a flowchart-style directed graph',
                     leftIcon: React.createElement(
                         Material.IconButton,
                         { iconClassName: 'material-icons' },
