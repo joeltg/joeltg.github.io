@@ -65,35 +65,59 @@ var CustomTheme = {
         return {
             appBar: {
                 color: '#2e7d32'
+            },
+            tabs: {
+                backgroundColor: '#2e7d32'
             }
         };
     }
 };
 ThemeManager.setTheme(CustomTheme);
 var Content = React.createClass({ displayName: 'Content',
-    mixins: [React.addons.LinkedStateMixin],
+    mixins: [React.addons.LinkedStateMixin, Router.Navigation],
     getChildContext: function getChildContext() {
         return {
             muiTheme: ThemeManager.getCurrentTheme()
         };
     },
+    getInitialState: function getInitialState() {
+        return {
+            tabsValue: 2
+        };
+    },
     childContextTypes: {
         muiTheme: React.PropTypes.object
     },
-    handleChange: function handleChange(e, t) {
-        console.log(e);
-        console.log(t);
+    handleChange: function handleChange(t, e) {
+        var name = e.props.label.toLowerCase();
+        if (name == "contact") {
+            console.log(name);
+        }
+        window.location = '/#/#' + e.props.label.toLowerCase();
+        this.setState({ tabsValue: t });
+    },
+    click: function click() {
+        window.location = '/#/#home';
+        this.setState({ tabsValue: 3 });
     },
     render: function render() {
         return React.createElement(
             'div',
-            null,
+            { style: { width: "100%", height: "100%" } },
             React.createElement(Material.AppBar, { iconElementLeft: React.createElement(
                     Material.IconButton,
-                    { href: '/', iconClassName: 'material-icons' },
+                    { onClick: this.click, iconClassName: 'material-icons' },
                     'home'
                 ),
-                title: 'joel', className: 'appBar' }),
+                title: 'joel', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
+                iconElementRight: React.createElement(
+                    Material.Tabs,
+                    { value: this.state.tabsValue, onChange: this.handleChange },
+                    React.createElement(Material.Tab, { value: 0, label: 'Work' }),
+                    React.createElement(Material.Tab, { value: 1, label: 'Projects' }),
+                    React.createElement(Material.Tab, { value: 2, label: 'Heroes' }),
+                    React.createElement(Material.Tab, { value: 3, label: 'Contact' })
+                ) }),
             React.createElement(
                 'div',
                 { className: 'content' },
@@ -144,7 +168,7 @@ var Heroes = React.createClass({
                     secondaryText: React.createElement(
                         'p',
                         { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"Most people are fools; most authority malignant; everything is wrong; God does not exist."'
+                        '"Most people are fools, most authority is malignant, God does not exist, and everything is wrong."'
                     ),
                     leftIcon: React.createElement(
                         Material.IconButton,
@@ -200,10 +224,23 @@ var Contact = require('./Contact');
 var Projects = require('./Projects');
 var Heroes = require('./Heroes');
 var Work = require('./Work');
-
 var Home = React.createClass({
     displayName: 'Home',
 
+    componentDidMount: function componentDidMount() {
+        // Decode entities in the URL
+        // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
+        window.location.hash = window.decodeURIComponent(window.location.hash);
+        var scrollToAnchor = function scrollToAnchor() {
+            var hashParts = window.location.hash.split('#');
+            if (hashParts.length > 2) {
+                var hash = hashParts.slice(-1)[0];
+                document.querySelector('#' + hash).scrollIntoView(false);
+            }
+        };
+        scrollToAnchor();
+        window.onhashchange = scrollToAnchor;
+    },
     render: function render() {
         return React.createElement(
             'div',
@@ -211,9 +248,11 @@ var Home = React.createClass({
             React.createElement(
                 'div',
                 { className: 'inner-container' },
+                React.createElement('div', { id: 'home' }),
+                React.createElement('div', { style: { height: 64 } }),
                 React.createElement(
                     Material.Card,
-                    { className: 'card', style: { marginTop: 80 } },
+                    { className: 'card' },
                     React.createElement(
                         Material.CardMedia,
                         {
@@ -227,9 +266,13 @@ var Home = React.createClass({
                     )
                 ),
                 React.createElement(Work, null),
+                React.createElement('div', { id: 'work' }),
                 React.createElement(Projects, null),
+                React.createElement('div', { id: 'projects' }),
                 React.createElement(Heroes, null),
-                React.createElement(Contact, null)
+                React.createElement('div', { id: 'heroes' }),
+                React.createElement(Contact, null),
+                React.createElement('div', { id: 'contact' })
             )
         );
     }
@@ -364,6 +407,10 @@ var Route = Router.Route;
 
 var Content = require('./Content');
 var Home = require("./Home");
+var Work = require('./Work');
+var Projects = require('./Projects');
+var Heroes = require('./Heroes');
+var Contact = require('./Contact');
 
 var routes = React.createElement(
     Route,
@@ -373,7 +420,7 @@ var routes = React.createElement(
 
 module.exports = routes;
 
-},{"./Content":2,"./Home":4,"react":364,"react-router":173}],9:[function(require,module,exports){
+},{"./Contact":1,"./Content":2,"./Heroes":3,"./Home":4,"./Projects":5,"./Work":6,"react":364,"react-router":173}],9:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
