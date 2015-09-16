@@ -177,7 +177,7 @@ var Heroes = React.createClass({
                     secondaryText: React.createElement(
                         'p',
                         { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"In the end, we are self-perceiving, self-inventing, locked-in mirages are little miracles of self-reference."'
+                        '"In the end, we self-perceiving, self-inventing, locked-in mirages are little miracles of self-reference."'
                     ),
                     leftIcon: React.createElement(
                         Material.IconButton,
@@ -220,7 +220,7 @@ var Home = React.createClass({
                 React.createElement(
                     Material.CardText,
                     null,
-                    'I am a sophomore at MIT pursuing computer science and economics. I\'m a big fan of LISP, Material Design, Bret Victor, poker, and Roger Federer, although Smalltalk, Comic Sans, Ted Nelson, blackjack, and Agassi come in as close respective seconds. I can recite most xkcd comics from memory (including the alt-text), and love petty semantic debates.'
+                    'I am a sophomore at MIT pursuing computer science and economics. I\'m a big fan of LISP, Material Design, Bret Victor, poker, and Roger Federer, although Smalltalk, Comic Sans, Ted Nelson, blackjack, and Agassi come in as close respective seconds. I can recite most xkcd comics from memory (including the alt-text) and love petty semantic debates.'
                 )
             ),
             React.createElement(Work, null),
