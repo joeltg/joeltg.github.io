@@ -93,7 +93,7 @@ var Content = React.createClass({ displayName: 'Content',
                     { href: '/', iconClassName: 'material-icons' },
                     'home'
                 ),
-                title: 'joel' }),
+                title: 'joel', className: 'appBar' }),
             React.createElement(
                 'div',
                 { className: 'content' },
@@ -207,26 +207,30 @@ var Home = React.createClass({
     render: function render() {
         return React.createElement(
             'div',
-            null,
+            { className: 'outer-container' },
             React.createElement(
-                Material.Card,
-                { className: 'card' },
+                'div',
+                { className: 'inner-container' },
                 React.createElement(
-                    Material.CardMedia,
-                    {
-                        overlay: React.createElement(Material.CardTitle, { title: 'Joel Gustafson' }) },
-                    React.createElement('img', { src: 'images/cover.jpg' })
+                    Material.Card,
+                    { className: 'card', style: { marginTop: 80 } },
+                    React.createElement(
+                        Material.CardMedia,
+                        {
+                            overlay: React.createElement(Material.CardTitle, { title: 'Joel Gustafson' }) },
+                        React.createElement('img', { src: 'images/cover.jpg' })
+                    ),
+                    React.createElement(
+                        Material.CardText,
+                        null,
+                        'I am a sophomore at MIT pursuing computer science and economics. I\'m a big fan of LISP, Material Design, Bret Victor, poker, and Roger Federer, although Smalltalk, Comic Sans, Ted Nelson, blackjack, and Agassi come in as close respective seconds. I can recite most xkcd comics from memory (including the alt-text) and love petty semantic debates.'
+                    )
                 ),
-                React.createElement(
-                    Material.CardText,
-                    null,
-                    'I am a sophomore at MIT pursuing computer science and economics. I\'m a big fan of LISP, Material Design, Bret Victor, poker, and Roger Federer, although Smalltalk, Comic Sans, Ted Nelson, blackjack, and Agassi come in as close respective seconds. I can recite most xkcd comics from memory (including the alt-text) and love petty semantic debates.'
-                )
-            ),
-            React.createElement(Work, null),
-            React.createElement(Projects, null),
-            React.createElement(Heroes, null),
-            React.createElement(Contact, null)
+                React.createElement(Work, null),
+                React.createElement(Projects, null),
+                React.createElement(Heroes, null),
+                React.createElement(Contact, null)
+            )
         );
     }
 });
