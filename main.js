@@ -72,18 +72,12 @@ ThemeManager.setTheme(CustomTheme);
 var Content = React.createClass({ displayName: 'Content',
     mixins: [React.addons.LinkedStateMixin, Router.Navigation],
     getChildContext: function getChildContext() {
-        return {
-            muiTheme: ThemeManager.getCurrentTheme()
-        };
+        return { muiTheme: ThemeManager.getCurrentTheme() };
     },
     getInitialState: function getInitialState() {
-        return {
-            tabsValue: 2
-        };
+        return { tabsValue: 2 };
     },
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
+    childContextTypes: { muiTheme: React.PropTypes.object },
     handleChange: function handleChange(t, e) {
         var name = e.props.label.toLowerCase();
         if (name == "contact") {
@@ -99,19 +93,19 @@ var Content = React.createClass({ displayName: 'Content',
     render: function render() {
         return React.createElement(
             'table',
-            { style: { width: "100%", height: "100%" }, border: '0', cellSpacing: '0', cellPadding: '0' },
+            { className: 'fill', border: '0', cellSpacing: '0', cellPadding: '0' },
             React.createElement(
                 'tr',
                 { style: { height: "64px" } },
                 React.createElement(
                     'td',
                     { style: { height: 64, width: "100%" } },
-                    React.createElement(Material.AppBar, { iconElementLeft: React.createElement(
+                    React.createElement(Material.AppBar, { title: 'Joel G', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
+                        iconElementLeft: React.createElement(
                             Material.IconButton,
                             { onClick: this.click, iconClassName: 'material-icons' },
                             'home'
                         ),
-                        title: 'Joel G', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
                         iconElementRight: React.createElement(
                             Material.Tabs,
                             { value: this.state.tabsValue, onChange: this.handleChange },
@@ -127,7 +121,7 @@ var Content = React.createClass({ displayName: 'Content',
                 null,
                 React.createElement(
                     'td',
-                    { style: { height: "100%", width: "100%" } },
+                    { className: 'fill' },
                     React.createElement(
                         'div',
                         { className: 'content' },
@@ -361,7 +355,7 @@ var Work = React.createClass({
                     secondaryText: React.createElement(
                         'p',
                         { style: { whiteSpace: "normal", overflow: "visible" } },
-                        'I\'m also a student blogger for the MTI Admissions Office. Read more things I wrote over there.'
+                        'I\'m also a student blogger for the MIT Admissions Office. Read more things I wrote over there.'
                     ),
                     leftIcon: React.createElement(
                         Material.IconButton,

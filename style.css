@@ -13,6 +13,10 @@ table, tr, td {
 h2 {
     font-weight: 400;
 }
+.fill {
+    width: 100%;
+    height: 100%;
+}
 .content {
     width: 100%;
     height: 100%;
