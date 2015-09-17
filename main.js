@@ -224,7 +224,7 @@ var Home = React.createClass({
             var hashParts = window.location.hash.split('#');
             if (hashParts.length > 2) {
                 var hash = hashParts.slice(-1)[0];
-                document.querySelector('#' + hash).scrollIntoView(false);
+                document.querySelector('#' + hash).scrollIntoView(true);
             }
         };
         scrollToAnchor();
@@ -254,14 +254,14 @@ var Home = React.createClass({
                         'I am a sophomore at MIT pursuing computer science and economics. I\'m a big fan of LISP, Material Design, Bret Victor, poker, and Roger Federer, although Smalltalk, Comic Sans, Ted Nelson, blackjack, and Agassi come in as close respective seconds. I can recite most xkcd comics from memory (including the alt-text) and love petty semantic debates.'
                     )
                 ),
-                React.createElement(Work, null),
                 React.createElement('div', { id: 'work' }),
-                React.createElement(Projects, null),
+                React.createElement(Work, null),
                 React.createElement('div', { id: 'projects' }),
-                React.createElement(Heroes, null),
+                React.createElement(Projects, null),
                 React.createElement('div', { id: 'heroes' }),
-                React.createElement(Contact, null),
-                React.createElement('div', { id: 'contact' })
+                React.createElement(Heroes, null),
+                React.createElement('div', { id: 'contact' }),
+                React.createElement(Contact, null)
             )
         );
     }
