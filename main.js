@@ -98,26 +98,42 @@ var Content = React.createClass({ displayName: 'Content',
     },
     render: function render() {
         return React.createElement(
-            'div',
-            { style: { width: "100%", height: "100%" } },
-            React.createElement(Material.AppBar, { iconElementLeft: React.createElement(
-                    Material.IconButton,
-                    { onClick: this.click, iconClassName: 'material-icons' },
-                    'home'
-                ),
-                title: 'Joel G', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
-                iconElementRight: React.createElement(
-                    Material.Tabs,
-                    { value: this.state.tabsValue, onChange: this.handleChange },
-                    React.createElement(Material.Tab, { value: 0, label: 'Work' }),
-                    React.createElement(Material.Tab, { value: 1, label: 'Projects' }),
-                    React.createElement(Material.Tab, { value: 2, label: 'Heroes' }),
-                    React.createElement(Material.Tab, { value: 3, label: 'Contact' })
-                ) }),
+            'table',
+            { style: { width: "100%", height: "100%" }, border: '0', cellSpacing: '0', cellPadding: '0' },
             React.createElement(
-                'div',
-                { className: 'content' },
-                React.createElement(Router.RouteHandler, null)
+                'tr',
+                { style: { height: "64px" } },
+                React.createElement(
+                    'td',
+                    { style: { height: 64, width: "100%" } },
+                    React.createElement(Material.AppBar, { iconElementLeft: React.createElement(
+                            Material.IconButton,
+                            { onClick: this.click, iconClassName: 'material-icons' },
+                            'home'
+                        ),
+                        title: 'Joel G', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
+                        iconElementRight: React.createElement(
+                            Material.Tabs,
+                            { value: this.state.tabsValue, onChange: this.handleChange },
+                            React.createElement(Material.Tab, { value: 0, label: 'Work' }),
+                            React.createElement(Material.Tab, { value: 1, label: 'Projects' }),
+                            React.createElement(Material.Tab, { value: 2, label: 'Heroes' }),
+                            React.createElement(Material.Tab, { value: 3, label: 'Contact' })
+                        ) })
+                )
+            ),
+            React.createElement(
+                'tr',
+                null,
+                React.createElement(
+                    'td',
+                    { style: { height: "100%", width: "100%" } },
+                    React.createElement(
+                        'div',
+                        { className: 'content' },
+                        React.createElement(Router.RouteHandler, null)
+                    )
+                )
             )
         );
     }
@@ -217,8 +233,6 @@ var Home = React.createClass({
     displayName: 'Home',
 
     componentDidMount: function componentDidMount() {
-        // Decode entities in the URL
-        // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
         window.location.hash = window.decodeURIComponent(window.location.hash);
         var scrollToAnchor = function scrollToAnchor() {
             var hashParts = window.location.hash.split('#');
@@ -238,7 +252,6 @@ var Home = React.createClass({
                 'div',
                 { className: 'inner-container' },
                 React.createElement('div', { id: 'home' }),
-                React.createElement('div', { style: { height: 64 } }),
                 React.createElement(
                     Material.Card,
                     { className: 'card' },
