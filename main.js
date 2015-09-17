@@ -5,44 +5,37 @@ var React = require('react');
 var Material = require('material-ui');
 
 var Contact = React.createClass({
-    displayName: 'Contact',
+                   displayName: 'Contact',
 
-    getDefaultProps: function getDefaultProps() {
-        return {
-            initiallyExpanded: true
-        };
-    },
-    render: function render() {
-        return React.createElement(
-            Material.Card,
-            { className: 'card', initiallyExpanded: this.props.initiallyExpanded },
-            React.createElement(Material.CardTitle, {
-                showExpandableButton: true,
-                title: 'Contact' }),
-            React.createElement(
-                Material.List,
-                { expandable: true },
-                React.createElement(Material.ListItem, { href: 'mailto:joelg@mit.edu', primaryText: 'Email',
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'email'
-                    ) }),
-                React.createElement(Material.ListItem, { primaryText: 'Resume', href: 'Gustafson_Resume.pdf',
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'description'
-                    ) }),
-                React.createElement(Material.ListItem, { primaryText: 'Twitter', href: 'https://twitter.com/gustafjt',
-                    leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-twitter' }) }),
-                React.createElement(Material.ListItem, { primaryText: 'Facebook', href: 'https://www.facebook.com/joeltgustafson',
-                    leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-facebook2' }) }),
-                React.createElement(Material.ListItem, { primaryText: 'LinkedIn', href: 'https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0',
-                    leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-linkedin' }) })
-            )
-        );
-    }
+                   render: function render() {
+                                      return React.createElement(
+                                                         Material.Card,
+                                                         { className: 'card' },
+                                                         React.createElement(Material.CardTitle, { title: 'Contact', subtitle: 'Ordered by most to least professional' }),
+                                                         React.createElement(
+                                                                            Material.List,
+                                                                            null,
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Resume', href: 'Gustafson_Resume.pdf',
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'description'
+                                                                                               ) }),
+                                                                            React.createElement(Material.ListItem, { href: 'mailto:joelg@mit.edu', primaryText: 'Email',
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'email'
+                                                                                               ) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'LinkedIn', href: 'https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0',
+                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-linkedin' }) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Twitter', href: 'https://twitter.com/gustafjt',
+                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-twitter' }) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Facebook', href: 'https://www.facebook.com/joeltgustafson',
+                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-facebook2' }) })
+                                                         )
+                                      );
+                   }
 });
 
 module.exports = Contact;
@@ -59,12 +52,15 @@ var ThemeManager = new Material.Styles.ThemeManager();
 ThemeManager.setTheme(ThemeManager.types.LIGHT);
 var CustomTheme = {
     getPalette: function getPalette() {
-        return {};
+        return {
+            accent1Color: "white"
+        };
     },
     getComponentThemes: function getComponentThemes(palette) {
         return {
             appBar: {
-                color: '#2e7d32'
+                color: '#2e7d32',
+                textColor: 'white'
             },
             tabs: {
                 backgroundColor: '#2e7d32'
@@ -93,11 +89,11 @@ var Content = React.createClass({ displayName: 'Content',
         if (name == "contact") {
             console.log(name);
         }
-        window.location = '/#/#' + e.props.label.toLowerCase();
+        window.location = '/public/#/#' + e.props.label.toLowerCase();
         this.setState({ tabsValue: t });
     },
     click: function click() {
-        window.location = '/#/#home';
+        window.location = '/public/#/#home';
         this.setState({ tabsValue: 3 });
     },
     render: function render() {
@@ -109,7 +105,7 @@ var Content = React.createClass({ displayName: 'Content',
                     { onClick: this.click, iconClassName: 'material-icons' },
                     'home'
                 ),
-                title: 'joel', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
+                title: 'Joel G', className: 'appBar', iconStyleRight: { width: "100%", maxWidth: "400px" },
                 iconElementRight: React.createElement(
                     Material.Tabs,
                     { value: this.state.tabsValue, onChange: this.handleChange },
@@ -136,81 +132,74 @@ var React = require('react');
 var Material = require('material-ui');
 
 var Heroes = React.createClass({
-    displayName: 'Heroes',
+                   displayName: 'Heroes',
 
-    getDefaultProps: function getDefaultProps() {
-        return {
-            initiallyExpanded: true
-        };
-    },
-    render: function render() {
-        return React.createElement(
-            Material.Card,
-            { className: 'card', initiallyExpanded: this.props.initiallyExpanded },
-            React.createElement(Material.CardTitle, {
-                showExpandableButton: true,
-                title: 'Heroes' }),
-            React.createElement(
-                Material.List,
-                { expandable: true },
-                React.createElement(Material.ListItem, { primaryText: 'Doug Engelbart', href: 'https://en.wikipedia.org/wiki/Douglas_Engelbart',
-                    secondaryText: React.createElement(
-                        'p',
-                        { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"If you\'re really dealing with something in a different paradigm, the vocabulary of almost everything you\'re trying to say is different."'
-                    ),
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'format_list_numbered'
-                    ) }),
-                React.createElement(Material.ListItem, { primaryText: 'Ted Nelson', href: 'https://en.wikipedia.org/wiki/Ted_Nelson',
-                    secondaryText: React.createElement(
-                        'p',
-                        { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"Most people are fools, most authority is malignant, God does not exist, and everything is wrong."'
-                    ),
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'link'
-                    ) }),
-                React.createElement(Material.ListItem, { primaryText: 'Alan Kay', href: 'https://en.wikipedia.org/wiki/Alan_Kay',
-                    secondaryText: React.createElement(
-                        'p',
-                        { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"The visual arts are the imitation of life, but the computing arts are the imitation of life itself."'
-                    ),
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'laptop'
-                    ) }),
-                React.createElement(Material.ListItem, { primaryText: 'Bret Victor', href: 'http://worrydream.com',
-                    secondaryText: React.createElement(
-                        'p',
-                        { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"Stop drawing dead fish."'
-                    ),
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'developer_mode'
-                    ) }),
-                React.createElement(Material.ListItem, { primaryText: 'Douglas Hofstadter', href: 'https://en.wikipedia.org/wiki/Douglas_Hofstadter',
-                    secondaryText: React.createElement(
-                        'p',
-                        { style: { whiteSpace: "normal", overflow: "visible" } },
-                        '"In the end, we self-perceiving, self-inventing, locked-in mirages are little miracles of self-reference."'
-                    ),
-                    leftIcon: React.createElement(
-                        Material.IconButton,
-                        { iconClassName: 'material-icons' },
-                        'loop'
-                    ) })
-            )
-        );
-    }
+                   render: function render() {
+                                      return React.createElement(
+                                                         Material.Card,
+                                                         { className: 'card' },
+                                                         React.createElement(Material.CardTitle, { title: 'Heroes' }),
+                                                         React.createElement(
+                                                                            Material.List,
+                                                                            null,
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Doug Engelbart', href: 'https://en.wikipedia.org/wiki/Douglas_Engelbart',
+                                                                                               secondaryText: React.createElement(
+                                                                                                                  'p',
+                                                                                                                  { style: { whiteSpace: "normal", overflow: "visible" } },
+                                                                                                                  '"If you\'re really dealing with something in a different paradigm, the vocabulary of almost everything you\'re trying to say is different."'
+                                                                                               ),
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'format_list_numbered'
+                                                                                               ) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Ted Nelson', href: 'https://en.wikipedia.org/wiki/Ted_Nelson',
+                                                                                               secondaryText: React.createElement(
+                                                                                                                  'p',
+                                                                                                                  { style: { whiteSpace: "normal", overflow: "visible" } },
+                                                                                                                  '"Most people are fools, most authority is malignant, God does not exist, and everything is wrong."'
+                                                                                               ),
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'link'
+                                                                                               ) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Alan Kay', href: 'https://en.wikipedia.org/wiki/Alan_Kay',
+                                                                                               secondaryText: React.createElement(
+                                                                                                                  'p',
+                                                                                                                  { style: { whiteSpace: "normal", overflow: "visible" } },
+                                                                                                                  '"The visual arts are the imitation of life, but the computing arts are the imitation of life itself."'
+                                                                                               ),
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'laptop'
+                                                                                               ) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Bret Victor', href: 'http://worrydream.com',
+                                                                                               secondaryText: React.createElement(
+                                                                                                                  'p',
+                                                                                                                  { style: { whiteSpace: "normal", overflow: "visible" } },
+                                                                                                                  '"Stop drawing dead fish."'
+                                                                                               ),
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'developer_mode'
+                                                                                               ) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Douglas Hofstadter', href: 'https://en.wikipedia.org/wiki/Douglas_Hofstadter',
+                                                                                               secondaryText: React.createElement(
+                                                                                                                  'p',
+                                                                                                                  { style: { whiteSpace: "normal", overflow: "visible" } },
+                                                                                                                  '"In the end, we self-perceiving, self-inventing, locked-in mirages are little miracles of self-reference."'
+                                                                                               ),
+                                                                                               leftIcon: React.createElement(
+                                                                                                                  Material.IconButton,
+                                                                                                                  { iconClassName: 'material-icons' },
+                                                                                                                  'loop'
+                                                                                               ) })
+                                                         )
+                                      );
+                   }
 });
 
 module.exports = Heroes;
@@ -289,21 +278,14 @@ var Material = require('material-ui');
 var Projects = React.createClass({
     displayName: 'Projects',
 
-    getDefaultProps: function getDefaultProps() {
-        return {
-            initiallyExpanded: true
-        };
-    },
     render: function render() {
         return React.createElement(
             Material.Card,
-            { className: 'card', initiallyExpanded: this.props.initiallyExpanded },
-            React.createElement(Material.CardTitle, {
-                showExpandableButton: true,
-                title: 'Projects' }),
+            { className: 'card' },
+            React.createElement(Material.CardTitle, { title: 'Projects' }),
             React.createElement(
                 Material.List,
-                { expandable: true },
+                null,
                 React.createElement(Material.ListItem, { primaryText: 'GRASP', href: 'grasp/',
                     secondaryText: React.createElement(
                         'p',
@@ -343,21 +325,14 @@ var Material = require('material-ui');
 var Work = React.createClass({
     displayName: 'Work',
 
-    getDefaultProps: function getDefaultProps() {
-        return {
-            initiallyExpanded: true
-        };
-    },
     render: function render() {
         return React.createElement(
             Material.Card,
-            { className: 'card', initiallyExpanded: this.props.initiallyExpanded },
-            React.createElement(Material.CardTitle, {
-                showExpandableButton: true,
-                title: 'Work' }),
+            { className: 'card' },
+            React.createElement(Material.CardTitle, { title: 'Work' }),
             React.createElement(
                 Material.List,
-                { expandable: true },
+                null,
                 React.createElement(Material.ListItem, { primaryText: 'MIT Media Lab', href: 'http://viral.media.mit.edu/projects/glue/',
                     secondaryText: React.createElement(
                         'p',
