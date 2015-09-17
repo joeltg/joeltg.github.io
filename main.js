@@ -89,11 +89,11 @@ var Content = React.createClass({ displayName: 'Content',
         if (name == "contact") {
             console.log(name);
         }
-        window.location = '/public/#/#' + e.props.label.toLowerCase();
+        window.location = '/#/#' + e.props.label.toLowerCase();
         this.setState({ tabsValue: t });
     },
     click: function click() {
-        window.location = '/public/#/#home';
+        window.location = '/#/#home';
         this.setState({ tabsValue: 3 });
     },
     render: function render() {
