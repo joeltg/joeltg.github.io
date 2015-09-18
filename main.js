@@ -15,7 +15,7 @@ var Contact = React.createClass({
                                                          React.createElement(
                                                                             Material.List,
                                                                             null,
-                                                                            React.createElement(Material.ListItem, { primaryText: 'Resume', href: 'Gustafson_Resume.pdf',
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Résumé', href: 'Gustafson_Resume.pdf',
                                                                                                leftIcon: React.createElement(
                                                                                                                   Material.IconButton,
                                                                                                                   { iconClassName: 'material-icons' },
