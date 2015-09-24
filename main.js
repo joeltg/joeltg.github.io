@@ -15,7 +15,7 @@ var Contact = React.createClass({
                                                          React.createElement(
                                                                             Material.List,
                                                                             null,
-                                                                            React.createElement(Material.ListItem, { primaryText: 'Résumé', href: 'Gustafson_Resume.pdf',
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Resume', href: 'Gustafson_Resume.pdf', target: '_blank',
                                                                                                leftIcon: React.createElement(
                                                                                                                   Material.IconButton,
                                                                                                                   { iconClassName: 'material-icons' },
@@ -27,11 +27,13 @@ var Contact = React.createClass({
                                                                                                                   { iconClassName: 'material-icons' },
                                                                                                                   'email'
                                                                                                ) }),
-                                                                            React.createElement(Material.ListItem, { primaryText: 'LinkedIn', href: 'https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0',
+                                                                            React.createElement(Material.ListItem, { primaryText: 'LinkedIn', href: 'https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0', target: '_blank',
                                                                                                leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-linkedin' }) }),
-                                                                            React.createElement(Material.ListItem, { primaryText: 'Twitter', href: 'https://twitter.com/gustafjt',
+                                                                            React.createElement(Material.ListItem, { primaryText: 'GitHub', href: 'https://github.com/joeltg', target: '_blank',
+                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-github' }) }),
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Twitter', href: 'https://twitter.com/gustafjt', target: '_blank',
                                                                                                leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-twitter' }) }),
-                                                                            React.createElement(Material.ListItem, { primaryText: 'Facebook', href: 'https://www.facebook.com/joeltgustafson',
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Facebook', href: 'https://www.facebook.com/joeltgustafson', target: '_blank',
                                                                                                leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-facebook2' }) })
                                                          )
                                       );
@@ -344,7 +346,7 @@ var Work = React.createClass({
                     secondaryText: React.createElement(
                         'p',
                         { style: { whiteSpace: "normal", overflow: "visible" } },
-                        'In Summer of 2015, I worked with the Viral Communications group on Glue, a media analysis framework.'
+                        'In summer of 2015, I worked with the Viral Communications group on Glue, a media analysis framework.'
                     ),
                     leftIcon: React.createElement(
                         Material.IconButton,
