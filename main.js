@@ -15,7 +15,7 @@ var Contact = React.createClass({
                                                          React.createElement(
                                                                             Material.List,
                                                                             null,
-                                                                            React.createElement(Material.ListItem, { primaryText: 'Resume', href: 'Gustafson_Resume.pdf', target: '_blank',
+                                                                            React.createElement(Material.ListItem, { primaryText: 'Résumé', href: 'Gustafson_Resume.pdf', target: '_blank',
                                                                                                leftIcon: React.createElement(
                                                                                                                   Material.IconButton,
                                                                                                                   { iconClassName: 'material-icons' },
@@ -347,7 +347,7 @@ var Work = React.createClass({
                         { style: { whiteSpace: "normal", overflow: "visible" } },
                         'In summer of 2015, I worked with the Viral Communications group on Glue, a media analysis framework.'
                     ),
-                    leftIcon: React.createElement(Material.IconButton, { iconStyle: { marginLeft: 5 }, iconClassName: 'icon-MIT_Media_Lab' }) }),
+                    leftIcon: React.createElement(Material.IconButton, { iconStyle: { marginLeft: 5, marginTop: 5 }, iconClassName: 'icon-MIT_Media_Lab' }) }),
                 React.createElement(Material.ListItem, { primaryText: 'MIT Admissions Blogger', href: 'http://mitadmissions.org/blogs/author/joeltg',
                     secondaryText: React.createElement(
                         'p',

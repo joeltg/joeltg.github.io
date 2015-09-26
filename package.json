@@ -1,0 +1,17 @@
+{
+  "name": "joelg",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "browserify ./jsx/main.js -t babelify --outfile ./main.js"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4"
+  },
+  "dependencies": {
+    "react": "^0.13.3",
+    "material-ui": "^0.10.0",
+    "react-tap-event-plugin": "^0.1.7",
+    "react-router": "^0.13.3"
+  }
+}
