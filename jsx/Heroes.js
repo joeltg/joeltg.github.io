@@ -13,7 +13,7 @@ var Heroes = React.createClass({
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"Most people are fools, most authority is malignant, God does not exist, and everything is wrong."</p>}
                                    leftIcon={<Material.IconButton iconClassName="material-icons">link</Material.IconButton>} />
                 <Material.ListItem primaryText="Alan Kay" href="https://en.wikipedia.org/wiki/Alan_Kay"
-                                   secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"The visual arts are the imitation of life, but the computing arts are the imitation of life itself."</p>}
+                                   secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"The visual arts are the imitation of life, but the computing arts are the imitation of creation itself."</p>}
                                    leftIcon={<Material.IconButton iconClassName="material-icons">laptop</Material.IconButton>} />
                 <Material.ListItem primaryText="Bret Victor" href="http://worrydream.com"
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"Stop drawing dead fish."</p>}

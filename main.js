@@ -180,7 +180,7 @@ var Heroes = React.createClass({
                                                                                                secondaryText: React.createElement(
                                                                                                                   'p',
                                                                                                                   { style: { whiteSpace: "normal", overflow: "visible" } },
-                                                                                                                  '"The visual arts are the imitation of life, but the computing arts are the imitation of life itself."'
+                                                                                                                  '"The visual arts are the imitation of life, but the computing arts are the imitation of creation itself."'
                                                                                                ),
                                                                                                leftIcon: React.createElement(
                                                                                                                   Material.IconButton,
