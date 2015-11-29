@@ -191,7 +191,7 @@ var Heroes = React.createClass({
                                                                                                secondaryText: React.createElement(
                                                                                                                   'p',
                                                                                                                   { style: { whiteSpace: "normal", overflow: "visible" } },
-                                                                                                                  '"Stop drawing dead fish."'
+                                                                                                                  '"There is no \'Technology\'. There is no \'Design\'. There is only a vision of how mankind should be, and the relentless resolve to make it so."'
                                                                                                ),
                                                                                                leftIcon: React.createElement(
                                                                                                                   Material.IconButton,

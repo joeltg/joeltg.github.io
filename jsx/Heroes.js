@@ -16,7 +16,7 @@ var Heroes = React.createClass({
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"The visual arts are the imitation of life, but the computing arts are the imitation of creation itself."</p>}
                                    leftIcon={<Material.IconButton iconClassName="material-icons">laptop</Material.IconButton>} />
                 <Material.ListItem primaryText="Bret Victor" href="http://worrydream.com"
-                                   secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"Stop drawing dead fish."</p>}
+                                   secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"There is no 'Technology'. There is no 'Design'. There is only a vision of how mankind should be, and the relentless resolve to make it so."</p>}
                                    leftIcon={<Material.IconButton iconClassName="material-icons">developer_mode</Material.IconButton>} />
                 <Material.ListItem primaryText="Douglas Hofstadter" href="https://en.wikipedia.org/wiki/Douglas_Hofstadter"
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>"In the end, we self-perceiving, self-inventing, locked-in mirages are little miracles of self-reference."</p>}
