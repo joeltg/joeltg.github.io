@@ -28,13 +28,13 @@ var Contact = React.createClass({
                                                                                                                   'email'
                                                                                                ) }),
                                                                             React.createElement(Material.ListItem, { primaryText: 'LinkedIn', href: 'https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0', target: '_blank',
-                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-linkedin' }) }),
+                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-linkedin2' }) }),
                                                                             React.createElement(Material.ListItem, { primaryText: 'GitHub', href: 'https://github.com/joeltg', target: '_blank',
                                                                                                leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-github' }) }),
                                                                             React.createElement(Material.ListItem, { primaryText: 'Twitter', href: 'https://twitter.com/gustafjt', target: '_blank',
                                                                                                leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-twitter' }) }),
                                                                             React.createElement(Material.ListItem, { primaryText: 'Facebook', href: 'https://www.facebook.com/joeltgustafson', target: '_blank',
-                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-facebook2' }) })
+                                                                                               leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-facebook' }) })
                                                          )
                                       );
                    }
@@ -306,6 +306,14 @@ var Projects = React.createClass({
                         { iconClassName: 'material-icons' },
                         'settings_ethernet'
                     ) }),
+                React.createElement(Material.ListItem, { primaryText: 'Visual History',
+                    secondaryText: React.createElement(
+                        'p',
+                        { style: { whiteSpace: "normal", overflow: "visible" } },
+                        'Back and forward buttons are obsolete. Visual History maps your walk on the Internet graph.'
+                    ),
+                    href: 'https://github.com/joeltg/visual_history',
+                    leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-512' }) }),
                 React.createElement(Material.ListItem, { primaryText: 'Magic Deck',
                     secondaryText: React.createElement(
                         'p',
@@ -347,7 +355,7 @@ var Work = React.createClass({
                         { style: { whiteSpace: "normal", overflow: "visible" } },
                         'In summer of 2015, I worked with the Viral Communications group on Glue, a media analysis framework.'
                     ),
-                    leftIcon: React.createElement(Material.IconButton, { iconStyle: { marginLeft: 5, marginTop: 5 }, iconClassName: 'icon-MIT_Media_Lab' }) }),
+                    leftIcon: React.createElement(Material.IconButton, { iconStyle: { marginLeft: 5, marginTop: 5 }, iconClassName: 'icon-mit_media_lab_2014_logo_detail' }) }),
                 React.createElement(Material.ListItem, { primaryText: 'MIT Admissions Blogger', href: 'http://mitadmissions.org/blogs/author/joeltg',
                     secondaryText: React.createElement(
                         'p',

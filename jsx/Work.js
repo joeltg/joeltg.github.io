@@ -8,7 +8,7 @@ var Work = React.createClass({
                 <Material.ListItem primaryText="MIT Media Lab" href="http://viral.media.mit.edu/projects/glue/"
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>
                                         In summer of 2015, I worked with the Viral Communications group on Glue, a media analysis framework.</p>}
-                                   leftIcon={<Material.IconButton iconStyle={{marginLeft: 5, marginTop: 5}} iconClassName="icon-MIT_Media_Lab"></Material.IconButton>}/>
+                                   leftIcon={<Material.IconButton iconStyle={{marginLeft: 5, marginTop: 5}} iconClassName="icon-mit_media_lab_2014_logo_detail"></Material.IconButton>}/>
 
                 <Material.ListItem primaryText="MIT Admissions Blogger" href="http://mitadmissions.org/blogs/author/joeltg"
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>

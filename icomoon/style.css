@@ -1,16 +1,17 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?3ibho7');
-	src:url('fonts/icomoon.eot?#iefix3ibho7') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?3ibho7') format('truetype'),
-		url('fonts/icomoon.woff?3ibho7') format('woff'),
-		url('fonts/icomoon.svg?3ibho7#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?bjry3b');
+	src:url('fonts/icomoon.eot?bjry3b#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?bjry3b') format('truetype'),
+		url('fonts/icomoon.woff?bjry3b') format('woff'),
+		url('fonts/icomoon.svg?bjry3b#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
+    /* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -23,18 +24,22 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-MIT_Media_Lab:before {
-	content: "\e603";
+.icon-512:before {
+	content: "\e900";
 }
-.icon-facebook2:before {
-	content: "\e600";
+.icon-mit_media_lab_2014_logo_detail:before {
+	content: "\e901";
+}
+.icon-facebook:before {
+	content: "\e902";
 }
 .icon-twitter:before {
-	content: "\e601";
+	content: "\e903";
 }
 .icon-github:before {
-	content: "\e604";
+	content: "\e904";
 }
-.icon-linkedin:before {
-	content: "\e602";
+.icon-linkedin2:before {
+	content: "\e905";
 }
+

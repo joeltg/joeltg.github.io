@@ -10,6 +10,13 @@ var Projects = React.createClass({
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>
                                         GRASP visualizes dataflow of arbitrary LISP s-expressions with a directed graph. Editable graphs coming soon in 2016!</p>}
                                    leftIcon={<Material.IconButton iconClassName="material-icons">settings_ethernet</Material.IconButton>} />
+                <Material.ListItem primaryText="Visual History"
+                                   secondaryText={
+                                        <p style={{whiteSpace: "normal", overflow: "visible"}}>
+                                            Back and forward buttons are obsolete. Visual History maps your walk on the Internet graph.
+                                        </p>}
+                                   href="https://github.com/joeltg/visual_history"
+                                   leftIcon={<Material.IconButton iconClassName="icon-512"></Material.IconButton>}/>
                 <Material.ListItem primaryText="Magic Deck"
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>
                                         I made an NFC-tagged deck of cards for a Media Lab seminar on Magic.</p>}

@@ -11,13 +11,13 @@ var Contact = React.createClass({
                 <Material.ListItem href="mailto:joelg@mit.edu" primaryText="Email"
                                    leftIcon={<Material.IconButton iconClassName="material-icons">email</Material.IconButton>} />
                 <Material.ListItem primaryText="LinkedIn" href="https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0" target="_blank"
-                                   leftIcon={<Material.IconButton iconClassName="icon-linkedin" />} />
+                                   leftIcon={<Material.IconButton iconClassName="icon-linkedin2" />} />
                 <Material.ListItem primaryText="GitHub" href="https://github.com/joeltg" target="_blank"
                                    leftIcon={<Material.IconButton iconClassName="icon-github" />} />
                 <Material.ListItem primaryText="Twitter" href="https://twitter.com/gustafjt" target="_blank"
                                    leftIcon={<Material.IconButton iconClassName="icon-twitter" />} />
                 <Material.ListItem primaryText="Facebook" href="https://www.facebook.com/joeltgustafson" target="_blank"
-                                   leftIcon={<Material.IconButton iconClassName="icon-facebook2" />} />
+                                   leftIcon={<Material.IconButton iconClassName="icon-facebook" />} />
             </Material.List>
         </Material.Card>
     }
