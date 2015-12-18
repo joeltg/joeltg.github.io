@@ -312,7 +312,7 @@ var Projects = React.createClass({
                         { style: { whiteSpace: "normal", overflow: "visible" } },
                         'Back and forward buttons are obsolete. Visual History maps your walk on the Internet graph.'
                     ),
-                    href: 'https://github.com/joeltg/visual_history',
+                    href: 'visual_history/',
                     leftIcon: React.createElement(Material.IconButton, { iconClassName: 'icon-512' }) }),
                 React.createElement(Material.ListItem, { primaryText: 'Magic Deck',
                     secondaryText: React.createElement(

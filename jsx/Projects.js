@@ -15,7 +15,7 @@ var Projects = React.createClass({
                                         <p style={{whiteSpace: "normal", overflow: "visible"}}>
                                             Back and forward buttons are obsolete. Visual History maps your walk on the Internet graph.
                                         </p>}
-                                   href="https://github.com/joeltg/visual_history"
+                                   href="visual_history/"
                                    leftIcon={<Material.IconButton iconClassName="icon-512"></Material.IconButton>}/>
                 <Material.ListItem primaryText="Magic Deck"
                                    secondaryText={<p style={{whiteSpace: "normal", overflow: "visible"}}>
