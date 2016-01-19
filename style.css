@@ -5,6 +5,10 @@ html, body {
     background: #f5f5f5;
 }
 
+.mdl-layout__drawer-button > i {
+    margin: 8px;
+}
+
 .mdl-card {
     width: 100%;
     max-width: 720px;
@@ -15,6 +19,9 @@ html, body {
     color: #ffffff;
     height: 256px;
     background: url('images/cover.jpg') center / cover;
+}
+.cover > .mdl-card__title-text {
+    margin-left: auto;
 }
 h5 > a {
     color: inherit;
