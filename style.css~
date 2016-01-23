@@ -20,6 +20,9 @@ html, body {
     height: 256px;
     background: url('images/cover-flipped.jpg') center / cover;
 }
+.cover > .mdl-card__title-text {
+    margin-left: auto;
+}
 h5 > a {
     color: inherit;
     text-decoration:none;
