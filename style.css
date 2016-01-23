@@ -18,7 +18,7 @@ html, body {
 .mdl-card > .cover{
     color: #ffffff;
     height: 256px;
-    background: url('images/cover.jpg') center / cover;
+    background: url('images/cover-flipped.jpg') center / cover;
 }
 .cover > .mdl-card__title-text {
     margin-left: auto;
