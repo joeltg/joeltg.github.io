@@ -20,7 +20,7 @@ html, body {
     height: 256px;
     background: url('images/cover-flipped.jpg') center / cover;
 }
-span > a {
+span > a, h5 > a {
     color: inherit;
     text-decoration:none;
 }
