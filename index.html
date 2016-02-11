@@ -96,7 +96,7 @@
                                 <div class="mdl-card__subtitle-text">past, present, and future</div>
                             </div>
                             <iframe id="courseroad"
-                                    src="https://courseroad.mit.edu/#joelg"
+                                    src="http://courseroad.mit.edu/#joelg"
                                     width="100%" height="512px"
                                     onload="hideLeftBar()"></iframe>
                         </div>
@@ -280,7 +280,7 @@
         <script>
 
             function hideLeftBar() {
-                var iframe = document.getElementById('courseroad').iframe.contentWindow.document;
+                var iframe = document.getElementById('courseroad').contentWindow.document;
                 var left = iframe.getElementById('leftbar');
                 var right = iframe.getElementById('rightbar');
                 right.style.marginRight = 0;

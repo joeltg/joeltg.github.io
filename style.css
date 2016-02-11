@@ -9,6 +9,10 @@ html, body {
     margin: 8px;
 }
 
+#leftbar {
+    background-color: black
+}
+
 .mdl-card {
     width: 100%;
     max-width: 720px;
