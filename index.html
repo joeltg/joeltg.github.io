@@ -6,8 +6,8 @@
 
         <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 
-        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.teal-blue.min.css" />
-        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.teal-blue.min.css" />
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -19,6 +19,7 @@
         .mdl-card__supporting-text {
             font-weight: 400;
             font-size: 15px;
+            color: #404040
         }
     </style>
     <body>
@@ -89,12 +90,12 @@
                         </div>
                         <script async src="https://static.medium.com/embed.js"></script>
                         <div class="mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">GRASP</h2>
+                            </div>
                             <div class="mdl-card__media">
                                 <img src="images/grasp.png" height="256px" width="100%" border="0" alt=""
                                      style="padding:0; display: block; object-fit: cover;">
-                            </div>
-                            <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">GRASP</h2>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 It's easy to look at lines of code and think you know what programming is, but text is
@@ -113,12 +114,12 @@
                             </div>
                         </div>
                         <div class="mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Visual History</h2>
+                            </div>
                             <div class="mdl-card__media">
                                 <img src="images/visual_history.png" height="256px" width="100%" border="0" alt=""
                                      style="padding:0; display: block; object-fit: cover;">
-                            </div>
-                            <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">Visual History</h2>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 Modern browsers lose rich information when they compress browsing history into a linear
@@ -165,39 +166,48 @@
                             </div>
                         </div>
                         <div class="mdl-card mdl-shadow--2dp">
-                            <div class="mdl-card__media">
-                                <img src="images/dynabook.jpg" height="256px" width="100%" border="0" alt=""
-                                     style="padding:0; display: block; object-fit: cover;">
-                            </div>
                             <div class="mdl-card__title">
                                 <h2 class="mdl-card__title-text">Heroes</h2>
                             </div>
-                            <div class="mdl-grid mdl-grid--no-spacing">
-                                <div class="hero mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                                    <h5><a href="http://worrydream.com">Bret Victor</a></h5>
-                                    <p class="mdl-card__supporting-text">
-                                        "There is no 'Technology'. There is no 'Design'. There is only a vision of how mankind should be, and the relentless resolve to make it so."
-                                    </p>
-                                </div>
-                                <div class="hero mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                                    <h5><a href="https://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a></h5>
-                                    <p class="mdl-card__supporting-text">
-                                        "The visual arts are the imitation of life, but the computing arts are the imitation of creation itself."
-                                    </p>
-                                </div>
-                                <div class="hero mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                                    <h5><a href="https://en.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a></h5>
-                                    <p class="mdl-card__supporting-text">
-                                        "Most people are fools, most authority is malignant, God does not exist, and everything is wrong."
-                                    </p>
-                                </div>
-                                <div class="hero mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                                    <h5><a href="https://en.wikipedia.org/wiki/Douglas_Engelbart">Doug Engelbart</a></h5>
-                                    <p class="mdl-card__supporting-text">
-                                        "The key thing about all the world's big problems is that they have to be dealt with collectively. If we don't get collectively smarter, we're doomed."
-                                    </p>
-                                </div>
+                            <div class="mdl-card__media">
+                                <img src="images/xanadu.jpg" height="256" width="100%" border="0" alt=""
+                                     style="padding:0; display: block; object-fit: cover;">
                             </div>
+                            <ul class="mdl-list" style="margin-top: 0">
+                                <li class="mdl-list__item mdl-list__item--two-line">
+                                    <span class="mdl-list__item-primary-content">
+                                      <span><a href="http://worrydream.com">Bret Victor</a></span>
+                                        <span class="mdl-list__item-sub-title">
+                                            "There is no 'Technology'. There is no 'Design'. There is only a vision of how mankind should be, and the relentless resolve to make it so."
+                                        </span>
+                                    </span>
+                                </li>
+                                <li class="mdl-list__item mdl-list__item--two-line">
+                                    <span class="mdl-list__item-primary-content">
+                                      <span><a href="https://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a></span>
+                                        <span class="mdl-list__item-sub-title">
+                                            "The visual arts are the imitation of life, but the computing arts are the imitation of creation itself."
+                                        </span>
+                                    </span>
+                                </li>
+                                <li class="mdl-list__item mdl-list__item--two-line">
+                                    <span class="mdl-list__item-primary-content">
+                                      <span><a href="https://en.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a></span>
+                                        <span class="mdl-list__item-sub-title">
+                                            "Most people are fools, most authority is malignant, God does not exist, and everything is wrong."
+                                        </span>
+                                    </span>
+                                </li>
+                                <li class="mdl-list__item mdl-list__item--two-line">
+                                    <span class="mdl-list__item-primary-content">
+                                      <span><a href="https://en.wikipedia.org/wiki/Douglas_Engelbart">Doug Engelbart</a></span>
+                                        <span class="mdl-list__item-sub-title">
+                                            "The key thing about all the world's big problems is that they have to be dealt with collectively. If we don't get collectively smarter, we're doomed."
+                                        </span>
+                                    </span>
+                                </li>
+                            </ul>
+
                         </div>
                         <div id="contact" class="mdl-card mdl-shadow--2dp">
                             <div class="mdl-card__title">
