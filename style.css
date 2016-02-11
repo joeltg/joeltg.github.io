@@ -15,7 +15,7 @@ html, body {
 
 .mdl-card {
     width: 100%;
-    max-width: 970px;
+    max-width: 720px;
     min-width: 360px;
     margin: 32px auto 32px auto;
 }
