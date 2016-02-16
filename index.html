@@ -156,7 +156,7 @@
                                     </li>
                                     <li class="mdl-list__item mdl-list__item--two-line" style="height: auto">
                                     <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span>Multi-dimensional Spreadsheet</span>
+                                      <span>Prototypical</span>
                                         <span class="mdl-list__item-sub-title">
                                             Inspired by Ted Nelson's <a href="http://xanadu.com/zigzag">ZigZag</a>,
                                             I'm on a mission to merge a relational database, spreadsheet, and note-taking
@@ -210,7 +210,13 @@
                             <a class="m-story" data-collapsed="true" href="https://medium.com/@gustafjt/why-are-we-still-using-tabbed-browsing-fab8dc142297">Why are we still using tabbed browsing?</a>
                         </div>
                         <div class="mdl-cell mdl-cell-middle mdl-cell--8-col-tablet">
-                            <a href="http://xkcd.com/1185"><img src="images/ineffective_sorts.png" width="100%" /></a>
+                            <div class="mdl-card mdl-shadow-2--dp">
+                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
+                                    <h2 class="mdl-card__title-text">Random xkcd</h2>
+                                    <div class="mdl-card__subtitle-text">at least for some definitions of random</div>
+                                </div>
+                                <a id="xkcd-link"><img id="xkcd" width="100%" /></a>
+                            </div>
                         </div>
                         <div class="mdl-cell mdl-cell--middle mdl-cell--6-col mdl-cell--8-col-tablet">
                             <div class="mdl-card mdl-shadow--2dp">
@@ -319,6 +325,19 @@
         </div>
 
         <script>
+            r = new XMLHttpRequest();
+            r.onreadystatechange = function() {
+                if (r.readyState == 4 && r.status == 200) {
+                    var json = JSON.parse(r.responseText);
+                    if (json.num && json.img) {
+                        document.getElementById('xkcd').setAttribute('src',json.img);
+                        document.getElementById('xkcd-link').setAttribute('href', 'http://xkcd.com/' + json.num);
+                    }
+                }
+            };
+            r.open('GET', 'http://xkcd.com/info.0.json');
+            r.send();
+
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
