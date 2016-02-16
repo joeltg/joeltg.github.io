@@ -21,6 +21,11 @@ html, body {
     color: inherit;
     text-decoration:none;
 }
+
+.nolink:hover {
+    text-decoration: underline;
+}
+
 .icon {
     font-size: 24px;
 }
