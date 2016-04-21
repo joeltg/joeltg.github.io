@@ -1,340 +1,72 @@
-<html>
-    <title>Joel Gustafson</title>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="Va-7MTugJXz6BJgjMA4lv0idCYYFXNBaczstXR6OWWE" />
+---
+layout: page
+sitemap:
+  priority: 1
+---
 
-        <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<p>
+  Hello! I'm a sophomore at MIT pursuing computer science and mathematics.
+  I want to make computing universally accessible as a medium and an art,
+  solve general AI, and engineer tools to help society to solve problems
+  it doesn't know about yet.
+</p>
+<p>
+  That will probably take a while, so the intermediate plan is to hang out in
+  <span class="variable" id="location"></span>, sipping
+  <span class="variable" id="beverage"></span> while listening to
+  <span class="variable" id="music"></span> and reading
+  <span class="variable" id="reading"></span>.
+</p>
+<br><br>
+<ul class="list-posts">
+  {% for post in site.posts limit:5 %}
+  <li class="post-teaser" >
 
-        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.teal-blue.min.css" />
-        <script src="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.min.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a class="post-teaser__link" href="{{ post.url | prepend: site.baseurl }}">
+      <span class="post-teaser__title">{{ post.title }}</span>
+      <span class="post-teaser__date">{{ post.date | date: "%d %B %Y" }}</span>
+      <br>
+      <span class="post-teaser__subtitle">{{ post.subtitle }}</span>
+    </a>
+    <br>
+    <span class="post-teaser__excerpt">{{ post.excerpt }}</span>
+  </li>
+  {% endfor %}
+</ul>
 
-        <link rel="stylesheet" href="style.css" />
+<script>
+  // Oho, you're very sneaky
+  // only 1337 haxx0rs know how to "inspect element"
+  var variables = {
+    location: ['libraries', 'public parks', 'coffeshops', 'bookstores'],
+    beverage: ['chai latte', 'macciato', 'hibiscus tea'],
+    music: ['Vampire Weekend', 'the Hamilton soundtrack', 'Radiohead', 'Ratatat'],
+    reading: ['Noam Chomsky', 'Malcolm Gladwell', 'David Foster Wallace']
+  };
 
-        <script async src="https://static.medium.com/embed.js"></script>
+  function select(options, oldValue) {
+    var index = Math.floor(Math.random() * options.length);
+    // while (options[index] == oldValue) index = Math.floor(Math.random() * options.length);
+    return options[index];
+  }
 
-    </head>
-    <style>
-        .mdl-card__supporting-text {
-            font-weight: 400;
-            font-size: 15px;
-            color: #404040
-        }
-        .mdl-card__media {
-            background-color: transparent
-        }
-    </style>
-    <body>
-        <!-- Always shows a header, even in smaller screens. -->
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-            <header class="mdl-layout__header">
-                <div class="mdl-layout__header-row">
-                    <!-- Title -->
-                    <span class="mdl-layout-title">Joel Gustafson</span>
-                    <!-- Add spacer, to align navigation to the right -->
-                    <div class="mdl-layout-spacer"></div>
-                    <!-- Navigation. We hide it in small screens. -->
-                    <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="https://github.com/joeltg">GitHub</a>
-                        <a class="mdl-navigation__link" href="http://blog.joelgustafson.com">Blog</a>
-                    </nav>
-                </div>
-            </header>
-            <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Joel G</span>
-                <nav class="mdl-navigation">
-                    <div class="mdl-navigation__link" >All the cool sites have hamburger menus now</div>
-                    <div class="mdl-navigation__link" >What is this even for?</div>
-                    <div class="mdl-navigation__link" >Why did you click it?</div>
-                    <div class="mdl-navigation__link" >What useful thing could you possibly expect to find in here?</div>
-                    <div class="mdl-navigation__link" >There's nothing here. Go home.</div>
-                </nav>
-            </div>
-            <main class="mdl-layout__content">
-                <div class="page-content">
-                    <!-- Your content goes here -->
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--middle">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__media">
-                                    <img src="images/cover.jpg" width="100%" border="0" alt=""
-                                         style="padding:0; display: block; object-fit: cover;">
-                                </div>
-                                <div class="mdl-card__supporting-text">
-                                    <span style="font-size: 24px; color: black; font-weight: 500">I am </span> a sophomore at MIT pursuing computer science and artificial intelligence.
-                                    I'm a big fan of Lisp, Material Design, and Bret Victor, although Smalltalk, Comic Sans,
-                                    and Ted Nelson are close respective seconds. I can recite most xkcd comics from memory
-                                    (including the alt-text) and love petty semantic debates.
-                                    <br><br>
-                                    I care about a lot of Big Ideas, and want to make computing accessible to everyone as a
-                                    medium and an art. Some of my projects are kind of weird - that's deliberate - but
-                                    hopefully they make you think a little bit.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__media">
-                                    <a href="/grasp"><img src="images/grasp.gif" width="100%" border="0" alt=""
-                                                    style="padding:0; display: block; object-fit: cover;"></a>
-                                </div>
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">GRASP</h2>
-                                    <div class="mdl-card__subtitle-text">visualize Lisp in 3D</div>
-                                </div>
-                                <div class="mdl-card__supporting-text">
-                                    GRASP visualizes Scheme ASTs with as little
-                                    text as possible, using a force-directed 3D graph to organize the program's structure.
-                                    Data transformation happens laterally with functions, while references and variable
-                                    scoping are organized vertically.
-                                </div>
-                                <div class="mdl-card__actions mdl-card--border">
-                                    <a href="https://github.com/joeltg/grasp" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        GitHub
-                                    </a>
-                                    <a href="/grasp" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        Demo
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__media">
-                                    <a href="/visual_history"><img src="images/visual_history.gif" width="100%" border="0" alt=""
-                                                                   style="padding:0; display: block; object-fit: cover;"></a>
-                                </div>
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">Visual History</h2>
-                                    <div class="mdl-card__subtitle-text">delinearizing your browser since 2015</div>
-                                </div>
-                                <div class="mdl-card__supporting-text">
-                                    Visual History is a Chrome extension that delinearizes your browsing history with a
-                                    richer alternative to the Back and Forward buttons. Instead of a stack of previously
-                                    visited destinations, Visual History maintains the forest of trees that represent each
-                                    tab’s path around the internet, and lets you easily backtrack to any site you've
-                                    recently visited.
-                                </div>
-                                <div class="mdl-card__actions mdl-card--border">
-                                    <a href='/visual_history' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        Read More
-                                    </a>
-                                    <a href='https://github.com/joeltg/visual_history' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">Current Work</h2>
-                                    <div class="mdl-card__subtitle-text">coming soon to pixels near you</div>
-                                </div>
-                                <ul class="mdl-list" style="margin-top: 0">
-                                    <li class="mdl-list__item mdl-list__item--two-line" style="height: auto">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span>PubPub</span>
-                                        <span class="mdl-list__item-sub-title">
-                                            My current project at the Media Lab is implementing dynamic visualizations and
-                                            <a href="http://xanadu.com/">Xanadu</a>-style deep linking, transclusions, and references
-                                            in <a href="http://pubpub.media.mit.edu/">PubPub</a>, a digital research
-                                            publication platform.
-                                        </span>
-                                    </span>
-                                    </li>
-                                    <li class="mdl-list__item mdl-list__item--two-line" style="height: auto">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span>Visual Browser</span>
-                                        <span class="mdl-list__item-sub-title">
-                                            Inspired by my Visual History Chrome extension, I'm working on a mobile browser
-                                            that ditches tabs and uses forests of trees on a canvas for navigation. Stay tuned.
-                                        </span>
-                                    </span>
-                                    </li>
-                                    <li class="mdl-list__item mdl-list__item--two-line" style="height: auto">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span>Prototypical</span>
-                                        <span class="mdl-list__item-sub-title">
-                                            Inspired by Ted Nelson's <a href="http://xanadu.com/zigzag">ZigZag</a>,
-                                            I'm on a mission to merge a relational database, spreadsheet, and note-taking
-                                            app in one glorious, multi-dimensional knowledge graph with touch-friendly
-                                            direct manipulation of data.
-                                        </span>
-                                    </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle mdl-cell--8-col mdl-cell--hide-phone">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title" style="display: inline">
-                                    <h2 class="mdl-card__title-text">Courses</h2>
-                                    <div class="mdl-card__subtitle-text">past, present, and the tentative future</div>
-                                </div>
-                                <div style="height: 400px; max-height: 400px; overflow: auto">
-                                    <iframe src="https://courseroad.mit.edu/#joelg" height="100%"
-                                                style="width: calc(100% + 250px); position: relative; left: -250px; max-height: 400px" width="100%">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__media">
-                                    <a href="http://indistinguishablefrom.media.mit.edu/2015/03/14/trick-documentation-magic-deck/">
-                                        <img src="images/cards.gif" height="256px" width="100%" border="0" alt=""
-                                             style="padding:0; display: block; object-fit: cover;">
-                                    </a>
-                                </div>
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">Magic Deck</h2>
-                                    <div class="mdl-card__subtitle-text">everything else has a subtitle</div>
-                                </div>
-                                <div class="mdl-card__supporting-text">
-                                    I made a NFC-tagged deck of playing cards for an MIT class on Magic in Spring of 2015.
-                                </div>
-                                <div class="mdl-card__actions mdl-card--border">
-                                    <a href='http://indistinguishablefrom.media.mit.edu/2015/03/14/trick-documentation-magic-deck/' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        Read More
-                                    </a>
-                                    <a href='https://github.com/joeltg/magic' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                        GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle">
-                            <a class="m-story" data-collapsed="true" href="https://medium.com/@gustafjt/why-are-we-still-using-tabbed-browsing-fab8dc142297">Why are we still using tabbed browsing?</a>
-                        </div>
-                        <div class="mdl-cell mdl-cell-middle mdl-cell--8-col-tablet">
-                            <div class="mdl-card mdl-shadow-2--dp">
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">Random xkcd</h2>
-                                    <div class="mdl-card__subtitle-text">at least for some definitions of random</div>
-                                </div>
-                                <a href="http://xkcd.com/312" id="xkcd-link"><img src="images/with_apologies_to_robert_frost.png" id="xkcd" width="100%" /></a>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle mdl-cell--6-col mdl-cell--8-col-tablet">
-                            <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">Heroes</h2>
-                                    <div class="mdl-card__subtitle-text">ye legends of olde</div>
-                                </div>
-                                <div class="mdl-card__supporting-text" style="border-bottom: 1px solid rgba(0,0,0,.1);">
-                                    These are just a few of the people who continually inspire me with the depth of their
-                                    perception and the extent of their vision. Maybe someday we'll realize their dreams,
-                                    but until then, with ideas that are still radical, we fight on.
-                                </div>
-                                <ul class="mdl-list" style="margin-top: 0">
-                                    <li style="height: auto" class="mdl-list__item mdl-list__item--two-line">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span><a class="nolink" href="http://worrydream.com">Bret Victor</a></span>
-                                        <span class="mdl-list__item-sub-title">
-                                            "There is no 'Technology'. There is no 'Design'. There is only a vision of how mankind should be, and the relentless resolve to make it so."
-                                        </span>
-                                    </span>
-                                    </li>
-                                    <li style="height: auto" class="mdl-list__item mdl-list__item--two-line">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span><a class="nolink" href="https://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a></span>
-                                        <span class="mdl-list__item-sub-title">
-                                            "The visual arts are the imitation of life, but the computing arts are the imitation of creation itself."
-                                        </span>
-                                    </span>
-                                    </li>
-                                    <li style="height: auto" class="mdl-list__item mdl-list__item--two-line">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span><a class="nolink" href="https://en.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a></span>
-                                        <span class="mdl-list__item-sub-title">
-                                            "Most people are fools, most authority is malignant, God does not exist, and everything is wrong."
-                                        </span>
-                                    </span>
-                                    </li>
-                                    <li style="height: auto" class="mdl-list__item mdl-list__item--two-line">
-                                    <span style="height: auto" class="mdl-list__item-primary-content">
-                                      <span><a class="nolink" href="https://en.wikipedia.org/wiki/Douglas_Engelbart">Doug Engelbart</a></span>
-                                        <span class="mdl-list__item-sub-title">
-                                            "The key thing about all the world's big problems is that they have to be dealt with collectively. If we don't get collectively smarter, we're doomed."
-                                        </span>
-                                    </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mdl-cell mdl-cell--middle mdl-cell--6-col mdl-cell--8-col-tablet">
-                            <div id="contact" class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title" style="display: inline; padding-bottom: 4px">
-                                    <h2 class="mdl-card__title-text">Contact</h2>
-                                    <div class="mdl-card__subtitle-text">ordered most to least professional</div>
-                                </div>
-                                <div class="mdl-grid mdl-grid--no-spacing" style="padding: 16px;">
-                                    <div class="icon-container mdl-cell mdl-cell--1-col">
-                                        <a class="nolink" href="mailto:joelg@mit.edu"><span class="icon material-icons">email</span></a>
-                                    </div>
-                                    <div class="section__text mdl-cell mdl-cell--3-col mdl-cell--5-col-desktop">
-                                        <h5><a class="nolink" href="mailto:joelg@mit.edu">Email</a></h5>
-                                    </div>
-                                    <div class="icon-container mdl-cell mdl-cell--1-col">
-                                        <a class="nolink" href="/resume.pdf"><span class="icon material-icons">description</span></a>
-                                    </div>
-                                    <div class="section__text mdl-cell mdl-cell--3-col mdl-cell--5-col-desktop">
-                                        <h5><a class="nolink" href="/resume.pdf">Résumé</a></h5>
-                                    </div>
-                                    <div class="icon-container mdl-cell mdl-cell--1-col">
-                                        <a class="nolink" href="https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0"><i class="icon fa fa-linkedin"></i></a>
-                                    </div>
-                                    <div class="section__text mdl-cell mdl-cell--3-col mdl-cell--5-col-desktop">
-                                        <h5><a class="nolink" href="https://linkedin.com/pub/joel-gustafson/aa/4b3/8b0">LinkedIn</a></h5>
-                                    </div>
-                                    <div class="icon-container mdl-cell mdl-cell--1-col">
-                                        <a class="nolink" href="https://github.com/joeltg"><i class="icon fa fa-github"></i></a>
-                                    </div>
-                                    <div class="section__text mdl-cell mdl-cell--3-col mdl-cell--5-col-desktop">
-                                        <h5><a class="nolink" href="https://github.com/joeltg">GitHub</a></h5>
-                                    </div>
-                                    <div class="icon-container mdl-cell mdl-cell--1-col">
-                                        <a class="nolink" href="https://medium.com/@gustafjt"><i class="icon fa fa-medium"></i></a>
-                                    </div>
-                                    <div class="section__text mdl-cell mdl-cell--3-col mdl-cell--5-col-desktop">
-                                        <h5><a class="nolink" href="https://medium.com/@gustafjt">Medium</a></h5>
-                                    </div>
-                                    <div class="icon-container mdl-cell mdl-cell--1-col">
-                                        <a class="nolink" href="https://twitter.com/gustafjt"><i class="icon fa fa-twitter"></i></a>
-                                    </div>
-                                    <div class="section__text mdl-cell mdl-cell--3-col mdl-cell--5-col-desktop">
-                                        <h5><a class="nolink" href="https://twitter.com/gustafjt">Twitter</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="height: 64px"></div>
-                <footer class="mdl-mini-footer">
-                    <div class="mdl-logo">
-                        "Take wrong turns. Talk to strangers. Do things without always knowing how they'll turn out.
-                        <br>
-                        And remember that you are always making up the future as you go" - <a class="nolink" href="http://xkcd.com">xkcd</a>
-                    </div>
-                </footer>
-            </main>
-        </div>
+  function click(event) {
+    event.target.textContent = select(variables[event.target.id], event.target.textContent);
+  }
 
-        <script>
+  for (var key in variables) {
+    if (variables.hasOwnProperty(key)) {
+      var element = document.getElementById(key);
+      element.textContent = select(variables[key]);
+      element.addEventListener('click', click);
+    }
+  }
 
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+//  setInterval(function() {
+//    var keys = Object.keys(variables);
+//    var variable = keys[keys.length * Math.random() << 0];
+//    var element = document.getElementById(variable);
+//    element.textContent = select(variables[variable], element.textContent);
+//  }, 5000);
 
-            ga('create', 'UA-71586525-1', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-    </body>
-</html>
+</script>

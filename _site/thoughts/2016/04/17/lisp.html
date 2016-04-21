@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Opinions on Opinions — Why everyone should know Lisp and nobody should ever use it &raquo;  Joel Gustafson</title>
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+<meta name="keywords" content="">
+<link rel="canonical" href="http://localhost:4000/thoughts/2016/04/17/lisp.html">
+        
+
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Opinions on Opinions" />
+<meta name="twitter:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+" />
+<meta name="twitter:image" content="http://localhost:4000" />
+
+<!-- Open Graph -->
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Opinions on Opinions">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+<meta property="og:url" content="http://localhost:4000/thoughts/2016/04/17/lisp.html">
+<meta property="og:site_name" content="Joel Gustafson">
+
+        <link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/solarized_dark.css">
+
+<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="navigation">
+        <a href="/" class="logo">Joel Gustafson</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="/about">About</a></li>
+            <li class="menu__entry"><a href="/thoughts">Thoughts</a></li>
+            <li class="menu__entry"><a href="/projects">Projects</a></li>
+        </ul>
+    </div>
+
+    <ul class="social-links">
+        
+            <a href="https://github.com/joeltg" class="social-links__entry" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        
+
+        
+        <a href="mailto:joelg@mit.edu" class="social-links__entry" target="_blank">
+            <i class="fa fa-envelope"></i>
+        </a>
+        
+
+        
+            <a href="https://twitter.com/gustafjt" class="social-links__entry" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+        
+    </ul>
+</header>
+
+            <h1 class="page-title post-title">
+    <div class="page-title__text post-title__text">Opinions on Opinions</div>
+    <div class="page-title__subtitle post-title__subtitle">Why everyone should know Lisp and nobody should ever use it</div>
+</h1>
+
+<div class="content">
+    <p>“Computation” is a very slippery, mathematical idea. For convenience, 
+we almost always interact with it by proxy: we talk about models of 
+computation, individual little reductions and projections and 
+simplifications like “Turing machines” or “Python scripts” that are just 
+tiny peepholes – Turing-complete peepholes, but tiny nonetheless – into 
+the raw, fluid information-space beyond.</p>
+
+<h1 id="act-1-lisp-is-pure">Act 1: Lisp is pure</h1>
+
+<blockquote>
+  <p>I don’t know who discovered water, but it wasn’t a fish.</p>
+</blockquote>
+
+<h2 id="opinionation">“Opinionation”</h2>
+
+<p>The Lisp community likes to rant about Lisp’s “expressiveness” as proof 
+of its superiority. But rather than discuss a language’s expressiveness 
+– how large a window it has into the information-space – I think it’s 
+more valuable to examine a language’s opinionation – how much structural 
+baggage is required to frame the peephole. We can always chisel larger
+windows by constructing abstractions, but opinions are dangerous because 
+they stick, infect, and propagate.</p>
+
+<p><img src="http://localhost:4000/assets/images/inception.jpg" alt="Inception" /></p>
+
+<blockquote>
+  <p>What is the most resilient parasite?</p>
+</blockquote>
+
+<p>Here are a couple of examples of these “imposed opinions”.</p>
+
+<h3 id="typing">Typing</h3>
+<p>Strongly typed languages attach the idea of units to every piece of 
+information being manipulated. This isn’t to say it’s a bad thing – 
+there are many advantages – but it’s an artificial concept that we 
+overlaid on top of the underlying computation.</p>
+
+<h3 id="object-orientation">Object-orientation</h3>
+<p>Similarly, while a strict object-oriented metaphor like Smalltalk can be 
+powerful, it’s still a metaphor for something much larger and much more 
+powerful. The same statement can be made for Functional, Dataflow, or 
+any of the other commonly discussed “paradigms”. They’re just sets of 
+constraints for framing problems.</p>
+
+<h3 id="lexicography">Lexicography</h3>
+<p>People think that code is text in a file. Why? It makes sense – humans 
+think well literally – so of course it was natural to name hexadecimal 
+opcodes, and pile more natural linguistics on top of it. But visual, 
+flow-chart or spreadsheet-based languages are equally valid. In fact, 
+you can project information onto just about any human sense and call 
+it a new programming paradigm.</p>
+
+<h3 id="time">Time</h3>
+<p>Now it’s getting fun! There’s nothing about the mathematical concept of 
+computation that is time-dependent. If anything, computation encompasses 
+time, not vice-versa. Even in complexity theory, we only use time to 
+indirectly quantify a problem’s “hardness”. Yet every model of 
+computation that we use has a rigid framework of synchronism: code is 
+“executed” line-after-line, Turing machines follow an ordered series of 
+steps, and CPUs iterate through discrete, sequential cycles.</p>
+
+<h3 id="space">Space</h3>
+<p>This is even weirder to think about than time. Information always exists 
+as discrete chunks that “live” at addressable “locations”. Why? It’s 
+convenient for working with in practical implementation and might be 
+easier to conceptualize, but it’s not necessary. Memory addresses, 
+variables, files, and even websites are all symptoms of this opinion.</p>
+
+<h2 id="propagation">Propagation</h2>
+
+<p>Typing and object-orientation aren’t dangerous opinions because everyone 
+is aware that they are opinions, and that there are alternatives. That’s 
+the way that they’re taught – that Object-oriented languages are good 
+for some things, and Functional languages are good for other things, and 
+that you should choose your language to reflect your domain. That’s 
+awesome.</p>
+
+<p>But what’s dangerous about some opinions is that, like a fish in water, 
+we spend our entire lives immersed in them. And as a result, nobody 
+realizes that they’re not inherent. Sequential, single-threaded 
+execution began as a necessity in hardware but then propagated up 
+through innumerable levels of abstraction to high-level languages – 
+we’re hardly rid of it today! Why should the limitations of a hardware 
+implementation constrain our mental models of programming? If 
+Turing-reducibility is good for anything, it should be able to prune 
+these limitations as we become increasingly abstract, not perpetuate 
+them!</p>
+
+<p>Yet relics of the constraints of lower levels are everywhere. Code and 
+data are different things only because of the physical separation of 
+circuits and the electricity that flows through them, but there’s no 
+mathematical difference between information and a transformation 
+thereof. Yet we’re still wiring static, compiled programs that are 
+essentially glorified descriptions of circuits! Meanwhile, we haven’t 
+needed keyboards since the invention of the touchscreen, but every 
+interaction with a computer is still funneled through a ridiculously 
+restrictive, serialized text stream. There are millions of pixels in our 
+screens, and we can make any of them do anything at any time, but their 
+most common use is to display the same alphabet that has been around for 
+millennia. We have the technology to create a fully dynamic creative 
+medium, but we’re still writing emails and reading dead, flat PDFs 
+identical to the paper that preceded them. We’re even using text to 
+compose images in Processing! <strong>How can we be so stupid!?</strong></p>
+
+<p>Is it really surprising that we fail so painfully when trying to 
+simulate other computational platforms, even when they should be 
+theoretically within our reach?</p>
+
+<p>Is it really surprising that distributed and parallel computation are so 
+incredibly difficult?</p>
+
+<p>Is it really surprising that “programming” has a stereotype of a 
+prohibitively high learning barrier? That getting kids interesting in 
+coding is so hard?</p>
+
+<p>If we are going to advance computation – and I mean really advance, as 
+in innovate, not iterate – we need to start critically evaluating and 
+challenging the assumptions that we’ve made and the constraints that 
+we’ve built our systems on. We need to stop propagating constraints that 
+are only implementation-specific. Instead, our goal should be to 
+systematically remove constraints and refine impurities with every level 
+of abstraction.</p>
+
+<h2 id="enter-lisp">Enter Lisp</h2>
+
+<p>I haven’t explicitly said it yet, so here it: Lisp is the more pure, 
+least constraining language humanity has ever invented.</p>
+
+<p>Even having escaped the nebulous idea of “expressiveness”, this is still 
+a difficult argument to make. How can we tell if Lisp is actually less 
+opinionated, or just opinionated in a radically different direction than 
+what we’re used to?</p>
+
+<p>This semester at MIT I’m taking a class on symbolic programming from the 
+infamous Gerry Sussman, creator of Scheme, author of SICP and SICM, and 
+pioneer of Nerd Pride pocket protectors everywhere. The class itself is 
+worthy of its own post, so I’ll defer that and replace this sentence 
+with a link once I write it. Insert your favorite JavaScript Promise pun 
+here.</p>
+
+<p>Sussman is fond of repeating that Lisp is easy to learn, not because it 
+has a simple syntax, but because it has <em>no</em> syntax. There no 
+programmer-facing interface, no intermediate step: a Lisp program is a 
+direct encoding of the abstract syntax tree of its own evaluation. It 
+makes no assumptions about your data and imposes minimal constraints on 
+your mental model (the largest of which is perhaps that lambda-calculus 
+is inherently symbolic, which is quite hard to subvert). Lisp is the 
+closest we come to directly manipulating information, getting a raw 
+glimpse of naked computation, and the weird Zen nirvana that they’re the 
+same thing. Cue any number of blog posts about the fabled 
+“Lisp enlightenment”.</p>
+
+<h1 id="act-2-lisp-is-useful">Act 2: Lisp is useful</h1>
+
+
+</div>
+
+<div class="about">
+    <div class="about__devider">*****</div>
+    <div class="about__text">
+        Written by <strong>  Joel Gustafson </strong>
+        on <strong>17 April 2016</strong>
+    </div>
+</div>
+
+        </div>
+
+        <script src="/assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+        
+    </body>
+</html>
