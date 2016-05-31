@@ -1,6 +1,6 @@
 /* =Base */
 body {
-    font-family: 'Liberation Sans', ;
+    font-family: 'PT Sans', sans-serif;
     color: $iron;
     background-color: $dorian;
     // background: $dorian url('graph-paper.svg') 50% 50%;
@@ -25,7 +25,7 @@ p {
 li {
     font-size: 19px;
     line-height: 26px;
-    margin: 8px;
+    margin: 8px 0 8px 0;
 }
 
 img {

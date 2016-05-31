@@ -2,7 +2,7 @@
 /* =Colors */
 /* =Base */
 body {
-  font-family: "Liberation Sans";
+  font-family: 'PT Sans', sans-serif;
   color: #333333;
   background-color: #F5F5F5; }
 
@@ -19,7 +19,7 @@ p {
 li {
   font-size: 19px;
   line-height: 26px;
-  margin: 8px; }
+  margin: 8px 0 8px 0; }
 
 img {
   margin: 40px auto;

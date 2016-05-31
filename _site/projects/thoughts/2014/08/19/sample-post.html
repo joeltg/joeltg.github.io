@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="/assets/vendor/highlight/styles/solarized_dark.css">
 
 <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
+<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
@@ -98,13 +99,13 @@
 
 <p>Example code:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">var light = new Light();
-var switchUp = new FlipUpCommand(light);
-var switchDown = new FlipDownCommand(light);
-var s = new Switch();
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">light</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Light</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">switchUp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlipUpCommand</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">switchDown</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlipDownCommand</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Switch</span><span class="p">();</span>
 
-s.storeAndExecute(switchUp);
-s.storeAndExecute(switchDown);</code></pre></figure>
+<span class="nx">s</span><span class="p">.</span><span class="nx">storeAndExecute</span><span class="p">(</span><span class="nx">switchUp</span><span class="p">);</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">storeAndExecute</span><span class="p">(</span><span class="nx">switchDown</span><span class="p">);</span></code></pre></figure>
 
 <p>A list:</p>
 
