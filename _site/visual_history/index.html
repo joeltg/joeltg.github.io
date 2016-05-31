@@ -75,6 +75,13 @@
             <h1 class="page-title post-title">
     <div class="page-title__text post-title__text">Visual History</div>
     <div class="page-title__subtitle post-title__subtitle">Delinearize your browser</div>
+    <div class="post-title__links page-title__links">
+        
+        <a href="http://github.com/joeltg/visual_history" class="post-title__link page-title__link">GitHub</a>
+        
+        <a href="https://chrome.google.com/webstore/detail/visual-history/nkckokcpjekkokllfplejfkocaikmnml" class="post-title__link page-title__link">Chrome Web Store</a>
+        
+    </div>
 </h1>
 
 <div class="content">
@@ -82,46 +89,76 @@
 history into a linear stack, which makes backtracking from a forest of 
 links surprisingly difficult.  We can do better.</p>
 
-<p><img src="https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/0.png" alt="" /></p>
+<p><img src="http://localhost:4000/assets/images/visual-history-0.png" alt="" /></p>
 
-<p>Visual History is a Chrome extension I made with 
+<h2 id="introduction">Introduction</h2>
+
+<p>Visual History is a Chrome extension in collaboration with 
 <a href="http://kennethfriedman.org&quot;">Kenny Friedman</a> that delinearizes your 
 browsing history with a richer alternative to the Back and Forward 
 buttons. Instead of a stack of previously visited destinations, Visual 
 History maintains the forest of trees that represent each tab’s path 
 around the internet, and lets you easily backtrack to any site you’ve 
-recently visited. You can find it on <a href="http://github.com/joeltg/visual_history">GitHub</a>
-and the <a href="https://chrome.google.com/webstore/detail/visual-history/nkckokcpjekkokllfplejfkocaikmnml">Chrome Web Store</a></p>
+recently visited.</p>
 
-<p>Trees are local to each tab, and are deleted once the tab is closed.</p>
+<p><img src="http://localhost:4000/assets/images/visual-history-1.png" alt="" /></p>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+<p>This solves an <a href="https://xkcd.com/214/">ancient problem</a> with Wikipedia.</p>
 
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/7A7JwhN-zbU" frameborder="0" allowfullscreen=""></iframe></div>
+<p><img src="http://localhost:4000/assets/images/visual-history-2.png" alt="" /></p>
 
-<p>This solves <a href="https://xkcd.com/214/">an ancient problem</a> with Wikipedia.</p>
+<h2 id="motivation">Motivation</h2>
 
-<p>Routes that normally have to be manually re-traced by users, like 
-jumping between search results or forum posts, can now be intuitively 
-and quickly directed without revisiting the parent page.</p>
+<p>Back and Forward buttons are simple and convenient, but the underlying
+history stack is a terrible model for navigation. Websites aren’t stops
+on a subway line; they’re nodes in a connected graph. Even within this 
+graph, we rarely just wander down one winding path: we backtrack
+from articles to homepages, from links to search results, and from 
+threads to forums. The internet is a graph, and we tend to browse 
+hierarchically.</p>
 
-<p><img src="https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/2.png" alt="" /></p>
+<p>But browsers make hierarchical navigation very difficult. Going back to
+a page of search results and down to a sibling link “destroys” the original
+link in the back/forward stack. This is bad for several reasons:</p>
 
-<p>You can also push a link to the tree in the background without actually 
-visiting the page.</p>
+<ul>
+  <li>Since we can “lose” a link if we’re not careful, we assume the mental
+load of tracking our history ourselves, so that we know when it’s 
+“safe” to go down a new branch, or when we might want to save our 
+“place” for later. Design should minimize mental load, not add state 
+to the userspace.</li>
+  <li>When it’s not safe to go down a new branch, and faced with the threat
+of losing a page to which we may want to return, we usually resort to
+ridiculous hacks like <em>opening links in new tabs</em>.</li>
+</ul>
 
-<p><img src="https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/4.png" alt="" /></p>
+<p>That second effect is subtle. “Tabs” organize content
+categorically. That <em>is</em> the tab metaphor. But more often than not,
+browsers reduce tabs to a scattered breadcrumb trail of abandoned
+siblings - links that we popped open because it was inconvenient (or
+dangerous) to navigate to them directly. These new tabs don’t have any 
+idea where they are in the internet - we can’t go back from them, and we 
+sometimes forget how we got there in the first place - but dammit, at 
+least we can Ctrl-Tab between them quickly! Not only is this
+computationally wasteful, it’s antipattern. It’s just bad design.</p>
+
+<h2 id="design">Design</h2>
+
+<p>Visual History is designed to augment our mental model of internet 
+navigation.</p>
 
 <h2 id="usage">Usage</h2>
 
-<p>Navigate around the graph by clicking the graph icon in the toolbar, or by using Ctrl + arrow key shortcuts. Whatever node is selected when Ctrl is released will be navigated to.</p>
+<p>Navigate around the graph by clicking the graph icon in the toolbar, or 
+by using Ctrl + arrow key shortcuts. When Ctrl is released, chrome will 
+navigate to whichever node is currently selected.</p>
 
 <h2 id="credits">Credits</h2>
 
 <ul>
   <li><a href="http://d3js.org/">D3.js</a></li>
-  <li><a href="https://github.com/lokesh/color-thief/">Color Thief</a></li>
 </ul>
+
 
 </div>
 

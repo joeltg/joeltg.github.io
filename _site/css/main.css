@@ -7,8 +7,7 @@ body {
   background-color: #F5F5F5; }
 
 a {
-  color: inherit;
-  font-weight: bold;
+  color: #828282;
   text-decoration: none; }
   a:hover {
     opacity: 0.7; }
@@ -16,6 +15,11 @@ a {
 p {
   font-size: 19px;
   line-height: 26px; }
+
+li {
+  font-size: 19px;
+  line-height: 26px;
+  margin: 8px; }
 
 img {
   margin: 40px auto;
@@ -81,7 +85,7 @@ strong {
 
 .menu__entry {
   display: inline-block;
-  margin-right: 35px; }
+  margin-right: 25px; }
   .menu__entry:last-child {
     margin-right: 0px; }
 
@@ -111,7 +115,25 @@ strong {
 .page-title__subtitle {
   font-weight: 400;
   font-size: 22px;
+  color: #828282;
+  margin: 8px; }
+
+.page-title__links {
+  line-height: 0.7; }
+
+.page-title__link {
+  font-weight: 400;
+  font-size: 20px;
   color: #828282; }
+
+.page-title__link:after {
+  content: "/";
+  margin-left: 11px;
+  color: #828282; }
+
+.page-title__link:last-child:after {
+  content: "";
+  margin-left: 0px; }
 
 .post-title {
   margin-bottom: 110px; }
@@ -143,7 +165,8 @@ strong {
   font-size: 16px;
   color: #333333;
   line-height: 22px;
-  font-weight: 500; }
+  font-weight: 500;
+  margin: 8px 0 0 0; }
 
 .post-teaser__date {
   font-size: 16px;
@@ -170,7 +193,7 @@ strong {
   color: #828282;
   margin-top: 140px; }
 
-.explore__devider {
+.explore__divider {
   font-size: 18px;
   letter-spacing: 8.18px; }
 
@@ -191,14 +214,9 @@ strong {
 .categories__item a {
   color: #333333; }
 
-.categories__item:after {
-  content: "|";
-  margin-left: 6px;
+.categories__item:before {
+  content: "/ ";
   color: #828282; }
-
-.categories__item:last-child:after {
-  content: "";
-  margin-left: 0px; }
 
 /* =Post page */
 .about {
@@ -271,7 +289,19 @@ strong {
     font-size: 18px; } }
 .variable:hover {
   cursor: pointer;
-  color: #828282; }
+  color: #828282;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* TYBStackOverflow */ }
 
 /* Source: http://codepen.io/bulby97/pen/fcvay */
 .glitch {

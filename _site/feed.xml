@@ -6,9 +6,9 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Apr 2016 22:02:18 -0400</pubDate>
-    <lastBuildDate>Tue, 19 Apr 2016 22:02:18 -0400</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Sat, 28 May 2016 06:19:53 -0400</pubDate>
+    <lastBuildDate>Sat, 28 May 2016 06:19:53 -0400</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Opinions on Opinions</title>
@@ -257,46 +257,76 @@ All the visual “languages” that exist are shallow wrappers around inherently
 history into a linear stack, which makes backtracking from a forest of 
 links surprisingly difficult.  We can do better.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/0.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/visual-history-0.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Visual History is a Chrome extension I made with 
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Visual History is a Chrome extension in collaboration with 
 &lt;a href=&quot;http://kennethfriedman.org&amp;quot;&quot;&gt;Kenny Friedman&lt;/a&gt; that delinearizes your 
 browsing history with a richer alternative to the Back and Forward 
 buttons. Instead of a stack of previously visited destinations, Visual 
 History maintains the forest of trees that represent each tab’s path 
 around the internet, and lets you easily backtrack to any site you’ve 
-recently visited. You can find it on &lt;a href=&quot;http://github.com/joeltg/visual_history&quot;&gt;GitHub&lt;/a&gt;
-and the &lt;a href=&quot;https://chrome.google.com/webstore/detail/visual-history/nkckokcpjekkokllfplejfkocaikmnml&quot;&gt;Chrome Web Store&lt;/a&gt;&lt;/p&gt;
+recently visited.&lt;/p&gt;
 
-&lt;p&gt;Trees are local to each tab, and are deleted once the tab is closed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/visual-history-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;p&gt;This solves an &lt;a href=&quot;https://xkcd.com/214/&quot;&gt;ancient problem&lt;/a&gt; with Wikipedia.&lt;/p&gt;
 
-&lt;div class=&quot;embed-container&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/7A7JwhN-zbU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/visual-history-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This solves &lt;a href=&quot;https://xkcd.com/214/&quot;&gt;an ancient problem&lt;/a&gt; with Wikipedia.&lt;/p&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
 
-&lt;p&gt;Routes that normally have to be manually re-traced by users, like 
-jumping between search results or forum posts, can now be intuitively 
-and quickly directed without revisiting the parent page.&lt;/p&gt;
+&lt;p&gt;Back and Forward buttons are simple and convenient, but the underlying
+history stack is a terrible model for navigation. Websites aren’t stops
+on a subway line; they’re nodes in a connected graph. Even within this 
+graph, we rarely just wander down one winding path: we backtrack
+from articles to homepages, from links to search results, and from 
+threads to forums. The internet is a graph, and we tend to browse 
+hierarchically.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;But browsers make hierarchical navigation very difficult. Going back to
+a page of search results and down to a sibling link “destroys” the original
+link in the back/forward stack. This is bad for several reasons:&lt;/p&gt;
 
-&lt;p&gt;You can also push a link to the tree in the background without actually 
-visiting the page.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Since we can “lose” a link if we’re not careful, we assume the mental
+load of tracking our history ourselves, so that we know when it’s 
+“safe” to go down a new branch, or when we might want to save our 
+“place” for later. Design should minimize mental load, not add state 
+to the userspace.&lt;/li&gt;
+  &lt;li&gt;When it’s not safe to go down a new branch, and faced with the threat
+of losing a page to which we may want to return, we usually resort to
+ridiculous hacks like &lt;em&gt;opening links in new tabs&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;That second effect is subtle. “Tabs” organize content
+categorically. That &lt;em&gt;is&lt;/em&gt; the tab metaphor. But more often than not,
+browsers reduce tabs to a scattered breadcrumb trail of abandoned
+siblings - links that we popped open because it was inconvenient (or
+dangerous) to navigate to them directly. These new tabs don’t have any 
+idea where they are in the internet - we can’t go back from them, and we 
+sometimes forget how we got there in the first place - but dammit, at 
+least we can Ctrl-Tab between them quickly! Not only is this
+computationally wasteful, it’s antipattern. It’s just bad design.&lt;/p&gt;
+
+&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;Visual History is designed to augment our mental model of internet 
+navigation.&lt;/p&gt;
 
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
-&lt;p&gt;Navigate around the graph by clicking the graph icon in the toolbar, or by using Ctrl + arrow key shortcuts. Whatever node is selected when Ctrl is released will be navigated to.&lt;/p&gt;
+&lt;p&gt;Navigate around the graph by clicking the graph icon in the toolbar, or 
+by using Ctrl + arrow key shortcuts. When Ctrl is released, chrome will 
+navigate to whichever node is currently selected.&lt;/p&gt;
 
 &lt;h2 id=&quot;credits&quot;&gt;Credits&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://d3js.org/&quot;&gt;D3.js&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/lokesh/color-thief/&quot;&gt;Color Thief&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
         <pubDate>Mon, 14 Dec 2015 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/visual_history/</link>
@@ -326,13 +356,13 @@ visiting the page.&lt;/p&gt;
 
 &lt;p&gt;Example code:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;switchUp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FlipUpCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;switchDown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FlipDownCommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;var light = new Light();
+var switchUp = new FlipUpCommand(light);
+var switchDown = new FlipDownCommand(light);
+var s = new Switch();
 
-&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;storeAndExecute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;switchUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;storeAndExecute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;switchDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+s.storeAndExecute(switchUp);
+s.storeAndExecute(switchDown);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A list:&lt;/p&gt;
 

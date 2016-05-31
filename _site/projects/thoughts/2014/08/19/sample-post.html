@@ -75,6 +75,9 @@
             <h1 class="page-title post-title">
     <div class="page-title__text post-title__text">Sample post</div>
     <div class="page-title__subtitle post-title__subtitle">What you can do with it!</div>
+    <div class="post-title__links page-title__links">
+        
+    </div>
 </h1>
 
 <div class="content">
@@ -95,13 +98,13 @@
 
 <p>Example code:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">light</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Light</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">switchUp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlipUpCommand</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">switchDown</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlipDownCommand</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Switch</span><span class="p">();</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">var light = new Light();
+var switchUp = new FlipUpCommand(light);
+var switchDown = new FlipDownCommand(light);
+var s = new Switch();
 
-<span class="nx">s</span><span class="p">.</span><span class="nx">storeAndExecute</span><span class="p">(</span><span class="nx">switchUp</span><span class="p">);</span>
-<span class="nx">s</span><span class="p">.</span><span class="nx">storeAndExecute</span><span class="p">(</span><span class="nx">switchDown</span><span class="p">);</span></code></pre></figure>
+s.storeAndExecute(switchUp);
+s.storeAndExecute(switchDown);</code></pre></figure>
 
 <p>A list:</p>
 

@@ -5,13 +5,12 @@ sitemap:
 ---
 
 <p>
-  Hello! I'm a sophomore at MIT pursuing computer science and mathematics.
+  Hello! I'm a junior at MIT pursuing computer science and mathematics.
   I want to make computing universally accessible as a medium and an art,
-  solve general AI, and engineer tools to help society to solve problems
-  it doesn't know about yet.
+  design technical tools that empower normal people, and solve general AI.
 </p>
 <p>
-  That will probably take a while, so the intermediate plan is to hang out in
+  That will probably take a while, so the intermediate plan is to hang out
   <span class="variable" id="location"></span>, sipping
   <span class="variable" id="beverage"></span> while listening to
   <span class="variable" id="music"></span> and reading
@@ -35,18 +34,18 @@ sitemap:
 </ul>
 
 <script>
-  // Oho, you're very sneaky
-  // only 1337 haxx0rs know how to "inspect element"
+  // oho, you're very sneaky
+  // only 1337 haxx0rs know the way of "inspect element"
   var variables = {
-    location: ['libraries', 'public parks', 'coffeshops', 'bookstores'],
-    beverage: ['chai latte', 'macciato', 'hibiscus tea'],
-    music: ['Vampire Weekend', 'the Hamilton soundtrack', 'Radiohead', 'Ratatat'],
-    reading: ['Noam Chomsky', 'Malcolm Gladwell', 'David Foster Wallace']
+    location: ['in libraries', 'around public parks', 'in coffeshops', 'in bookstores', 'on rooftops'],
+    beverage: ['chai latte', 'macciato', 'hibiscus tea', 'mango black tea'],
+    music: ['Vampire Weekend', 'the Hamilton soundtrack', 'Radiohead', 'Ratatat', 'Daft Punk'],
+    reading: ['Noam Chomsky', 'Malcolm Gladwell', 'David Foster Wallace', 'Hacker News', 'Nate Silver', 'John Gruber']
   };
 
   function select(options, oldValue) {
     var index = Math.floor(Math.random() * options.length);
-    // while (options[index] == oldValue) index = Math.floor(Math.random() * options.length);
+    while (options[index] === oldValue) index = Math.floor(Math.random() * options.length);
     return options[index];
   }
 
@@ -62,6 +61,7 @@ sitemap:
     }
   }
 
+//  maybe someday?
 //  setInterval(function() {
 //    var keys = Object.keys(variables);
 //    var variable = keys[keys.length * Math.random() << 0];
