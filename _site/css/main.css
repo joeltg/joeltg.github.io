@@ -6,8 +6,12 @@ body {
   color: #333333;
   background-color: #F5F5F5; }
 
+h3, h4, h5, h6 {
+  margin: 0; }
+
 a {
   color: #828282;
+  font-weight: bold;
   text-decoration: none; }
   a:hover {
     opacity: 0.7; }
@@ -28,7 +32,7 @@ img {
 
 blockquote {
   margin: 0px;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 70px;
   padding: 0px;
   text-align: center;
@@ -47,7 +51,7 @@ blockquote {
       content: " **"; }
   blockquote p {
     display: inline;
-    font-size: 20px;
+    font-size: 18px;
     color: #828282;
     font-weight: 400; }
     blockquote p:before {
@@ -204,7 +208,7 @@ strong {
 .categories {
   list-style-type: none;
   margin-top: 15px;
-  padding: 0px; }
+  padding: 0; }
 
 .categories__item {
   display: inline-block;
@@ -215,7 +219,11 @@ strong {
   color: #333333; }
 
 .categories__item:before {
-  content: "/ ";
+  content: " / ";
+  color: #828282; }
+
+.categories__item:first-child:before {
+  content: "";
   color: #828282; }
 
 /* =Post page */

@@ -11,7 +11,6 @@ links:
     -
         url: https://chrome.google.com/webstore/detail/visual-history/nkckokcpjekkokllfplejfkocaikmnml
         text: Chrome Web Store
-image: "https://raw.githubusercontent.com/joeltg/visual_history/master/screenshots/0.png"
 categories: [projects]
 ---
 
@@ -19,24 +18,24 @@ Modern browsers lose rich information when they compress browsing
 history into a linear stack, which makes backtracking from a forest of 
 links surprisingly difficult.  We can do better.
 
-![]({{ site.url }}/assets/images/visual-history-0.png)
+![]({{ site.baseurl }}/assets/images/visual-history-0.png)
 
 ## Introduction
 
 Visual History is a Chrome extension in collaboration with 
-[Kenny Friedman](http://kennethfriedman.org") that delinearizes your 
+[Kenny Friedman](http://kennethfriedman.org) that delinearizes your 
 browsing history with a richer alternative to the Back and Forward 
 buttons. Instead of a stack of previously visited destinations, Visual 
 History maintains the forest of trees that represent each tab’s path 
 around the internet, and lets you easily backtrack to any site you've 
 recently visited. 
 
-![]({{ site.url }}/assets/images/visual-history-1.png)
+![]({{ site.baseurl }}/assets/images/visual-history-1.png)
 
 This solves an [ancient problem](https://xkcd.com/214/) with Wikipedia.
 
 
-![]({{ site.url }}/assets/images/visual-history-2.png)
+![]({{ site.baseurl }}/assets/images/visual-history-2.png)
 
 ## Motivation
 
@@ -50,7 +49,7 @@ hierarchically.
 
 But browsers make hierarchical navigation very difficult. Going back to
 a page of search results and down to a sibling link "destroys" the original
-link in the back/forward stack. This is bad for several reasons:
+link in the back/forward stack. This is bad for a couple reasons:
 
  - Since we can "lose" a link if we're not careful, we assume the mental
    load of tracking our history ourselves, so that we know when it's 
@@ -67,9 +66,10 @@ browsers reduce tabs to a scattered breadcrumb trail of abandoned
 siblings - links that we popped open because it was inconvenient (or
 dangerous) to navigate to them directly. These new tabs don't have any 
 idea where they are in the internet - we can't go back from them, and we 
-sometimes forget how we got there in the first place - but dammit, at 
-least we can Ctrl-Tab between them quickly! Not only is this
-computationally wasteful, it's antipattern. It's just bad design.
+sometimes forget how we got there in the first place - but *dammit, at 
+least we can Ctrl-Tab between them quickly!* Not only is this both
+computationally and spatially wasteful, it's also confusing and antipattern. 
+It's just bad design.
 
 ## Design
 
@@ -79,8 +79,9 @@ navigation.
 ## Usage
 
 Navigate around the graph by clicking the graph icon in the toolbar, or 
-by using Ctrl + arrow key shortcuts. When Ctrl is released, chrome will 
-navigate to whichever node is currently selected.
+by using Ctrl + arrow key (or Cmd + arrow key for Mac) shortcuts. When 
+Ctrl (or Cmd) is released, Chrome will navigate to whichever node is 
+currently selected.
 
 ## Credits
 

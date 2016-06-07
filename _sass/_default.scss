@@ -3,13 +3,17 @@ body {
     font-family: 'PT Sans', sans-serif;
     color: $iron;
     background-color: $dorian;
-    // background: $dorian url('graph-paper.svg') 50% 50%;
+     //background: $dorian url('graph-paper.svg') 50% 50%;
+}
+
+h3, h4, h5, h6 {
+    margin: 0;
 }
 
 a {
     color: $cloudy;
     //color: inherit;
-    //font-weight: bold;
+    font-weight: bold;
     text-decoration: none;
 
     &:hover {
@@ -18,6 +22,7 @@ a {
 }
 
 p {
+
     font-size: 19px;
     line-height: 26px;
 }
@@ -37,7 +42,7 @@ img {
 blockquote {
     //letter-spacing: 3px;
     margin:0px;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 70px;
     padding: 0px;
     text-align: center;
@@ -58,7 +63,7 @@ blockquote {
 
     p {
         display: inline;
-        font-size: 20px;
+        font-size: 18px;
         color: $cloudy;
         font-weight: 400;
         &:before { content: "“ "; }
@@ -251,7 +256,7 @@ strong {
 .categories {
     list-style-type: none;
     margin-top: 15px;
-    padding: 0px;
+    padding: 0;
 }
 
 .categories__item {
@@ -265,16 +270,15 @@ strong {
 }
 
 .categories__item:before {
-    content: "/ ";
+    content: " / ";
     //margin-left: 6px;
     color: $cloudy;
 }
 
-//.categories__item:last-child:after {
-//    content: "";
-//    margin-left: 0px;
-//}
-
+.categories__item:first-child:before {
+    content: "";
+    color: $cloudy;
+}
 
 /* =Post page */
 .about {

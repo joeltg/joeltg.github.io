@@ -90,23 +90,23 @@
 history into a linear stack, which makes backtracking from a forest of 
 links surprisingly difficult.  We can do better.</p>
 
-<p><img src="http://localhost:4000/assets/images/visual-history-0.png" alt="" /></p>
+<p><img src="/assets/images/visual-history-0.png" alt="" /></p>
 
 <h2 id="introduction">Introduction</h2>
 
 <p>Visual History is a Chrome extension in collaboration with 
-<a href="http://kennethfriedman.org&quot;">Kenny Friedman</a> that delinearizes your 
+<a href="http://kennethfriedman.org">Kenny Friedman</a> that delinearizes your 
 browsing history with a richer alternative to the Back and Forward 
 buttons. Instead of a stack of previously visited destinations, Visual 
 History maintains the forest of trees that represent each tab’s path 
 around the internet, and lets you easily backtrack to any site you’ve 
 recently visited.</p>
 
-<p><img src="http://localhost:4000/assets/images/visual-history-1.png" alt="" /></p>
+<p><img src="/assets/images/visual-history-1.png" alt="" /></p>
 
 <p>This solves an <a href="https://xkcd.com/214/">ancient problem</a> with Wikipedia.</p>
 
-<p><img src="http://localhost:4000/assets/images/visual-history-2.png" alt="" /></p>
+<p><img src="/assets/images/visual-history-2.png" alt="" /></p>
 
 <h2 id="motivation">Motivation</h2>
 
@@ -120,7 +120,7 @@ hierarchically.</p>
 
 <p>But browsers make hierarchical navigation very difficult. Going back to
 a page of search results and down to a sibling link “destroys” the original
-link in the back/forward stack. This is bad for several reasons:</p>
+link in the back/forward stack. This is bad for a couple reasons:</p>
 
 <ul>
   <li>Since we can “lose” a link if we’re not careful, we assume the mental
@@ -139,9 +139,10 @@ browsers reduce tabs to a scattered breadcrumb trail of abandoned
 siblings - links that we popped open because it was inconvenient (or
 dangerous) to navigate to them directly. These new tabs don’t have any 
 idea where they are in the internet - we can’t go back from them, and we 
-sometimes forget how we got there in the first place - but dammit, at 
-least we can Ctrl-Tab between them quickly! Not only is this
-computationally wasteful, it’s antipattern. It’s just bad design.</p>
+sometimes forget how we got there in the first place - but <em>dammit, at 
+least we can Ctrl-Tab between them quickly!</em> Not only is this both
+computationally and spatially wasteful, it’s also confusing and antipattern. 
+It’s just bad design.</p>
 
 <h2 id="design">Design</h2>
 
@@ -151,8 +152,9 @@ navigation.</p>
 <h2 id="usage">Usage</h2>
 
 <p>Navigate around the graph by clicking the graph icon in the toolbar, or 
-by using Ctrl + arrow key shortcuts. When Ctrl is released, chrome will 
-navigate to whichever node is currently selected.</p>
+by using Ctrl + arrow key (or Cmd + arrow key for Mac) shortcuts. When 
+Ctrl (or Cmd) is released, Chrome will navigate to whichever node is 
+currently selected.</p>
 
 <h2 id="credits">Credits</h2>
 

@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 31 May 2016 18:50:50 -0400</pubDate>
-    <lastBuildDate>Tue, 31 May 2016 18:50:50 -0400</lastBuildDate>
+    <pubDate>Sun, 05 Jun 2016 18:21:47 -0400</pubDate>
+    <lastBuildDate>Sun, 05 Jun 2016 18:21:47 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -257,23 +257,23 @@ All the visual “languages” that exist are shallow wrappers around inherently
 history into a linear stack, which makes backtracking from a forest of 
 links surprisingly difficult.  We can do better.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/visual-history-0.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/visual-history-0.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Visual History is a Chrome extension in collaboration with 
-&lt;a href=&quot;http://kennethfriedman.org&amp;quot;&quot;&gt;Kenny Friedman&lt;/a&gt; that delinearizes your 
+&lt;a href=&quot;http://kennethfriedman.org&quot;&gt;Kenny Friedman&lt;/a&gt; that delinearizes your 
 browsing history with a richer alternative to the Back and Forward 
 buttons. Instead of a stack of previously visited destinations, Visual 
 History maintains the forest of trees that represent each tab’s path 
 around the internet, and lets you easily backtrack to any site you’ve 
 recently visited.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/visual-history-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/visual-history-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This solves an &lt;a href=&quot;https://xkcd.com/214/&quot;&gt;ancient problem&lt;/a&gt; with Wikipedia.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/visual-history-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/visual-history-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
 
@@ -287,7 +287,7 @@ hierarchically.&lt;/p&gt;
 
 &lt;p&gt;But browsers make hierarchical navigation very difficult. Going back to
 a page of search results and down to a sibling link “destroys” the original
-link in the back/forward stack. This is bad for several reasons:&lt;/p&gt;
+link in the back/forward stack. This is bad for a couple reasons:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Since we can “lose” a link if we’re not careful, we assume the mental
@@ -306,9 +306,10 @@ browsers reduce tabs to a scattered breadcrumb trail of abandoned
 siblings - links that we popped open because it was inconvenient (or
 dangerous) to navigate to them directly. These new tabs don’t have any 
 idea where they are in the internet - we can’t go back from them, and we 
-sometimes forget how we got there in the first place - but dammit, at 
-least we can Ctrl-Tab between them quickly! Not only is this
-computationally wasteful, it’s antipattern. It’s just bad design.&lt;/p&gt;
+sometimes forget how we got there in the first place - but &lt;em&gt;dammit, at 
+least we can Ctrl-Tab between them quickly!&lt;/em&gt; Not only is this both
+computationally and spatially wasteful, it’s also confusing and antipattern. 
+It’s just bad design.&lt;/p&gt;
 
 &lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
 
@@ -318,8 +319,9 @@ navigation.&lt;/p&gt;
 &lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;Navigate around the graph by clicking the graph icon in the toolbar, or 
-by using Ctrl + arrow key shortcuts. When Ctrl is released, chrome will 
-navigate to whichever node is currently selected.&lt;/p&gt;
+by using Ctrl + arrow key (or Cmd + arrow key for Mac) shortcuts. When 
+Ctrl (or Cmd) is released, Chrome will navigate to whichever node is 
+currently selected.&lt;/p&gt;
 
 &lt;h2 id=&quot;credits&quot;&gt;Credits&lt;/h2&gt;
 
