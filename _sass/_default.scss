@@ -1,6 +1,6 @@
 /* =Base */
 body {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif, 'Source Code Pro', monospace;
     color: $iron;
     background-color: $dorian;
      //background: $dorian url('graph-paper.svg') 50% 50%;
@@ -11,14 +11,23 @@ h3, h4, h5, h6 {
 }
 
 a {
-    color: $cloudy;
-    //color: inherit;
-    font-weight: bold;
+    color: inherit;
     text-decoration: none;
 
-    &:hover {
+    -moz-transition: opacity 50ms ease;
+    -o-transition: opacity 50ms ease;
+    -webkit-transition: opacity 50ms ease;
+    transition: opacity 50ms ease;
+
+    &:hover, &:focus {
         opacity: 0.7;
     }
+}
+
+p > a, li > a {
+    // I hate everything
+    text-shadow: -1px -1px 0 $dorian, 1px -1px 0 $dorian, -1px 1px 0 $dorian, 1px 1px 0 $dorian;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2.5px, $cloudy 2.5px, $cloudy 3px, rgba(0, 0, 0, 0) 3px);
 }
 
 p {
@@ -39,12 +48,44 @@ img {
     max-width: 100%;
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
+h3 + p {
+    margin-top: 0;
+}
+
+h1 + h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: $cloudy;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    margin-top: 8px;
+    font-size: 19px;
+    color: $iron;
+    //font-weight: bold;
+}
+
+dd {
+    -webkit-margin-start: 0;
+    font-size: 16px;
+    color: $cloudy;
+}
+
+
 blockquote {
     //letter-spacing: 3px;
-    margin:0px;
-    margin-top: 30px;
-    margin-bottom: 70px;
-    padding: 0px;
+    margin: 30px 0 70px 0;
+    padding: 0 10% 0 10%;
     text-align: center;
     position: relative;
 
@@ -64,10 +105,8 @@ blockquote {
     p {
         display: inline;
         font-size: 18px;
-        color: $cloudy;
+        color: $iron;
         font-weight: 400;
-        &:before { content: "“ "; }
-        &:after { content: " ”"; }
     }
 }
 
@@ -100,14 +139,15 @@ strong {
     color: $cloudy;
     font-size: 18px;
     margin:0px;
-    margin-top: 6px;
+    //margin-top: 6px;
     padding: 0px;
     list-style-type: none;
 }
 
 .menu__entry {
     display: inline-block;
-    margin-right: 25px;
+    margin: 0 25px 0 0;
+    //margin-right: 25px;
 
     &:last-child {
         margin-right: 0px;
@@ -115,7 +155,8 @@ strong {
 }
 
 .menu__entry a {
-    font-weight: 400;
+    text-shadow: none;
+    background-image: none;
 }
 
 .social-links {
@@ -194,6 +235,11 @@ strong {
     font-weight: 700;
 }
 
+.post-teaser > a {
+    text-shadow: none;
+    background-image: none;
+}
+
 .post-teaser__title {
     font-size: 22px;
     color: $iron;
@@ -261,12 +307,14 @@ strong {
 
 .categories__item {
     display: inline-block;
-    font-weight: 700;
-    font-size: 18px;
 }
 
 .categories__item a {
     color: $iron;
+    font-size: 19px;
+    font-weight: bold;
+    background-image: none;
+    text-shadow: none;
 }
 
 .categories__item:before {
@@ -288,7 +336,7 @@ strong {
     line-height: 24px;
 }
 
-.about__devider {
+.about__divider {
     font-size: 20px;
     margin-bottom: 50px;
     letter-spacing: 9.09px;
@@ -298,11 +346,10 @@ strong {
     font-size: 18px;
 }
 
-#disqus_thread {
-    margin-top: 100px;
-}
-
 @media (max-width: 800px) {
+    .logo {
+        font-size: 40px;
+    }
     /* =Base */
     p {
         font-size: 16px;
@@ -324,7 +371,7 @@ strong {
     }
 
     .page-title {
-        margin-top: 80px;
+        margin-top: 16px;
         margin-bottom: 60px;
     }
 
@@ -343,9 +390,17 @@ strong {
 
     .post-teaser__date {
         font-size: 16px;
-        margin-top: 10px;
+        margin-top: 0;
         float: none;
         @include centered-block();
+    }
+
+    .post-teaser__subtitle {
+        display: none;
+    }
+
+    .post-teaser__link > br, .post-teaser > br {
+        display: none;
     }
 
     .explore {
@@ -359,6 +414,13 @@ strong {
     .post-title__subtitle {
         font-size: 18px;
     }
+}
+
+.variable {
+    -moz-transition: color 50ms ease;
+    -o-transition: color 50ms ease;
+    -webkit-transition: color 50ms ease;
+    transition: color 50ms ease;
 }
 
 .variable:hover {

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title> Sample post — What you can do with it! &raquo;  Joel Gustafson</title>
-<meta name="description" content="Hi! I'm a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you'll find here.
+<meta name="description" content="I'm a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you'll find here.
 ">
 <meta name="keywords" content="">
 <link rel="canonical" href="http://localhost:4000/projects/thoughts/2014/08/19/sample-post.html">
@@ -17,7 +17,7 @@
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Sample post" />
-<meta name="twitter:description" content="Hi! I'm a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you'll find here.
+<meta name="twitter:description" content="I'm a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you'll find here.
 " />
 <meta name="twitter:image" content="http://localhost:4000" />
 
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sample post">
-<meta property="og:description" content="Hi! I'm a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you'll find here.
+<meta property="og:description" content="I'm a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you'll find here.
 ">
 <meta property="og:url" content="http://localhost:4000/projects/thoughts/2014/08/19/sample-post.html">
 <meta property="og:site_name" content="Joel Gustafson">
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="/assets/vendor/highlight/styles/solarized_dark.css">
 
 <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
-<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=PT+Sans|Source+Code+Pro' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
@@ -99,13 +99,13 @@
 
 <p>Example code:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">light</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Light</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">switchUp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlipUpCommand</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">switchDown</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FlipDownCommand</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Switch</span><span class="p">();</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">var light = new Light();
+var switchUp = new FlipUpCommand(light);
+var switchDown = new FlipDownCommand(light);
+var s = new Switch();
 
-<span class="nx">s</span><span class="p">.</span><span class="nx">storeAndExecute</span><span class="p">(</span><span class="nx">switchUp</span><span class="p">);</span>
-<span class="nx">s</span><span class="p">.</span><span class="nx">storeAndExecute</span><span class="p">(</span><span class="nx">switchDown</span><span class="p">);</span></code></pre></figure>
+s.storeAndExecute(switchUp);
+s.storeAndExecute(switchDown);</code></pre></figure>
 
 <p>A list:</p>
 
@@ -141,7 +141,7 @@
 </div>
 
 <div class="about">
-    <div class="about__devider">*****</div>
+    <div class="about__divider">*****</div>
     <div class="about__text">
         Written by <strong>  Joel Gustafson </strong>
         on <strong>19 August 2014</strong>

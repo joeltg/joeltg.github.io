@@ -34,7 +34,6 @@ recently visited.
 
 This solves an [ancient problem](https://xkcd.com/214/) with Wikipedia.
 
-
 ![]({{ site.baseurl }}/assets/images/visual-history-2.png)
 
 ## Motivation
@@ -71,11 +70,6 @@ least we can Ctrl-Tab between them quickly!* Not only is this both
 computationally and spatially wasteful, it's also confusing and antipattern. 
 It's just bad design.
 
-## Design
-
-Visual History is designed to augment our mental model of internet 
-navigation. 
-
 ## Usage
 
 Navigate around the graph by clicking the graph icon in the toolbar, or 
@@ -87,3 +81,7 @@ currently selected.
 
 - [D3.js](http://d3js.org/)
 
+<script>
+  ga('create', 'UA-71586525-3', 'auto');
+  ga('send', 'pageview');
+</script>
