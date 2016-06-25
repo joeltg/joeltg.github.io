@@ -80,7 +80,7 @@ But if the most dangerous thought is to think you know what you're doing, the se
 
 What's dangerous about some models is that, like a fish in water, we spend our entire lives immersed in them, and don't realize that they're just some of many possible models. This results in some constraints, born out of necessity in the implementation of some abstraction layer, that infect the mindset of the programmers and bubble up through higher layers of abstraction, long after the original need has faded from view.
 
-![]({{ site.baseurl }}/assets/images/inception.jpg)
+![]({{ site.url }}/assets/images/inception.jpg)
 
 > "What is the most resilient parasite?"
   <br>
