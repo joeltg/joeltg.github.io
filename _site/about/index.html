@@ -83,7 +83,7 @@
 </h1>
 
 <p>I’m a junior at MIT pursuing computer science and mathematics. 
-I’m a big fan of Lisp, ALan Kay, and Bret Victor, and tend to overuse 
+I’m a big fan of Lisp, Alan Kay, and Bret Victor, and tend to overuse 
 words like “relation”, “projection”, and “space”.
 I can recite most <a href="https://xkcd.com">xkcd</a> comics from memory 
 (including the alt-text) and love petty semantic debates.</p>
@@ -118,105 +118,199 @@ to be dealt with collectively. If we don’t get collectively smarter, we’re d
   <dt><a href="https://en.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a></dt>
   <dd>“Most people are fools, most authority is malignant, God does not exist, and everything is wrong.”</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Gerald_Jay_Sussman">Gerry Sussman</a></dt>
-  <dd>“Programs must be written for people to read, and only incidentally for machines to execute”</dd>
+  <dd>“Programs must be written for people to read, and only incidentally for machines to execute.”</dd>
 </dl>
 
 <h1 id="courses">Courses</h1>
 
 <h2 id="past-present-and-tentative-future">past, present, and tentative future</h2>
 
-<div style="width: 100%; height: 400px; overflow: hidden">
-<iframe src="https://courseroad.mit.edu/#joelg" width="100%" height="400px" style="position: relative; left: -250px; 
-               width: calc(100% + 250px);">
-</iframe>
-</div>
-
 <h1 id="code-aquarium">Code Aquarium</h1>
 
-<h2 id="battle-scars-an-incomplete-collection">battle scars: an incomplete collection</h2>
+<h2 id="an-incomplete-collection-of-battle-scars">an incomplete collection of battle scars</h2>
 
+<p>These are some things that I’ve used in projects that still take up space in my head.
+I’m trying to forget most of them.</p>
+
+<div id="container" style="width: 100%; height: 400px">
 <svg id="aquarium"></svg>
-<script>
-    var libs = ['D3.js', 'three.js', 'React', 'Polymer', 'Android', 'Redux', 'Node.js', 'Express', 'Flask'];
-    var aquarium = document.getElementById('aquarium');
-    var width = document.getElementsByClassName('wrapper')[0].offsetWidth
-    var height = 400;
-    var boxes = {};
-    var fishes = {};
-    aquarium.setAttribute('width', width + 'px');
-    aquarium.setAttribute('height', height + 'px');
-    function attachFish(lib) {
-        // var fish = document.createElement('h3');
-        var fish = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-        fish.textContent = lib;
-        fish.setAttribute('font-size', '24px');
-        aquarium.appendChild(fish);
-        var box = fish.getBBox();
-        boxes[lib] = box;
-        var x = Math.random() * (width - box.width);
-        var y = Math.random() * (height - box.height) + box.height;
-        fish.setAttribute('x', x);
-        fish.setAttribute('y', y);
-        fishes[lib] = {x: x, y: y, dx: 0, dy: 0, width: box.width, height: box.height, svg: fish};
+</div>
+
+<script type="text/javascript">
+const libs = [
+    'Git',
+    'MongoDB',
+    'D3.js',
+    'Three.js',
+    'React',
+    'Polymer',
+    'Redux',
+    'Node.js',
+    'Express',
+    'Flask',
+    'Redis',
+    'Tensorflow',
+    'NLTK',
+    'CodeMirror',
+    'Emacs'
+];
+const container = document.getElementById('container');
+const aquarium = document.getElementById('aquarium');
+const width = container.offsetWidth || 400;
+const height = container.offsetHeight || 400;
+aquarium.setAttribute('width', width + 'px');
+aquarium.setAttribute('height', height + 'px');
+
+const d_range = 2;
+
+const max_delta = 2000;
+
+const bounce_loss = 0.8;
+const repellent = 500;
+const attractive = -10;
+
+const x_laziness = 1.2;
+const y_laziness = 0.8;
+
+const border = 10;
+
+const swarming = true;
+
+
+class Fish {
+    constructor(name) {
+        this.name = name;
+        this.svg = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+        this.svg.textContent = name;
+        this.svg.setAttribute('font-size', '20px');
+        aquarium.appendChild(this.svg);
+        const box = this.svg.getBBox();
+        this.width = box.width;
+        this.height = box.height;
+        this.x = Math.random() * (width - this.width);
+        this.y = Math.random() * (height - this.height) + this.height;
+        this.dx = d_range * (Math.random() - 0.5);
+        this.dy = d_range * (Math.random() - 0.5);
+        this.svg.setAttribute('x', this.x);
+        this.svg.setAttribute('y', this.y);
+        this.swarming = false;
     }
-    libs.forEach(attachFish);
-    setInterval(function() {
-        libs.forEach(function(lib) {
-            var fish = fishes[lib];
-            var bias = 1000;
-            if (fish.x < (width - fish.width) && fish.x > 1) {
-                fish.dx = Math.random() - (fish.dx > 0 ? 1 / bias : (bias - 1) / bias);
-                fish.svg.setAttribute('x', fish.x += fish.dx);
-            } else {
-                fish.dx = (fish.x > 1 ? -1 : 1) * 0.5;
-                fish.svg.setAttribute('x', fish.x += fish.dx);
+    move() {
+        if (Math.abs(this.dx) > max_delta) this.dx = this.dx > 0 ? 1 : -1 * max_delta;
+        if (Math.abs(this.dy) > max_delta) this.dy = this.dy > 0 ? 1 : -1 * max_delta;
+
+        if (isFinite(this.dx)) this.x += this.dx * x_laziness;
+        else {
+            this.x += this.dx = d_range * (Math.random() - 0.5);
+            console.log('panic');
+        }
+        if (isFinite(this.dy)) this.y += this.dy * y_laziness;
+        else this.y += this.dy = d_range * (Math.random() - 0.5);
+
+        // boundary collisions
+        if (this.x + this.width > width - border) {
+            this.dx = -Math.abs(this.dx) * bounce_loss;
+            this.x = width - this.width - border;
+        } else if (this.x < border) {
+            this.dx = Math.abs(this.dx) * bounce_loss;
+            this.x = border;
+        }
+
+        if (this.y > height - border) {
+            this.dy = -Math.abs(this.dy) * bounce_loss;
+            this.y = height - border;
+        } else if (this.y - this.height < border) {
+            this.dy = Math.abs(this.dy) * bounce_loss;
+            this.y = border + this.height;
+        }
+
+        // move
+        this.svg.setAttribute('x', this.x);
+        this.svg.setAttribute('y', this.y);
+    }
+}
+
+const fishes = libs.map(lib => new Fish(lib));
+
+setInterval(function() {
+
+    fishes.forEach(fish => {
+
+        const velocity = Math.sqrt(Math.pow(fish.dx, 2) + Math.pow(fish.dy, 2));
+
+        if (swarming) {
+            if (Math.random() * velocity < 0.0001) {
+                fish.swarming = true;
+                fish.dx = d_range * (Math.random() - 0.5);
+                fish.dy = d_range * (Math.random() - 0.5);
+            } else fish.swarming = false;
+        }
+
+        let fx = 0, fy = 0;
+        fishes.forEach(sibling => {
+            if (fish === sibling) return;
+            const dx = (fish.x + (fish.width / 2)) - (sibling.x + (sibling.width / 2));
+            const dy = (fish.y - (fish.height / 2)) - (sibling.y - (sibling.height / 2));
+            const distance = Math.abs(Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)));
+
+            if (swarming && fish.swarming && !sibling.swarming && Math.random() * Math.pow(distance, 2) < 3000) {
+                sibling.dx = fish.dx + Math.random() / 4 - 0.125;
+                sibling.dy = fish.dy + Math.random() / 4 - 0.125;
             }
 
-            if (fish.y < height && fish.y > fish.height) {
-                fish.dy = Math.random() - (fish.dy > 0 ? 1 / bias : (bias - 1) / bias);
-                fish.svg.setAttribute('y', fish.y += fish.dy);
-            } else {
-                fish.dy = (fish.y > fish.height ? -1 : 1) * 0.5;
-                fish.svg.setAttribute('y', fish.y += fish.dy);
-            }
+            const repel = repellent / Math.pow(distance, 3);
+            const attract = attractive / Math.pow(distance, 2);
+
+            const force = (repel + attract) / distance;
+            fx += force * dx;
+            fy += force * dy;
         });
-    }, 10);
+
+        fish.dx += fx;
+        fish.dy += fy;
+
+        fish.move();
+    });
+
+}, 10);
 </script>
 
 <h1 id="work">Work</h1>
 
 <h2 id="my-five-dimensional-journey-through-space-time-and-ideas">my five-dimensional journey through space, time and ideas</h2>
 
+<h2 id="mit-media-lab">MIT Media Lab</h2>
+
+<p>I joined the <a href="http://viral.media.mit.edu/">Viral Communications Group</a> as an undergraduate researcher in 2015. I’ve worked on
+several projects, mostly with visualizations, interface design, and information network architecture.</p>
+
+<dl>
+  <dt><a href="http://pubpub.org">PubPub (2016 - )</a></dt>
+  <dd>PubPub is</dd>
+  <dt><a href="http://viral.pubpub.org/pub/super-glue">Super Glue (2015)</a></dt>
+  <dd>Superglue is a digestion system and metadata generator for mass media.
+The system pipes media through entity extraction, face detectors, excitement trackers,
+and many other modules to roll a snowball of metadata for analysis, consumption,
+and creation. I wrote some of the core modules, designed a
+<a href="http://super-glue-dashboard.herokuapp.com">media exploration dashboard</a>,
+and prototyped <a href="http://viral.pubpub.org/pub/super-cuts">demo applications</a>.</dd>
+</dl>
+
+<h2 id="mit-csail">MIT CSAIL</h2>
+
+<p>In summer 2016 I started working with Gerry Sussman and Jack Wisdom to redesign
+the online notes, simulations, and demos for their fall class,
+6.946: Computational Classical Mechanics.</p>
+
 <ul>
-  <li>MIT Media Lab (Spring 2015 - Summer 2016)
+  <li>Hello
     <ul>
-      <li>Viral Communications Group</li>
-      <li>Projects (I didn’t name any of these)
+      <li>Super Glue
         <ul>
-          <li>Super Glue</li>
-          <li>PubPub</li>
-          <li>DbDb</li>
-          <li>PqPq
-            <ul>
-              <li>JK, I make that one up</li>
-            </ul>
-          </li>
+          <li>hi</li>
         </ul>
       </li>
-      <li>Technology
-        <ul>
-          <li>Node.js</li>
-          <li>D3</li>
-          <li>React</li>
-        </ul>
-      </li>
-      <li>Design
-        <ul>
-          <li>Media exploration and consumption</li>
-          <li>Data visualization</li>
-          <li>Network architecture</li>
-        </ul>
-      </li>
+      <li>PubPub</li>
     </ul>
   </li>
   <li>Plume Labs (January 2016)

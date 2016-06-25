@@ -6,9 +6,26 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 17 Jun 2016 01:11:18 -0400</pubDate>
-    <lastBuildDate>Fri, 17 Jun 2016 01:11:18 -0400</lastBuildDate>
+    <pubDate>Sat, 25 Jun 2016 01:25:20 -0400</pubDate>
+    <lastBuildDate>Sat, 25 Jun 2016 01:25:20 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Personal Website (this one!)</title>
+        <description>&lt;p&gt;I try to redesign my personal site every semester or so. It keeps me sharp,
+keeps the site up-to-date, and lets me try out new designs or interfaces that
+I’d be too cautious to try if I expected the thing to last.&lt;/p&gt;
+
+&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+</description>
+        <pubDate>Mon, 20 Jun 2016 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/projects/2016/06/20/personal-site.html</link>
+        <guid isPermaLink="true">http://localhost:4000/projects/2016/06/20/personal-site.html</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
     
       <item>
         <title>Notes on Computation</title>
