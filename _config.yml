@@ -7,7 +7,7 @@ description: >
   you'll find here.
 
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://joelgustafson.com" # the base hostname & protocol for your site
+url: "http://joelgustafson.com" # the base hostname & protocol for your site
 
 author:
   fullname: Joel Gustafson
