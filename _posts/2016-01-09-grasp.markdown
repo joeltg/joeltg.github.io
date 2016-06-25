@@ -4,22 +4,30 @@ title:  "GRASP"
 subtitle: "Visualizing Lisp in 3D"
 date:   2016-01-09
 excerpt_separator: <break>
-image: "https://raw.githubusercontent.com/joeltg/grasp/master/screenshots/1.png"
 categories: [projects]
+links:
+    -
+        url: http://github.com/joeltg/grasp
+        text: GitHub
+    -
+        url: https://joelgustafson.com/grasp
+        text: Demo
 ---
 
 It's easy to look at lines of code and think you know what programming is, but text is only one of many possible representations. GRASP visualizes Scheme ASTs with as little text as possible, using a force-directed 3D graph to organize the program's structure. <break> Data transformation happens laterally with functions, while references and variable scoping are organized vertically.
 
-![](https://raw.githubusercontent.com/joeltg/grasp/master/screenshots/0.png)
+![]({{ site.baseurl }}/assets/images/grasp-0.png)
 
 - Functions are green
 - Variables are blue
 - Lexical environments are translucent
 - That's about it
 
+![]({{ site.baseurl }}/assets/images/grasp-1.png)
+
 In GRASP, variables don't need to be named, since every reference links back to just one spatially unique node in the original environment in which it was defined (thanks to lexial scoping). Similarly, functions also don't need labels, since they can link back to their original definitions. The "Labels" switch toggles these optional labels.
 
-![](https://raw.githubusercontent.com/joeltg/grasp/master/screenshots/1.png)
+![]({{ site.baseurl }}/assets/images/grasp-2.png)
 
 GRASP is an ongoing project. The project's long-term goal is to eliminate the need for text entirely (changing the mindset to optionally "labeling" nodes to be searchable later), and implement a completely visual Scheme IDE in imersive VR, but right now I'm working on making the graph editable directly by dragging edges from node to node while reflecting those changes dynamically in the textual code, and working on integrating a Scheme to JavaScript interpreter to visualize data flow in program execution step-by-step or in real-time.
 

@@ -22,9 +22,6 @@ const y_laziness = 0.8;
 
 const border = 10;
 
-const swarming = true;
-
-
 class Fish {
     constructor(name) {
         this.name = name;
@@ -44,8 +41,8 @@ class Fish {
         this.swarming = false;
     }
     move() {
-        if (Math.abs(this.dx) > max_delta) this.dx = this.dx > 0 ? 1 : -1 * max_delta;
-        if (Math.abs(this.dy) > max_delta) this.dy = this.dy > 0 ? 1 : -1 * max_delta;
+        // if (Math.abs(this.dx) > max_delta) this.dx = this.dx > 0 ? 1 : -1 * max_delta;
+        // if (Math.abs(this.dy) > max_delta) this.dy = this.dy > 0 ? 1 : -1 * max_delta;
 
         if (isFinite(this.dx)) this.x += this.dx * x_laziness;
         else {
@@ -84,30 +81,23 @@ setInterval(function() {
 
     fishes.forEach(fish => {
 
-        const velocity = Math.sqrt(Math.pow(fish.dx, 2) + Math.pow(fish.dy, 2));
-
-        if (swarming) {
-            if (Math.random() * velocity < 0.0001) {
-                fish.swarming = true;
-                fish.dx = d_range * (Math.random() - 0.5);
-                fish.dy = d_range * (Math.random() - 0.5);
-            } else fish.swarming = false;
-        }
+        const x = fish.x + (fish.width / 2), y = fish.y - (fish.height / 2);
 
         let fx = 0, fy = 0;
         fishes.forEach(sibling => {
             if (fish === sibling) return;
-            const dx = (fish.x + (fish.width / 2)) - (sibling.x + (sibling.width / 2));
-            const dy = (fish.y - (fish.height / 2)) - (sibling.y - (sibling.height / 2));
-            const distance = Math.abs(Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)));
+            const dx = x - (sibling.x + (sibling.width / 2));
+            const dy = y - (sibling.y - (sibling.height / 2));
+            const distance_squared = Math.pow(dx, 2) + Math.pow(dy, 2);
+            const distance = Math.sqrt(distance_squared);
 
-            if (swarming && fish.swarming && !sibling.swarming && Math.random() * Math.pow(distance, 2) < 3000) {
-                sibling.dx = fish.dx + Math.random() / 4 - 0.125;
-                sibling.dy = fish.dy + Math.random() / 4 - 0.125;
-            }
+            // if (swarming && fish.swarming && !sibling.swarming && Math.random() * Math.pow(distance, 2) < 3000) {
+            //     sibling.dx = fish.dx + Math.random() / 4 - 0.125;
+            //     sibling.dy = fish.dy + Math.random() / 4 - 0.125;
+            // }
 
             const repel = repellent / Math.pow(distance, 3);
-            const attract = attractive / Math.pow(distance, 2);
+            const attract = attractive / distance_squared;
 
             const force = (repel + attract) / distance;
             fx += force * dx;
@@ -121,3 +111,9 @@ setInterval(function() {
     });
 
 }, 10);
+
+// const svg = d3.select('#aquarium').append('svg')
+//     .attr('width', width)
+//     .attr('height', height)
+//     .append('g');
+

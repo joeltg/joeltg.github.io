@@ -6,108 +6,39 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Jun 2016 01:25:20 -0400</pubDate>
-    <lastBuildDate>Sat, 25 Jun 2016 01:25:20 -0400</lastBuildDate>
+    <pubDate>Sat, 25 Jun 2016 18:27:59 -0400</pubDate>
+    <lastBuildDate>Sat, 25 Jun 2016 18:27:59 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Personal Website (this one!)</title>
-        <description>&lt;p&gt;I try to redesign my personal site every semester or so. It keeps me sharp,
-keeps the site up-to-date, and lets me try out new designs or interfaces that
-I’d be too cautious to try if I expected the thing to last.&lt;/p&gt;
-
-&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
-</description>
-        <pubDate>Mon, 20 Jun 2016 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/projects/2016/06/20/personal-site.html</link>
-        <guid isPermaLink="true">http://localhost:4000/projects/2016/06/20/personal-site.html</guid>
-        
-        
-        <category>projects</category>
-        
-      </item>
-    
-      <item>
         <title>Notes on Computation</title>
-        <description>&lt;p&gt;“Computation” is a slippery mathematical idea. In the same way that we 
-only glimpse algorithmic complexity by the shadows it casts on time and 
-space, we only interact with computation through little  projections 
-like “Turing machines” or “Python scripts” that are just tiny peepholes 
-into the raw, fluid information-space beyond.&lt;/p&gt;
+        <description>&lt;p&gt;“Computation” is a slippery, mathematical idea. In the same way that we only glimpse algorithmic complexity by the shadows it casts on time and space, we only interact with computation through little  projections like “Turing machines” or “Python scripts” that are just tiny peepholes into the raw, fluid information-space beyond.&lt;/p&gt;
 
-&lt;p&gt;From this obscured view, it’s easy to become nearsighted: to equate 
-“code” with “text in a file” or “programming” with “writing JavaScript 
-in an IDE” without seeing the dizzying mathematical scope of the power 
-we play with so casually.&lt;/p&gt;
+&lt;p&gt;From this obscured view, it’s easy to become nearsighted: to equate “code” with “text in a file” or “programming” with “writing JavaScript in an IDE” without seeing the dizzying mathematical scope of the power we play with so casually.&lt;/p&gt;
 
-&lt;p&gt;I intended this piece to be a sweeping manifesto. I set out to 
-vindicate Lisp as – empirically – the most pure, righteous encoding of 
-computation that humanity has ever discovered, and to strike down with 
-furious anger those who seek to marginalize it as “obtuse” or 
-“unintuitive”.&lt;/p&gt;
+&lt;p&gt;I intended this piece to be a sweeping manifesto. I set out to vindicate Lisp as - empirically - the most pure, righteous encoding of computation that humanity has ever discovered, and to strike down with furious anger those who seek to marginalize it as “obtuse” or “unintuitive”.&lt;/p&gt;
 
-&lt;p&gt;But it turns out that reality is complicated, and things rarely work 
-to cleanly justify any radical ideology. So if, at the end of this, you
-feel a vague sense of frustration with the world, but without any
-particularly strong direction or conviction, that’s because I feel the 
-same way.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/lisp.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/inception.jpg&quot; alt=&quot;Inception&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;But it turns out that reality is complicated, and things rarely work to cleanly justify any radical ideology. So if, at the end of this, you feel a vague sense of frustration with the world, but without any particularly strong direction or conviction, that’s because I feel the same way.&lt;/p&gt;
 
 &lt;h1 id=&quot;shannons-counting-argument&quot;&gt;Shannon’s Counting Argument&lt;/h1&gt;
 
 &lt;h2 id=&quot;naming-a-thing-gives-you-power-over-it&quot;&gt;“Naming a thing gives you power over it”&lt;/h2&gt;
 
-&lt;p&gt;Every function over binary inputs can be modeled with a circuit of 
-primitive logic gates, like AND/OR/NOT or NAND. Some functions, like a 
-bitwise AND, are really easy to model with circuits, and can be 
-constructed with a number of gates that is linear in the size of the 
-input. Other functions are a little less friendly, and need a polynomial 
-number of gates to model.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Naming a thing gives you power over it” – Patrick Henry Winston&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;But there are &lt;em&gt;a lot&lt;/em&gt; of possible functions. Even just considering boolean 
-operations (that output only one bit), there are &lt;code&gt;2&lt;/code&gt;&lt;sup&gt;&lt;code&gt;2&lt;/code&gt;&lt;sup&gt;&lt;code&gt;n&lt;/code&gt;&lt;/sup&gt;&lt;/sup&gt; distinct 
-mappings over &lt;code&gt;n&lt;/code&gt; inputs. This absolutely dwarfs the &lt;code&gt;ϴ(2&lt;/code&gt;&lt;sup&gt;&lt;code&gt;n&lt;/code&gt;&lt;/sup&gt;&lt;code&gt;)&lt;/code&gt; functions you 
-can model with &lt;code&gt;n&lt;/code&gt; logic gates, which means that there just isn’t space 
-for every function to have a polynomial-sized circuit. In fact, the vast 
-majority of functions have to be content with enormous, exponentially 
-huge circuits.&lt;/p&gt;
+&lt;p&gt;Every function over binary inputs can be modeled with a circuit of primitive logic gates, like AND/OR/NOT or NAND. Some functions, like a bitwise AND, are really easy to model with circuits, and can be constructed with a number of gates that is linear in the size of the input. Other functions are a little less friendly, and need a polynomial number of gates to model.&lt;/p&gt;
 
-&lt;p&gt;What’s weird is that even though we know that almost all boolean 
-functions require exponentially large circuits, &lt;em&gt;we don’t know what any 
-of them are&lt;/em&gt;. Everything that we have a name for – every point in 
-concept-space that humanity has ever touched – either fits into a 
-polynomial circuit or has yet to be proven. 
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Circuit_complexity#History&quot;&gt;We’re not even sure&lt;/a&gt; 
-if NP-complete problems like SAT or EXPTIME-complete problems like Go 
-need exponentially large circuits!&lt;/p&gt;
+&lt;p&gt;But there are &lt;em&gt;a lot&lt;/em&gt; of possible functions. Even just considering boolean operations (that output only one bit), there are 2 ^2 ^ n distinct mappings over n inputs. This absolutely dwarfs the O(2 ^ n) functions you can model with n logic gates, which means that there just isn’t space for every function to have a polynomial-sized circuit. In fact, the vast majority of functions have to be content with enormous, exponentially huge circuits.&lt;/p&gt;
 
-&lt;p&gt;The same counting argument applies to programming languages. While Lisp 
-may be touted as pure revelation of functional enlightenment that 
-encapsulates the true essence of computing, the disappointing reality is 
-that the space of computation is just too big for any encoding – even 
-lambda calculus – to efficiently capture anything more than an 
-exponentially tiny fraction of it. Every language is good at succinctly
-describing a small set of ideas, but there are just too many things that 
-you could want to do with a computer for any language to be good at 
-expressing all of them.&lt;/p&gt;
+&lt;p&gt;What’s weird is that even though we know that almost all boolean functions require exponentially large circuits, &lt;em&gt;we don’t know what any of them are&lt;/em&gt;. Everything that we have a name for - every point in concept-space that humanity has ever touched - either fits into a polynomial circuit or has yet to be proven. We’re not even sure if NP-complete problems like SAT or EXPTIME-complete problems like Go need exponentially large circuits!&lt;/p&gt;
 
-&lt;p&gt;Rather tautologically, we don’t have any examples of things we don’t 
-know to describe. But the fact that they have to exist – and that there 
-are so many of them – should bother us.&lt;/p&gt;
+&lt;p&gt;The same counting argument applies to programming languages. While Lisp may be touted as pure revelation of functional enlightenment that encapsulates the true essence of computing, the disappointing reality is that the space of computation is just too big for any encoding - even lambda calculus - to efficiently capture anything more than an exponentially tiny fraction of it. Every language is good at succinctly describing a small set of ideas, but there are just too many things that you could want to do with a computer for any language to be good at expressing all of them.&lt;/p&gt;
 
-&lt;p&gt;It’s eerie: it doesn’t feel like we’re missing out, but the vast 
-majority of possible “things” (functions, transformations, ideas) just 
-haven’t been thought of, ever. It’s possible that they haven’t been 
-thought of because they’re inherently nonsensical, random contortions of 
-math that wouldn’t be useful, but I think it’s because we don’t have the 
-right language to understand their significance. There might be a 
-language in which AND is exponentially difficult to describe, but a 
-brand new set of thoughts that elude us now become trivial. There could 
-be world-changing, paradigm-shifting ideas hiding in the exponential 
-shadows! We have the Turing-complete keys to unlock the entire 
-computation-space, but we only see the polynomial tip of the 
-computational iceberg. So why don’t we explore?&lt;/p&gt;
+&lt;p&gt;Rather tautologically, we don’t have any examples of things we don’t know to describe. But the fact that they have to exist - and that there are so many of them - should bother us.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“Most creativity is a transition from one context into another where 
@@ -115,157 +46,89 @@ computational iceberg. So why don’t we explore?&lt;/p&gt;
   especially in science, there is often laughter that goes along with 
   the “Aha.” Art also has this element. Our job is to remind us that 
   there are more contexts than the one that we’re in — the one that we 
-  think is reality.” – Alan Kay&lt;/p&gt;
+  think is reality.”&lt;br /&gt; – Alan Kay&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;It’s eerie: it doesn’t feel like we’re missing out, but the vast majority of possible “things” (functions, transformations, ideas) just haven’t been thought of, ever. It’s possible that they haven’t been thought of because they’re inherently nonsensical, random contortions of math that wouldn’t be useful, but I think it’s because we don’t have the right language to understand their significance. There might be a language in which AND is exponentially difficult to describe, but a brand new set of thoughts that elude us now become trivial. There could be world-changing, paradigm-shifting ideas hiding in the exponential shadows! We have the Turing-complete keys to unlock the entire computation-space, but we only see the polynomial tip of the computational iceberg. So why don’t we explore?&lt;/p&gt;
 
 &lt;h1 id=&quot;goodharts-law&quot;&gt;Goodhart’s Law&lt;/h1&gt;
 
 &lt;h2 id=&quot;when-a-measure-becomes-a-target-it-ceases-to-be-a-good-measure&quot;&gt;“When a measure becomes a target, it ceases to be a good measure”&lt;/h2&gt;
 
-&lt;p&gt;The SAT was momentarily a good test (this is the Scholastic Aptitude 
-Test for now, not Satisfiability). Its purpose was to evaluate “college 
-readiness”, and it was good at it. Even though the content of the test, 
-like obscure vocabulary knowledge, wasn’t directly related to college 
-readiness itself, the two were so closely correlated that they became 
-interchangeable for evaluation purposes.&lt;/p&gt;
+&lt;p&gt;The SAT was momentarily a good test (this is the Scholastic Aptitude Test for now, not Satisfiability). Its purpose was to evaluate “college readiness”, and it was good at it. Even though the content of the test, like obscure vocabulary knowledge, wasn’t directly related to college readiness itself, the two were so closely correlated that they became interchangeable for evaluation purposes.&lt;/p&gt;
 
-&lt;p&gt;But! Abstractions leak, and systems interfere with each other. Quickly, 
-students began to buy practice books and started memorizing obscure 
-vocabulary directly, without the trouble of readying for college 
-beforehand. Those convenient proxies that used to be correlated with 
-college readiness became gameable, and the thing that the SAT really 
-tested stopped being “college readiness” and became “proficiency at 
-taking SAT tests”.&lt;/p&gt;
+&lt;p&gt;But! Abstractions leak, and systems interfere with each other. Quickly, students began to buy practice books and started memorizing obscure vocabulary directly, without the trouble of readying for college beforehand. Those convenient proxies that used to be correlated with college readiness became gameable, and the thing that the SAT really tested stopped being “college readiness” and became “proficiency at taking SAT tests”.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/tech_loops.png&quot; alt=&quot;Help!&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;At first glance, ignoring the exponential majority of the “things” in 
-the computation-verse might seem insignificant – after all, we’ve 
-carefully designed our programming languages to expose everything 
-imaginably useful through simple, human-readable metaphors like Objects 
-or Functions. In fact, we’ve honed and sharpened these languages over 
-dozens of iterations to be &lt;em&gt;really good&lt;/em&gt; at manipulating functions and 
-objects and classes and strings and APIs.&lt;/p&gt;
+&lt;p&gt;At first glance, ignoring the exponential majority of the “things” in the computation-verse might seem insignificant - after all, we’ve carefully designed our programming languages to expose everything imaginably useful through simple, human-readable metaphors like Objects or Functions. In fact, we’ve honed and sharpened these languages over dozens of iterations to be &lt;em&gt;really good&lt;/em&gt; at manipulating functions and objects and classes and strings and APIs.&lt;/p&gt;
 
-&lt;p&gt;But in the same way that the SAT mutated the system it was designed to 
-evaluate through pressure from college admissions, I think that the 
-computer science field is no longer about exploring computation, but 
-rather about getting better and faster at the things with which we’re 
-already familiar, through commercial incentives. While this is fine and 
-admirable and even necessary for practical, real-world implementation, 
-I think we’ve completely lost sight of the scope of the ideas that could 
-be waiting to be discovered.&lt;/p&gt;
-
-&lt;p&gt;But who needs new ideas when there’s SEO and user engagement to 
-optimize? Why would we need new languages when the ones we have are
-perfectly good at 
-&lt;a href=&quot;https://medium.com/@tristanharris/how-technology-hijacks-peoples-minds-from-a-magician-and-google-s-design-ethicist-56d62ef5edf3&quot;&gt;dark UI patterns&lt;/a&gt;
-and 
-&lt;a href=&quot;http://www.theverge.com/2016/1/4/10708590/facebook-google-android-app-crash-tests&quot;&gt;addictive conditioning&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;But in the same way that the SAT mutated the system it was designed to evaluate through pressure from college admissions, I think that the computer science field is no longer about exploring computation, but rather about getting better and faster at the things with which we’re already familiar, through commercial incentives. While this is fine and admirable and even necessary for practical, real-world implementation, I think we’ve completely lost sight of the scope of the ideas that could be waiting to be discovered.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“The most dangerous thought that you can have as a creative person is
   to think that you know what you’re doing. Because once you think you
   know what you’re doing, you stop looking around for other ways of
-  doing things.” – Bret Victor&lt;/p&gt;
+  doing things.”&lt;br /&gt; – Bret Victor&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;But who needs new ideas when there’s SEO and user engagement to optimize? Why would we need new languages when the ones we have are perfectly good at  &lt;a href=&quot;https://medium.com/@tristanharris/how-technology-hijacks-peoples-minds-from-a-magician-and-google-s-design-ethicist-56d62ef5edf3&quot;&gt;dark UI patterns&lt;/a&gt; and &lt;a href=&quot;http://www.theverge.com/2016/1/4/10708590/facebook-google-android-app-crash-tests&quot;&gt;addictive conditioning&lt;/a&gt;?&lt;/p&gt;
 
 &lt;h1 id=&quot;propagation-of-constraints&quot;&gt;Propagation of Constraints&lt;/h1&gt;
 
 &lt;h2 id=&quot;i-dont-know-who-discovered-water-but-it-wasnt-a-fish&quot;&gt;I don’t know who discovered water, but it wasn’t a fish&lt;/h2&gt;
 
-&lt;p&gt;Constraints inspire creativity and give structure to ideas. Even if a
-universally expressive, unbiased programming language existed, it would
-likely be impossible to use. Perfection breeds paralysis.&lt;/p&gt;
+&lt;p&gt;Constraints inspire creativity and give structure to ideas. Even if a universally expressive, unbiased programming language existed, it would likely be impossible to use. Perfection breeds paralysis.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/ex-machina.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“What if Pollock said, ‘You know what? I can’t paint anything, 
   unless I know exactly why I’m doing it.’ What would have happened?”
-  &lt;br /&gt;&lt;br /&gt;
+  &lt;br /&gt;
   “He never would have made a single mark.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;In this sense, the languages that we use do a wonderful job of framing
-computation through structured models and metaphors that let us easily
-think in “modes” and not have to create everything from a vacuum. We
-learn templates of problem-solving, like “object inheritance” or “graph
-search” that we use as building blocks to compose and apply to any domain.&lt;/p&gt;
+&lt;p&gt;In this sense, the languages that we have do a wonderful job of framing computation through structured models and metaphors that let us easily think inside preset “modes” and not have to create everything from a vacuum. We learn templates of problem-solving, like “objects” or “graph search” that we use as building blocks to compose and apply to any domain.&lt;/p&gt;
 
-&lt;p&gt;But if the most dangerous thought is to think you know what you’re doing,
-the second-most dangerous must be to think you know what something is,
-because then you stop looking around for other things that it could be.&lt;/p&gt;
+&lt;p&gt;But if the most dangerous thought is to think you know what you’re doing, the second-most dangerous must be to think you know what something is, because then you stop looking around for other things that it could be.&lt;/p&gt;
 
-&lt;p&gt;What’s dangerous about some models is that, like a fish in water, we
-spend our entire lives immersed in them, and don’t realize that they’re
-just models. This results in some constraints, born out of necessity in
-the implementation of some abstraction layer, that infect the mindset of
-the programmers&lt;/p&gt;
+&lt;p&gt;What’s dangerous about some models is that, like a fish in water, we spend our entire lives immersed in them, and don’t realize that they’re just some of many possible models. This results in some constraints, born out of necessity in the implementation of some abstraction layer, that infect the mindset of the programmers and bubble up through higher layers of abstraction, long after the original need has faded from view.&lt;/p&gt;
 
-&lt;p&gt;If Turing-completion is good for anything, we should be able to prune
-previous restriction and become more flexible, yet relics of the
-constraints of lower levels are everywhere.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/inception.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Code and data are separated only because of the physical
-distinction of circuits and the electricity that flows through them,
-but there’s no mathematical difference between information and a
-transformation thereof. Yet we’re still wiring static, compiled
-programs that are essentially glorified circuit schematics!&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“What is the most resilient parasite?”
+  &lt;br /&gt;
+  “An idea.”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Meanwhile, we haven’t needed keyboards since the invention of the
-touchscreen, but every interaction with a computer is still funneled
-through a ridiculously constricting, serialized text stream. There are
-millions of pixels in our screens, and we can make any of them do
-anything at any time, but their most common use is to display the same
-alphabet that has been around for millennium. We have the technology to
-create a fully dynamic creative medium, but we’re still writing static emails
-and reading dead, flat PDFs functionally identical to the paper that
-preceded them.&lt;/p&gt;
+&lt;p&gt;If Turing-completion is good for anything, we should be able to prune previous restrictions and become more flexible, yet relics of the constraints of lower levels are everywhere.&lt;/p&gt;
 
-&lt;p&gt;Iterative development cycles are prone to the same system inference that
-the college admissions/SAT test loop suffers from. C was made to be a 
-better Assembly, not an expressive language.&lt;/p&gt;
+&lt;p&gt;Code and data are separated only because of the physical distinction of circuits and the electricity that flows through them, but there’s no mathematical difference between information and a transformation thereof. Yet we’re still wiring static, compiled programs that are essentially glorified circuit schematics. Meanwhile, we haven’t needed keyboards since the invention of the touchscreen, but every interaction with a computer is still funneled through a ridiculously constricting, serialized text stream. There are millions of pixels in our screens, and we can make any of them do anything at any time, but their most common use is to display the same alphabet that has been around for millennium. We have the technology to create a fully dynamic creative medium, but we’re still writing static emails and reading dead, flat PDFs functionally identical to the paper that preceded them!&lt;/p&gt;
+
+&lt;p&gt;What’s wrong with us!?&lt;/p&gt;
 
 &lt;h1 id=&quot;the-art-of-new-ideas&quot;&gt;The Art of New Ideas&lt;/h1&gt;
 
 &lt;h2 id=&quot;towards-a-higher-dimensional-space&quot;&gt;Towards a Higher Dimensional Space&lt;/h2&gt;
 
-&lt;p&gt;Last semester at MIT I had the adventure of taking 6.945: Large-scale
-Symbolic Systems from the infamous Prof. Gerald Jay Sussman, co-author 
-of SICP, SICM, Scheme, and the Lambda Papers, and fashion pioneer of 
-pocket protectors and wizard hats.&lt;/p&gt;
+&lt;p&gt;One of the many surprises in the Lisp story is that it wasn’t designed &lt;em&gt;as&lt;/em&gt; a programming language by some task force of academics. Instead, McCarthy dreamed it up as a notation for mathematical proofs - a syntax for statements that could be easily assigned Gödel numbers, and be evaluated reasonably simply by hand (a “proof” was an s-expression which, when evaluated, proved that the resultant value was a valid statement in the system). Compilers were thought to take years to build at the time, and McCarthy was shocked when a student implemented a simple evaluator on an actual computer in just a few days.&lt;/p&gt;
 
-&lt;p&gt;It’s one thing to read about the history of Lisp, but it’s another thing 
-to hear Sussman tell it himself. Not only do you get irresistibly
-excited by his energy (which is surprisingly radiant), but he delivers 
-context and surrounding perspective that usually gets sidelined.&lt;/p&gt;
+&lt;p&gt;Lisp gave us first-class functions, continuations, and the idea of code as data - only one of which has now finally become mainstream. Is it any surprise that the “greatest single programming language ever designed”Footnote: Alan Kay wasn’t actually designed, but rather &lt;em&gt;discovered&lt;/em&gt;? That its throne as the “the most intelligent way to misuse a computer… [that] has assisted a number of our most gifted fellow humans in thinking previously impossible thoughts”Footnote: Edsger Di… was born out of a happy accident in a mathematical vacuum? Lisp’s originality was built on math, not other languages (created “top-down”, not “bottom-up”, if you will), thereby breaking the circular obsession with refining existing ideas and escaping into the wild as its own truly unique &lt;em&gt;thing&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;One of the many surprises in the Lisp story that Sussman loves to emphasize 
-is that it wasn’t designed
-&lt;em&gt;as&lt;/em&gt; a programming language by some task force of academics. Instead,
-McCarthy dreamed it up as a notation for mathematical proofs - a syntax
-for statements that could be easily assigned Gödel numbers, and 
-be evaluated reasonably simply by hand. Compilers were thought to take
-years to build at the time, and McCarthy was shocked when a student 
-implemented a simple evaluator on an actual computer in just a few days.&lt;/p&gt;
+&lt;p&gt;This isn’t to say that Lisp is the ultimate programming language - far from it! Lisp suffers from the same counting argument as any other encoding. But it is a &lt;em&gt;different&lt;/em&gt; language, which makes it good at a &lt;em&gt;different&lt;/em&gt; set of things, and can teach us a &lt;em&gt;different&lt;/em&gt; mindset about computation.&lt;/p&gt;
 
-&lt;p&gt;Lisp gave us first-class functions, continuations, and the idea of code
-as data - only one of which has now finally become mainstream. Is it any 
-surprise that the 
-“&lt;a href=&quot;https://lispers.org/&quot;&gt;the greatest single programming language ever designed&lt;/a&gt;”
-wasn’t actually designed, but rather &lt;em&gt;discovered&lt;/em&gt;? That its throne as 
-the “the most intelligent way to misuse a computer” that has
-“assisted a number of our most gifted fellow humans in thinking 
-previously impossible thoughts” was born out of a happy accident in a
-mathematical vacuum?&lt;/p&gt;
+&lt;p&gt;So the answer isn’t that everyone should use Lisp. Some people should - it’s certainly good for something - but Lisp is not the final answer. Instead, I think we need to place a stronger emphasis on new ideas, &lt;em&gt;different&lt;/em&gt; ideas, even if they seem crazy, ridiculous, or flat-out stupid.&lt;/p&gt;
 
-&lt;p&gt;This isn’t to say that Lisp is the ultimate programming language - far 
-from it! Lisp suffers from the same counting argument as any other 
-encoding. But it is a &lt;em&gt;different&lt;/em&gt; language. And that random kernel of
-difference frames a unique model of computation that is easily missed
-on the narrow mainstream path.&lt;/p&gt;
+&lt;p&gt;The more I think about it, the more I realize how incapable I am of generating a &lt;em&gt;new&lt;/em&gt; idea. But I can’t imagine what a good, natively visual programming language looks like. I have trouble picturing things I’ve never seen before. Maybe, like any good programmer who can’t find a constructive solution, I should resort to a randomized algorithm, and hope that some randomly generated system can seed new perspectives. But I lose to the &lt;a href=&quot;http://people.ischool.berkeley.edu/~nick/aaronson-oracle/&quot;&gt;Aaronson Oracle&lt;/a&gt; more than 0.6 of the time. Maybe it’s all hopeless.&lt;/p&gt;
 
+&lt;p&gt;At any rate, we need to be more aware of the water around us, be less confident that we know what we’re doing, and listen more carefully for the next Lisp hiding around the corner. It’s possible that the world in 100 years could end up being a faster, more optimized, more connected, more user-engaged version of ours today. Humanity has endured much longer periods of stagnation in the past. Or it’s possible that it could be unimaginably, indescribably different. It’s up to us.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The future doesn’t have to be an extension of the present”&lt;br /&gt;
+  – Alan Kay&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         <pubDate>Fri, 10 Jun 2016 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/computation/</link>
@@ -277,176 +140,10 @@ on the narrow mainstream path.&lt;/p&gt;
       </item>
     
       <item>
-        <title>Opinions on Opinions</title>
-        <description>&lt;p&gt;“Computation” is a very slippery, mathematical idea. For convenience, 
-we almost always interact with it by proxy: we talk about models of 
-computation, individual little reductions and projections and 
-simplifications like “Turing machines” or “Python scripts” that are just 
-tiny peepholes – Turing-complete peepholes, but tiny nonetheless – into 
-the raw, fluid information-space beyond.&lt;/p&gt;
-
-&lt;h1 id=&quot;act-1-lisp-is-pure&quot;&gt;Act 1: Lisp is pure&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I don’t know who discovered water, but it wasn’t a fish.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;opinionation&quot;&gt;“Opinionation”&lt;/h2&gt;
-
-&lt;p&gt;The Lisp community likes to rant about Lisp’s “expressiveness” as proof 
-of its superiority. But rather than discuss a language’s expressiveness 
-– how large a window it has into the information-space – I think it’s 
-more valuable to examine a language’s opinionation – how much structural 
-baggage is required to frame the peephole. We can always chisel larger
-windows by constructing abstractions, but opinions are dangerous because 
-they stick, infect, and propagate.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/inception.jpg&quot; alt=&quot;Inception&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;What is the most resilient parasite?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here are a couple of examples of these “imposed opinions”.&lt;/p&gt;
-
-&lt;h3 id=&quot;typing&quot;&gt;Typing&lt;/h3&gt;
-&lt;p&gt;Strongly typed languages attach the idea of units to every piece of 
-information being manipulated. This isn’t to say it’s a bad thing – 
-there are many advantages – but it’s an artificial concept that we 
-overlaid on top of the underlying computation.&lt;/p&gt;
-
-&lt;h3 id=&quot;object-orientation&quot;&gt;Object-orientation&lt;/h3&gt;
-&lt;p&gt;Similarly, while a strict object-oriented metaphor like Smalltalk can be 
-powerful, it’s still a metaphor for something much larger and much more 
-powerful. The same statement can be made for Functional, Dataflow, or 
-any of the other commonly discussed “paradigms”. They’re just sets of 
-constraints for framing problems.&lt;/p&gt;
-
-&lt;h3 id=&quot;lexicography&quot;&gt;Lexicography&lt;/h3&gt;
-&lt;p&gt;People think that code is text in a file. Why? It makes sense – humans 
-think well literally – so of course it was natural to name hexadecimal 
-opcodes, and pile more natural linguistics on top of it. But visual, 
-flow-chart or spreadsheet-based languages are equally valid. In fact, 
-you can project information onto just about any human sense and call 
-it a new programming paradigm.&lt;/p&gt;
-
-&lt;h3 id=&quot;time&quot;&gt;Time&lt;/h3&gt;
-&lt;p&gt;Now it’s getting fun! There’s nothing about the mathematical concept of 
-computation that is time-dependent. If anything, computation encompasses 
-time, not vice-versa. Even in complexity theory, we only use time to 
-indirectly quantify a problem’s “hardness”. Yet every model of 
-computation that we use has a rigid framework of synchronism: code is 
-“executed” line-after-line, Turing machines follow an ordered series of 
-steps, and CPUs iterate through discrete, sequential cycles.&lt;/p&gt;
-
-&lt;h3 id=&quot;space&quot;&gt;Space&lt;/h3&gt;
-&lt;p&gt;This is even weirder to think about than time. Information always exists 
-as discrete chunks that “live” at addressable “locations”. Why? It’s 
-convenient for working with in practical implementation and might be 
-easier to conceptualize, but it’s not necessary. Memory addresses, 
-variables, files, and even websites are all symptoms of this opinion.&lt;/p&gt;
-
-&lt;h2 id=&quot;propagation&quot;&gt;Propagation&lt;/h2&gt;
-
-&lt;p&gt;Typing and object-orientation aren’t dangerous opinions because everyone 
-is aware that they are opinions, and that there are alternatives. That’s 
-the way that they’re taught – that Object-oriented languages are good 
-for some things, and Functional languages are good for other things, and 
-that you should choose your language to reflect your domain. That’s 
-awesome.&lt;/p&gt;
-
-&lt;p&gt;But what’s dangerous about some opinions is that, like a fish in water, 
-we spend our entire lives immersed in them. And as a result, nobody 
-realizes that they’re not inherent. Sequential, single-threaded 
-execution began as a necessity in hardware but then propagated up 
-through innumerable levels of abstraction to high-level languages – 
-we’re hardly rid of it today! Why should the limitations of a hardware 
-implementation constrain our mental models of programming? If 
-Turing-reducibility is good for anything, it should be able to prune 
-these limitations as we become increasingly abstract, not perpetuate 
-them!&lt;/p&gt;
-
-&lt;p&gt;Yet relics of the constraints of lower levels are everywhere. Code and 
-data are different things only because of the physical separation of 
-circuits and the electricity that flows through them, but there’s no 
-mathematical difference between information and a transformation 
-thereof. Yet we’re still wiring static, compiled programs that are 
-essentially glorified descriptions of circuits! Meanwhile, we haven’t 
-needed keyboards since the invention of the touchscreen, but every 
-interaction with a computer is still funneled through a ridiculously 
-restrictive, serialized text stream. There are millions of pixels in our 
-screens, and we can make any of them do anything at any time, but their 
-most common use is to display the same alphabet that has been around for 
-millennia. We have the technology to create a fully dynamic creative 
-medium, but we’re still writing emails and reading dead, flat PDFs 
-identical to the paper that preceded them. We’re even using text to 
-compose images in Processing! &lt;strong&gt;How can we be so stupid!?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Is it really surprising that we fail so painfully when trying to 
-simulate other computational platforms, even when they should be 
-theoretically within our reach?&lt;/p&gt;
-
-&lt;p&gt;Is it really surprising that distributed and parallel computation are so 
-incredibly difficult?&lt;/p&gt;
-
-&lt;p&gt;Is it really surprising that “programming” has a stereotype of a 
-prohibitively high learning barrier? That getting kids interesting in 
-coding is so hard?&lt;/p&gt;
-
-&lt;p&gt;If we are going to advance computation – and I mean really advance, as 
-in innovate, not iterate – we need to start critically evaluating and 
-challenging the assumptions that we’ve made and the constraints that 
-we’ve built our systems on. We need to stop propagating constraints that 
-are only implementation-specific. Instead, our goal should be to 
-systematically remove constraints and refine impurities with every level 
-of abstraction.&lt;/p&gt;
-
-&lt;h2 id=&quot;enter-lisp&quot;&gt;Enter Lisp&lt;/h2&gt;
-
-&lt;p&gt;I haven’t explicitly said it yet, so here it: Lisp is the more pure, 
-least constraining language humanity has ever invented.&lt;/p&gt;
-
-&lt;p&gt;Even having escaped the nebulous idea of “expressiveness”, this is still 
-a difficult argument to make. How can we tell if Lisp is actually less 
-opinionated, or just opinionated in a radically different direction than 
-what we’re used to?&lt;/p&gt;
-
-&lt;p&gt;This semester at MIT I’m taking a class on symbolic programming from the 
-infamous Gerry Sussman, creator of Scheme, author of SICP and SICM, and 
-pioneer of Nerd Pride pocket protectors everywhere. The class itself is 
-worthy of its own post, so I’ll defer that and replace this sentence 
-with a link once I write it. Insert your favorite JavaScript Promise pun 
-here.&lt;/p&gt;
-
-&lt;p&gt;Sussman is fond of repeating that Lisp is easy to learn, not because it 
-has a simple syntax, but because it has &lt;em&gt;no&lt;/em&gt; syntax. There no 
-programmer-facing interface, no intermediate step: a Lisp program is a 
-direct encoding of the abstract syntax tree of its own evaluation. It 
-makes no assumptions about your data and imposes minimal constraints on 
-your mental model (the largest of which is perhaps that lambda-calculus 
-is inherently symbolic, which is quite hard to subvert). Lisp is the 
-closest we come to directly manipulating information, getting a raw 
-glimpse of naked computation, and the weird Zen nirvana that they’re the 
-same thing. Cue any number of blog posts about the fabled 
-“Lisp enlightenment”.&lt;/p&gt;
-
-&lt;h1 id=&quot;act-2-lisp-is-useful&quot;&gt;Act 2: Lisp is useful&lt;/h1&gt;
-
-</description>
-        <pubDate>Sun, 17 Apr 2016 19:56:45 -0400</pubDate>
-        <link>http://localhost:4000/thoughts/2016/04/17/lisp.html</link>
-        <guid isPermaLink="true">http://localhost:4000/thoughts/2016/04/17/lisp.html</guid>
-        
-        
-        <category>thoughts</category>
-        
-      </item>
-    
-      <item>
         <title>GRASP</title>
         <description>&lt;p&gt;It’s easy to look at lines of code and think you know what programming is, but text is only one of many possible representations. GRASP visualizes Scheme ASTs with as little text as possible, using a force-directed 3D graph to organize the program’s structure. &lt;break&gt; Data transformation happens laterally with functions, while references and variable scoping are organized vertically.&lt;/break&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/joeltg/grasp/master/screenshots/0.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/grasp-0.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Functions are green&lt;/li&gt;
@@ -455,9 +152,11 @@ same thing. Cue any number of blog posts about the fabled
   &lt;li&gt;That’s about it&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;img src=&quot;/assets/images/grasp-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;In GRASP, variables don’t need to be named, since every reference links back to just one spatially unique node in the original environment in which it was defined (thanks to lexial scoping). Similarly, functions also don’t need labels, since they can link back to their original definitions. The “Labels” switch toggles these optional labels.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/joeltg/grasp/master/screenshots/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/grasp-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;GRASP is an ongoing project. The project’s long-term goal is to eliminate the need for text entirely (changing the mindset to optionally “labeling” nodes to be searchable later), and implement a completely visual Scheme IDE in imersive VR, but right now I’m working on making the graph editable directly by dragging edges from node to node while reflecting those changes dynamically in the textual code, and working on integrating a Scheme to JavaScript interpreter to visualize data flow in program execution step-by-step or in real-time.&lt;/p&gt;
 
@@ -602,75 +301,6 @@ currently selected.&lt;/p&gt;
         
         
         <category>projects</category>
-        
-      </item>
-    
-      <item>
-        <title>Sample post</title>
-        <description>&lt;p&gt;Just a sample post to show some of the &lt;em&gt;typography&lt;/em&gt; elements supported from
-&lt;strong&gt;daktilo&lt;/strong&gt; theme.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;A blockquote:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We are Hitchhikers in the road of open source knowledge.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;header-2&quot;&gt;Header 2&lt;/h2&gt;
-
-&lt;p&gt;Duis lacinia commodo dui, vel aliquam metus hendrerit eu. Integer et scelerisque dui. Sed nec molestie quam. Donec sit amet nisl a massa commodo ultrices nec quis nunc. Aenean aliquet eu arcu adipiscing dignissim. Nunc dictum elit vitae dolor molestie aliquet.&lt;/p&gt;
-
-&lt;p&gt;Example code:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;var light = new Light();
-var switchUp = new FlipUpCommand(light);
-var switchDown = new FlipDownCommand(light);
-var s = new Switch();
-
-s.storeAndExecute(switchUp);
-s.storeAndExecute(switchDown);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;A list:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc&lt;/li&gt;
-  &lt;li&gt;Donec ante est, volutpat in mi et, pulvinar congue dolor.&lt;/li&gt;
-  &lt;li&gt;Quisque ultrices pulvinar sollicitudin.&lt;/li&gt;
-  &lt;li&gt;Duis elementum odio eu euismod suscipit.&lt;/li&gt;
-  &lt;li&gt;Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A numbered list:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Praesent nisi elit, bibendum ut consectetur ac, aliquet in nunc.&lt;/li&gt;
-  &lt;li&gt;Donec ante est, volutpat in mi et, pulvinar congue dolor.&lt;/li&gt;
-  &lt;li&gt;Quisque ultrices pulvinar sollicitudin.&lt;/li&gt;
-  &lt;li&gt;Duis elementum odio eu euismod suscipit.&lt;/li&gt;
-  &lt;li&gt;Integer enim lorem, interdum sit amet consectetur non, bibendum eget neque.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Definition list:&lt;/p&gt;
-
-&lt;dl&gt;
-  &lt;dt&gt;Curabitur cursus magna eu sem cursus&lt;/dt&gt;
-  &lt;dd&gt;ac ultrices urna pharetra.&lt;/dd&gt;
-  &lt;dd&gt;Duis scelerisque ipsum eu luctus elementum.&lt;/dd&gt;
-  &lt;dt&gt;Pellentesque habitant morbi tristique senectus&lt;/dt&gt;
-  &lt;dd&gt;Curabitur malesuada lacus ac gravida porttitor&lt;/dd&gt;
-  &lt;dd&gt;Duis sodales feugiat lorem et mollis.&lt;/dd&gt;
-&lt;/dl&gt;
-</description>
-        <pubDate>Tue, 19 Aug 2014 19:56:45 -0400</pubDate>
-        <link>http://localhost:4000/projects/thoughts/2014/08/19/sample-post.html</link>
-        <guid isPermaLink="true">http://localhost:4000/projects/thoughts/2014/08/19/sample-post.html</guid>
-        
-        
-        <category>projects</category>
-        
-        <category>thoughts</category>
         
       </item>
     

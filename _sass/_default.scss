@@ -3,11 +3,19 @@ body {
     font-family: 'PT Sans', sans-serif, 'Source Code Pro', monospace;
     color: $iron;
     background-color: $dorian;
-     //background: $dorian url('graph-paper.svg') 50% 50%;
+}
+
+.footer {
+    font-size: 0.75em;
+    line-height: 1.2;
 }
 
 h3, h4, h5, h6 {
-    margin: 0;
+    margin: 24px 0 0 0;
+}
+
+h3 {
+    font-size: 19px;
 }
 
 a {
@@ -61,7 +69,7 @@ h1 + h2 {
   margin-bottom: 1em;
   color: $cloudy;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 1.25em;
 }
 
 dl {
@@ -310,15 +318,15 @@ strong {
 }
 
 .categories__item a {
-    color: $iron;
-    font-size: 19px;
-    font-weight: bold;
+    color: $cloudy;
+    font-size: 1em;
+    //font-weight: bold;
     background-image: none;
     text-shadow: none;
 }
 
 .categories__item:before {
-    content: " / ";
+    content: "  // ";
     //margin-left: 6px;
     color: $cloudy;
 }
@@ -353,7 +361,11 @@ strong {
     /* =Base */
     p {
         font-size: 16px;
-        line-height: 1.6;
+        line-height: 1.4;
+    }
+    li {
+        font-size: 16px;
+        line-height: 1.2;
     }
 
     .wrapper {
@@ -413,6 +425,11 @@ strong {
 
     .post-title__subtitle {
         font-size: 18px;
+    }
+
+    p > a, li > a {
+        // I hate everything
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $cloudy 2px, $cloudy 3px, rgba(0, 0, 0, 0) 3px);
     }
 }
 
