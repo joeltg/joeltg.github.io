@@ -21,8 +21,6 @@ But it turns out that reality is complicated, and things rarely work to cleanly 
 
 ## "Naming a thing gives you power over it"
 
-> "Naming a thing gives you power over it" -- Patrick Henry Winston
-
 Every function over binary inputs can be modeled with a circuit of primitive logic gates, like AND/OR/NOT or NAND. Some functions, like a bitwise AND, are really easy to model with circuits, and can be constructed with a number of gates that is linear in the size of the input. Other functions are a little less friendly, and need a polynomial number of gates to model.
 
 But there are *a lot* of possible functions. Even just considering boolean operations (that output only one bit), there are 2 ^2 ^ n distinct mappings over n inputs. This absolutely dwarfs the O(2 ^ n) functions you can model with n logic gates, which means that there just isn't space for every function to have a polynomial-sized circuit. In fact, the vast majority of functions have to be content with enormous, exponentially huge circuits.
