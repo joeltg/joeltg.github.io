@@ -4,10 +4,10 @@
     <title>Joel Gustafson</title>
     <description>I&#39;m a junior at MIT pursuing computer science and mathematics. I want to make computing universally accessible as a medium and an art. I believe in direct manipulation of data, augmenting human intellect, and dynamic, interactive documents, unlike most of the ones you&#39;ll find here.
 </description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Jun 2016 18:27:59 -0400</pubDate>
-    <lastBuildDate>Sat, 25 Jun 2016 18:27:59 -0400</lastBuildDate>
+    <link>http://joelgustafson.com/</link>
+    <atom:link href="http://joelgustafson.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 25 Jun 2016 19:46:50 -0400</pubDate>
+    <lastBuildDate>Sat, 25 Jun 2016 19:46:50 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -18,17 +18,13 @@
 
 &lt;p&gt;I intended this piece to be a sweeping manifesto. I set out to vindicate Lisp as - empirically - the most pure, righteous encoding of computation that humanity has ever discovered, and to strike down with furious anger those who seek to marginalize it as “obtuse” or “unintuitive”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/lisp.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://joelgustafson.com/assets/images/lisp.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;But it turns out that reality is complicated, and things rarely work to cleanly justify any radical ideology. So if, at the end of this, you feel a vague sense of frustration with the world, but without any particularly strong direction or conviction, that’s because I feel the same way.&lt;/p&gt;
 
 &lt;h1 id=&quot;shannons-counting-argument&quot;&gt;Shannon’s Counting Argument&lt;/h1&gt;
 
 &lt;h2 id=&quot;naming-a-thing-gives-you-power-over-it&quot;&gt;“Naming a thing gives you power over it”&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Naming a thing gives you power over it” – Patrick Henry Winston&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;p&gt;Every function over binary inputs can be modeled with a circuit of primitive logic gates, like AND/OR/NOT or NAND. Some functions, like a bitwise AND, are really easy to model with circuits, and can be constructed with a number of gates that is linear in the size of the input. Other functions are a little less friendly, and need a polynomial number of gates to model.&lt;/p&gt;
 
@@ -59,7 +55,7 @@
 
 &lt;p&gt;But! Abstractions leak, and systems interfere with each other. Quickly, students began to buy practice books and started memorizing obscure vocabulary directly, without the trouble of readying for college beforehand. Those convenient proxies that used to be correlated with college readiness became gameable, and the thing that the SAT really tested stopped being “college readiness” and became “proficiency at taking SAT tests”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/tech_loops.png&quot; alt=&quot;Help!&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://joelgustafson.com/assets/images/tech_loops.png&quot; alt=&quot;Help!&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At first glance, ignoring the exponential majority of the “things” in the computation-verse might seem insignificant - after all, we’ve carefully designed our programming languages to expose everything imaginably useful through simple, human-readable metaphors like Objects or Functions. In fact, we’ve honed and sharpened these languages over dozens of iterations to be &lt;em&gt;really good&lt;/em&gt; at manipulating functions and objects and classes and strings and APIs.&lt;/p&gt;
 
@@ -80,7 +76,7 @@
 
 &lt;p&gt;Constraints inspire creativity and give structure to ideas. Even if a universally expressive, unbiased programming language existed, it would likely be impossible to use. Perfection breeds paralysis.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/images/ex-machina.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://joelgustafson.com/assets/images/ex-machina.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“What if Pollock said, ‘You know what? I can’t paint anything, 
@@ -95,7 +91,7 @@
 
 &lt;p&gt;What’s dangerous about some models is that, like a fish in water, we spend our entire lives immersed in them, and don’t realize that they’re just some of many possible models. This results in some constraints, born out of necessity in the implementation of some abstraction layer, that infect the mindset of the programmers and bubble up through higher layers of abstraction, long after the original need has faded from view.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/inception.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://joelgustafson.com/assets/images/inception.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“What is the most resilient parasite?”
@@ -131,8 +127,8 @@
 &lt;/blockquote&gt;
 </description>
         <pubDate>Fri, 10 Jun 2016 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/computation/</link>
-        <guid isPermaLink="true">http://localhost:4000/computation/</guid>
+        <link>http://joelgustafson.com/computation/</link>
+        <guid isPermaLink="true">http://joelgustafson.com/computation/</guid>
         
         
         <category>thoughts</category>
@@ -208,8 +204,8 @@ All the visual “languages” that exist are shallow wrappers around inherently
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 09 Jan 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/projects/2016/01/09/grasp.html</link>
-        <guid isPermaLink="true">http://localhost:4000/projects/2016/01/09/grasp.html</guid>
+        <link>http://joelgustafson.com/projects/2016/01/09/grasp.html</link>
+        <guid isPermaLink="true">http://joelgustafson.com/projects/2016/01/09/grasp.html</guid>
         
         
         <category>projects</category>
@@ -296,8 +292,8 @@ currently selected.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 14 Dec 2015 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/visual_history/</link>
-        <guid isPermaLink="true">http://localhost:4000/visual_history/</guid>
+        <link>http://joelgustafson.com/visual_history/</link>
+        <guid isPermaLink="true">http://joelgustafson.com/visual_history/</guid>
         
         
         <category>projects</category>
