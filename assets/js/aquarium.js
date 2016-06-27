@@ -14,7 +14,8 @@ const libs = [
     'NLTK',
     'CodeMirror',
     'Emacs',
-    'Webpack'
+    'Webpack',
+    'grep'
 ];
 
 const d_range = 2;
