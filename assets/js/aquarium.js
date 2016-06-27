@@ -13,7 +13,8 @@ const libs = [
     'Tensorflow',
     'NLTK',
     'CodeMirror',
-    'Emacs'
+    'Emacs',
+    'Webpack'
 ];
 
 const d_range = 2;
