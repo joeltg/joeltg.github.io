@@ -2,7 +2,7 @@
 // only 1337 haxx0rs know of "inspect element"
 var variables = {
   location: ['in libraries', 'around public parks', 'in coffeshops', 'in bookstores', 'on rooftops'],
-  beverage: ['chai latte', 'macchiato', 'hibiscus tea', 'mango black tea'],
+  beverage: ['chai latte', 'macchiato', 'hibiscus tea', 'black tea', 'kombucha'],
   music: [
     'Vampire Weekend',
     'the Hamilton soundtrack',
@@ -10,7 +10,9 @@ var variables = {
     'Ratatat',
     'Daft Punk',
     'LCD Soundsystem',
-    'Caravan Palace'
+    'Caravan Palace',
+    'Tame Impala',
+    'MGMT'
   ],
   reading: [
     'Noam Chomsky',
