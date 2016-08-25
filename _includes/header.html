@@ -12,19 +12,19 @@
     <ul class="social-links">
         {% if site.author.github %}
             <a href="https://github.com/{{ site.author.github }}" class="social-links__entry" target="_blank">
-                <i class="fa fa-github"></i>
+                <img class="svg icon" src="{{ site.baseurl }}/assets/images/github.svg"/>
             </a>
         {% endif %}
 
         {% if site.author.email %}
         <a href="mailto:{{ site.author.email }}" class="social-links__entry" target="_blank">
-            <i class="fa fa-envelope"></i>
+            <img class="svg icon" src="{{ site.baseurl }}/assets/images/envelope.svg"/>
         </a>
         {% endif %}
 
         {% if site.author.twitter %}
             <a href="https://twitter.com/{{ site.author.twitter }}" class="social-links__entry" target="_blank">
-                <i class="fa fa-twitter"></i>
+                <img class="svg icon" src="{{ site.baseurl }}/assets/images/twitter.svg"/>
             </a>
         {% endif %}
     </ul>
