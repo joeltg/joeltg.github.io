@@ -17,19 +17,10 @@ sitemap:
   <span class="variable" id="reading"></span>.
 </p>
 <br><br>
+
 <ul class="list-posts">
   {% for post in site.posts limit:5 %}
-  <li class="post-teaser" >
-
-    <a class="post-teaser__link" href="{{ post.url | prepend: site.baseurl }}">
-      <span class="post-teaser__title">{{ post.title }}</span>
-      <span class="post-teaser__date">{{ post.date | date: "%d %B %Y" }}</span>
-      <br>
-      <span class="post-teaser__subtitle">{{ post.subtitle }}</span>
-    </a>
-    <br>
-    <span class="post-teaser__excerpt">{{ post.excerpt }}</span>
-  </li>
+    {% include lists/post.html %}
   {% endfor %}
 </ul>
 

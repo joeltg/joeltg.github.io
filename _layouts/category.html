@@ -4,28 +4,11 @@ layout: default
 {% include category/title.html %}
 
 <ul class="list-posts">
-    {% assign empty_category = true %}
     {% for post in site.posts %}
         {% if post.categories contains page.category %}
-            <li class="post-teaser" >
-                <a class="post-teaser__link" href="{{ post.url | prepend: site.baseurl }}">
-                    <span class="post-teaser__title">{{ post.title }}</span>
-                    <span class="post-teaser__date">{{ post.date | date: "%d %B %Y" }}</span>
-                    <br>
-                    <span class="post-teaser__subtitle">{{ post.subtitle }}</span>
-                </a>
-                <br>
-                <span class="post-teaser__excerpt">{{ post.excerpt }}</span>
-            </li>
-            {% assign empty_category = false %}
+            {% include lists/post.html %}
         {% endif %}
     {% endfor %}
-
-    {% if empty_category %}
-        <li class="empty-post-list">
-            This shouldn't have happened. You should send me an angry email about it.
-        </li>
-    {% endif %}
 </ul>
 
 {% include page/explore.html %}
