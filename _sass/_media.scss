@@ -1,0 +1,48 @@
+@media (max-width: 800px) {
+  .logo {  font-size: 40px;  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .wrapper {  width: 80%;  }
+  .navigation, .social-links {  @include centered-block();  }
+  .social-links {  margin-top: 35px;  }
+
+  .page-title {
+    margin-top: 16px;
+    margin-bottom: 60px;
+  }
+
+  .page-title__text {  font-size: 40px;  }
+  .page-title__subtitle {  font-size: 18px;  }
+
+  .post-teaser__title {
+    font-size: 18px;
+    @include centered-block();
+  }
+
+  .post-teaser__date {
+    font-size: 16px;
+    margin-top: 0;
+    float: none;
+    @include centered-block();
+  }
+
+  .post-teaser__subtitle {  display: none;  }
+  .post-teaser__link > br, .post-teaser > br {  display: none;  }
+  .explore {  margin-top: 80px;  }
+  .post-title__text {  font-size: 28px;  }
+  .post-title__subtitle {  font-size: 18px;  }
+
+  p > a, li > a {
+    // I still hate everything
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $cloudy 2px, $cloudy 3px, rgba(0, 0, 0, 0) 3px);
+  }
+}

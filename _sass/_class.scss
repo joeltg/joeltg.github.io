@@ -1,4 +1,10 @@
-.icon {
+.social-links__entry > a {
+    text-decoration: none;
+    background-image: none;
+    text-shadow: none;
+}
+
+.social-links__entry > a > img {
     display: inline-block;
     margin: 0;
     height: 24px;
@@ -11,13 +17,9 @@
     margin: 100px auto;
 }
 
-.header {
-    overflow: hidden;
-}
+.header {  overflow: hidden;  }
 
-.navigation {
-    float:left;
-}
+.navigation {  float:left;  }
 
 .logo {
     font-size: 50px;
@@ -29,20 +31,15 @@
 .menu {
     color: $cloudy;
     font-size: 18px;
-    margin:0px;
-    //margin-top: 6px;
-    padding: 0px;
+    margin:0;
+    padding: 0;
     list-style-type: none;
 }
 
 .menu__entry {
     display: inline-block;
     margin: 0 25px 0 0;
-    //margin-right: 25px;
-
-    &:last-child {
-        margin-right: 0px;
-    }
+    &:last-child {  margin-right: 0;  }
 }
 
 .menu__entry a {
@@ -52,7 +49,6 @@
 
 .social-links {
     float:right;
-    font-size: 24px;
     color: $cloudy;
     list-style-type: none;
 }
@@ -101,18 +97,11 @@
     margin-left: 0px;
 }
 
+.post-title {  margin-bottom: 110px;  }
 
-.post-title {
-    margin-bottom: 110px;
-}
+.post-title__text {  font-size: 40px;  }
 
-.post-title__text {
-    font-size: 40px;
-}
-
-.post-title__subtitle {
-    font-size: 20px;
-}
+.post-title__subtitle {  font-size: 20px;  }
 
 /* =Post teasers */
 
@@ -156,10 +145,7 @@
     color: $cloudy;
 }
 
-.post-teaser__link {
-    position: relative;
-    //margin: 0 0 10px 0;
-}
+.post-teaser__link {  position: relative;  }
 
 .post-teaser__image {
     position: absolute;
@@ -210,7 +196,6 @@
 
 .categories__item:before {
     content: "  // ";
-    //margin-left: 6px;
     color: $cloudy;
 }
 
@@ -235,85 +220,6 @@
 
 .about__text {
     font-size: 18px;
-}
-
-@media (max-width: 800px) {
-    .logo {
-        font-size: 40px;
-    }
-    /* =Base */
-    p {
-        font-size: 16px;
-        line-height: 1.4;
-    }
-    li {
-        font-size: 16px;
-        line-height: 1.2;
-    }
-
-    .wrapper {
-        width: 80%;
-    }
-
-    .navigation,
-    .social-links {
-        @include centered-block();
-    }
-
-    .social-links {
-        font-size: 30px;
-        margin-top: 35px;
-    }
-
-    .page-title {
-        margin-top: 16px;
-        margin-bottom: 60px;
-    }
-
-    .page-title__text {
-        font-size: 40px;
-    }
-
-    .page-title__subtitle {
-        font-size: 18px;
-    }
-
-    .post-teaser__title {
-        font-size: 18px;
-        @include centered-block();
-    }
-
-    .post-teaser__date {
-        font-size: 16px;
-        margin-top: 0;
-        float: none;
-        @include centered-block();
-    }
-
-    .post-teaser__subtitle {
-        display: none;
-    }
-
-    .post-teaser__link > br, .post-teaser > br {
-        display: none;
-    }
-
-    .explore {
-        margin-top: 80px;
-    }
-
-    .post-title__text {
-        font-size: 28px;
-    }
-
-    .post-title__subtitle {
-        font-size: 18px;
-    }
-
-    p > a, li > a {
-        // I still hate everything
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $cloudy 2px, $cloudy 3px, rgba(0, 0, 0, 0) 3px);
-    }
 }
 
 .variable {
