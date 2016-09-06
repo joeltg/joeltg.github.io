@@ -54,8 +54,7 @@ Autocorrect is a 5- to 10-character window into the future, and it's constructiv
 
 > "What a computer is to me is it’s the most remarkable tool that we’ve ever come up with, and it’s the equivalent of a bicycle for our minds." <br> - Steve Jobs
 
-So here's the common thread: there's a very qualitative distinction between what I call "oracles" and "bicycles". 
-Oracles are very Q&A, very I/O, very call-and-response.
+So here's the common thread: there's a very qualitative distinction between "oracles" and "bicycles". Oracles are very Q&A, very I/O, very call-and-response.
 Bicycles are very direct, very fluid, very analog.
 Bicycles expand the range of what a human can do; oracles do something that a human tells them to do.
 Oracles receive a command, go do something else somewhere else, and maybe come back and return a result.
