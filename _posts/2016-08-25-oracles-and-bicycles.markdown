@@ -61,5 +61,13 @@ Bicycles integrate into our own selves.
 Pedals are just extensions of our feet; racquets are extensions of our arms; search engines are extensions of our memories.
 But oracles are their own "thing", a independent entity, and a foreigner that has to be communicated *with*.
 
+Sometimes this difference is a function of how information is displayed and how it reacts to the user.
+Terminals and REPLs are inherently oracles; spreadsheets connect our fingertips directly to raw information.
+
+Other times it's just a difference in the conceptual model that users construct. 
+Some people think of Google as an oracle; others as a bicycle.
+Those who bicycle around Google aren't just "better at Googling"; they have a fundamentally different view of what it is.
+
 This isn't to say that oracles are inherently wrong or that bicycles are always better. But there's a huge difference between truly *augmenting* a human and merely *interfacing* with one.
-It's important to know exacly which class of lever 
+It's important to know exacly which class of lever is appropriate for any given problem space.
+
