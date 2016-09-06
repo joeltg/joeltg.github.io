@@ -4,7 +4,7 @@ title: "Oracles and Bicycles"
 subtitle: "Augmentation, Interaction, and other things that are not the same"
 date: 2016-08-25
 permalink: /bicycles/
-excerpt: <p>There's a huge difference between truly *augmenting* a human and merely *interfacing* with one.</p>
+excerpt: <p>There's a huge difference between truly augmenting a human and merely interfacing with one.</p>
 categories: [thoughts]
 ---
 
