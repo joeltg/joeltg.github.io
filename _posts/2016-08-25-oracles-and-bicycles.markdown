@@ -2,7 +2,6 @@
 layout: post
 title: "Oracles and Bicycles"
 subtitle: "Augmentation, Interaction, and other things that are not the same"
-excerpt: <p>hi</p>
 date: 2016-08-25
 permalink: /bicycles/
 categories: [thoughts]
