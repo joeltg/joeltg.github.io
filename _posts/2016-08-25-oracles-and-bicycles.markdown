@@ -51,8 +51,6 @@ Autocorrect is a 5- to 10-character window into the future, and it's constructiv
 
 -------
 
-> "What a computer is to me is it’s the most remarkable tool that we’ve ever come up with, and it’s the equivalent of a bicycle for our minds." <br> - Steve Jobs
-
 So here's the common thread: there's a very qualitative distinction between "oracles" and "bicycles". Oracles are very Q&A, very I/O, very call-and-response.
 Bicycles are very direct, very fluid, very analog.
 Bicycles expand the range of what a human can do; oracles do something that a human tells them to do.
@@ -71,3 +69,6 @@ Those who bicycle around Google aren't just "better at Googling"; they have a fu
 This isn't to say that oracles are inherently wrong or that bicycles are always better. But there's a huge difference between truly *augmenting* a human and merely *interfacing* with one.
 It's important to know exacly which class of lever is appropriate for any given problem space.
 
+> "What a computer is to me is it’s the most remarkable tool that we’ve ever come up with, and it’s the equivalent of a bicycle for our minds." <br> - Steve Jobs
+
+<img src="{{ site.baseurl }}/assets/images/bicycle.png" />
