@@ -4,14 +4,16 @@ body {
   background-color: $dorian;
 }
 
-.footer {
+#quote {
   font-size: 0.75em;
   line-height: 1.2;
+  margin-top: 0;
 }
 
 .btc {
   font-family: monospace;
   font-size: 12px;
+  margin-bottom: 0;
 }
 
 h1 {  margin-bottom: 0;  }
