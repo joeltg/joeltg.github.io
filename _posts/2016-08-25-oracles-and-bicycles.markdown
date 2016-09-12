@@ -37,7 +37,7 @@ Right?
 -------
 
 As keyboards get smarter, "spellcheck" is becoming obsolete.
-It's not because we're spelling better, but rather writing better: autocorrect is letting people not even spell anything at all!
+It's not because we're spelling better, but rather writing better: autocomplete is letting people not even spell anything at all!
 This is *awesome*.
 Spellcheck, while better than nothing, embodies a very violent UX pattern.
 It has no flow.
@@ -45,9 +45,9 @@ It interrupts.
 It implies that misspelling a word is some sort of wrongdoing, instead of a natural part of the writing process.
 It's pure, retroactive error correction and still requires its own deliberate action to dismiss.
 
-This is in sharp contrast with autocorrect.
-Instead of retroactive correction, autocorrect is proactive prediction, which is much less disruptive. 
-Autocorrect is a 5- to 10-character window into the future, and it's constructive in every way that spellcheck is destructive.
+This is in sharp contrast with autocomplete.
+Instead of retroactive correction, autocomplete is proactive prediction, which is much less disruptive. 
+Autocomplete is a 5- to 10-character window into the future, and it's constructive in every way that spellcheck is destructive.
 
 -------
 
