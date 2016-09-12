@@ -37,7 +37,7 @@ I've worked on several projects, mostly with visualizations, interface design, a
 ### MIT CSAIL
 
 In summer 2016 I started working with [Gerry Sussman](https://en.wikipedia.org/wiki/Gerald_Jay_Sussman) and [Jack Wisdom](https://en.wikipedia.org/wiki/Jack_Wisdom) to redesign the online notes, simulations, and demos for [6.946: Computational Classical Mechanics](http://groups.csail.mit.edu/mac/users/gjs/6946/).
-In 2016, I joined the [Software Design Group](http://sdg.csail.mit.edu/) as the Keel Foundation Undergraduate Research and Innovation Scholar (wow).
+In fall 2016, I joined the [Software Design Group](http://sdg.csail.mit.edu/) as the Keel Foundation Undergraduate Research and Innovation Scholar (wow).
 I'm working on an object-oriented spreadsheet programming interface and a new way to compose relational expressions.
 
 # Heroes
