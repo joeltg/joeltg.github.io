@@ -19,8 +19,10 @@ sitemap:
 <br><br>
 
 <ul class="list-posts">
-  {% for post in site.posts limit:5 %}
-    {% include lists/post.html %}
+  {% for post in site.posts %}
+    {% unless post.categories contains "rambles" %}
+      {% include lists/post.html %}
+    {% endunless %}
   {% endfor %}
 </ul>
 

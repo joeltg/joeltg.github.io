@@ -4,7 +4,7 @@ title: "Oracles and Bicycles"
 subtitle: "Extension, Interaction, and other things that are not the same"
 date: 2016-08-25
 excerpt: <p>There's a huge difference between truly augmenting a human and merely interfacing with one.</p>
-categories: [thoughts]
+categories: [ideas]
 ---
 
 There are three classes of levers, but some are more similar than others.

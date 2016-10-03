@@ -4,7 +4,7 @@ title: "Notes on Computation"
 subtitle: "Languages, Lisp, and New Ideas"
 date: 2016-06-10
 permalink: /computation/
-categories: [thoughts]
+categories: [ideas]
 ---
 
 "Computation" is a slippery, mathematical idea.
