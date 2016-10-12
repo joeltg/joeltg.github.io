@@ -6,7 +6,7 @@ permalink: /about/
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
-I'm a junior at MIT pursuing computer science and mathematics. 
+I'm a junior at MIT pursuing computer science and mathematics.
 I'm a big fan of Lisp, Alan Kay, and Bret Victor, and tend to overuse words like "relation", "projection", and "space".
 I can recite most [xkcd](https://xkcd.com) comics from memory (including the alt-text) and love petty semantic debates.
 
@@ -69,6 +69,7 @@ Maybe someday we'll realize their dreams, but until then, with ideas that are st
 ## past, present, and the tentative future
 
 Check out my complete [road map](https://courseroad.mit.edu/#joelg), complete with degree audit details.
+I'm (usually) Course 6-3, Courses 6-3 \& 18G, or just Course 18C, depending on the phase of the moon and the observed states of entangled roommates.
 
 # Code Aquarium
 
