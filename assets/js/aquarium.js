@@ -21,7 +21,7 @@ var data = [
     'Webpack',
     'Unix',
     'Ant',
-    'Android Studio',
+    'Android',
     'JavaScript',
     'Scheme',
     'Scala',
