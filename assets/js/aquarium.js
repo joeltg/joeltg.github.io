@@ -19,7 +19,9 @@ var data = [
     'CodeMirror',
     'Emacs',
     'Webpack',
-    'Unix'
+    'Unix',
+    'Ant',
+    'Android Studio'
 ];
 
 var container = document.getElementById('container');
