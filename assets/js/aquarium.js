@@ -21,7 +21,14 @@ var data = [
     'Webpack',
     'Unix',
     'Ant',
-    'Android Studio'
+    'Android Studio',
+    'JavaScript',
+    'Scheme',
+    'Scala',
+    'Java',
+    'Python',
+    'Common Lisp',
+    'Bash'
 ];
 
 var container = document.getElementById('container');
