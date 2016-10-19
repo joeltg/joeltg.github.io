@@ -70,6 +70,7 @@ Maybe someday we'll realize their dreams, but until then, with ideas that are st
 
 Check out my complete [road map](https://courseroad.mit.edu/#joelg), complete with degree audit details.
 I'm (usually) Course 6-3, Courses 6-3 & 18G, or just Course 18C, depending on the phase of the moon and the observed states of entangled roommates.
+But the degree is meaningless: what matters are the courses I take, the skills I learn, the people I meet, and the dimension of the vector space I think in.
 
 # Code Aquarium
 
