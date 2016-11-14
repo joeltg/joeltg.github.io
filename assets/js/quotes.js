@@ -7,7 +7,8 @@ var quotes = [
     "Most people are other people. Their thoughts are someone else's opinions, their lives a mimicry, their passions a quotation.",
     "A foolish consistency is the hobgoblin of little minds.",
     "The easiest way to predict the future is to invent it.",
-    "A better craftsman makes his own tools."
+    "A better craftsman makes his own tools.",
+    "Let us calculate, without further ado, to see who is right."
 ];
 
 var quote = document.getElementById('quote');
