@@ -12,7 +12,15 @@ var variables = {
     'LCD Soundsystem',
     'Caravan Palace',
     'Tame Impala',
-    'MGMT'
+    'MGMT',
+    'The xx',
+    'Foster The People',
+    'Two Door Cinema Club',
+    'Grouplove',
+    'The Modern Lovers',
+    'STRFKR',
+    'fun.',
+    'Animal Collective'
   ],
   reading: [
     'Noam Chomsky',
