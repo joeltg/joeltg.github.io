@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GRASP: Joel Gustafson</title>
+    <link rel="stylesheet" href="/styles/tufte.css">
+</head>
+<body>
+    <article>
+        <h1>GRASP</h1>
+        <p class="subtitle"><a href="/">Joel Gustafson</a></p>
+        <p><a href="http://github.com/joeltg/grasp">GitHub</a>, <a href="/grasp">Demo</a></p>
+        <section>
+            <p>
+                It’s easy to look at lines of code and think you know what programming is, but text is only one of many possible representations.
+                GRASP visualizes Scheme ASTs with as little text as possible, using a force-directed 3D graph to organize the program’s structure.
+                Data transformation happens laterally with functions, while references and variable scoping are organized vertically.
+            </p>
+
+            <figure>
+                <img src="/assets/images/grasp-0.png" />
+            </figure>
+
+            <p>
+                Functions are green, variables are blue, and environments are translucent. That's about it.
+            </p>
+
+            <figure><img src="/assets/images/grasp-1.png" /></figure>
+
+            <p>
+                In GRASP, variables don’t need to be named, since every reference links back to just one spatially unique node in the original environment in which it was defined.
+                Similarly, functions also don’t need labels, since they can link back to their original definitions.
+                The “Labels” switch toggles these optional labels.
+            </p>
+
+            <figure><img src="/assets/images/grasp-2.png" /></figure>
+
+            <p>
+                GRASP is an ongoing project.
+                The project’s long-term goal is to eliminate the need for text entirely (changing the mindset to optionally “labeling” nodes to be searchable later), with the graph editable directly by dragging edges from node to node while reflecting those changes dynamically in the textual code.
+            </p>
+            <h3>Wait, this is just like every other visual programming thing I’ve seen</h3>
+            <p>
+                Maybe. I like to think it's different.
+                All the visual “languages” that exist are shallow wrappers around inherently textual code, and usually end up requiring the user to type just as many characters to do the same thing, or (worse!) expose some pre-selected GUI toolbox of all the functions you can drag-and-drop.
+                The goal of GRASP is to eliminate the keyboard altogether, and enable open-ended program construction in an interactive, intuitive manner that scales with program complexity and size.
+                It seems subtle, but the difference is very fundamental.
+            </p>
+            <h3>Wait, the graph looks harder to understand than the code</h3>
+            <p>
+                It probably does!
+                That’s because 1) this is in pre-alpha and I haven’t got the graphics to work well, but mostly 2) you’ve spent n years staring enormous text files of code and your brain has trained for ages to parse it.
+                <label for="mn-grids" class="margin-toggle">
+                </label>
+                <input type="checkbox" id="mn-grids" class="margin-toggle"/>
+                <span class="marginnote">
+                    “anyone could learn Lisp in one day, except that if they already knew Fortran, it would take three days.”
+                    - Marvin Minsky
+                </span>
+                For large n, it actually gets more difficult to think about programs in new contexts or in new representations.
+                Grab the nearest non-coder and see if they ‘get’ GRASP. You might be surprised.
+            </p>
+
+            <h3>Name</h3>
+            <p>GRASP is short for GRAphical liSP. Yes, I know.</p>
+
+            <h3>Inspiration</h3>
+            <p>GRASP was heavily inspired by many projects and people, only some of which are listed here.</p>
+
+            <ul>
+                <li>GRAIL (RAND Corp)
+                    <ul>
+                        <li><a href="http://www.rand.org/pubs/research_memoranda/RM5999.html">“Free electronic document”</a>, whatever that means</li>
+                        <li><a href="https://www.youtube.com/watch?v=QQhVQ1UG6aM">Demo by Alan Kay</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://web.onetel.net.uk/~hibou/fmj/FMJ.html">Full Metal Jacket</a></li>
+                <li><a href="http://worrydream.com">Bret Victor</a>, a god among mortals, particularily for
+                    <ul>
+                        <li><a href="https://vimeo.com/71278954">The Future of Programming</a></li>
+                        <li><a href="http://worrydream.com/#!/LearnableProgramming">Learnable Programming</a></li>
+                        <li><a href="http://worrydream.com/#!/AlligatorEggs">Alligator Lambda Calculus</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://scratch.mit.edu/">Scratch</a>, but only because it convinced me that we can do so much better</li>
+                <li><a href="http://noflojs.org/">NoFlo</a>, for reasons similar to Scratch</li>
+                <li><a href="https://en.wikipedia.org/wiki/Ivan_Sutherland">Ivan Sutherland</a> and <a href="https://en.wikipedia.org/wiki/Sketchpad">Sketchpad</a></li>
+                <li><a href="http://eve-lang.com/">Eve</a></li>
+            </ul>
+
+            <h2 id="credits">Credits</h2>
+            <ul>
+                <li><a href="https://github.com/mrdoob/three.js/">Three.js</a></li>
+                <li><a href="https://github.com/ajaxorg/ace">Ace Editor</a></li>
+                <li><a href="https://github.com/rksm/paredit.js">paredit.js</a></li>
+                <li><a href="https://github.com/google/material-design-lite">Material Design Lite</a></li>
+            </ul>
+        <section>
+    </article>
+</body>
+</html>

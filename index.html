@@ -1,29 +1,88 @@
----
-layout: page
-sitemap:
-  priority: 1
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Joel Gustafson</title>
+    <link rel="stylesheet" href="/styles/tufte.css">
+  </head>
+  <body>
+    <article>
+      <h1>Joel Gustafson</h1>
+      <p>
+        <a href="https://github.com/joeltg">GitHub</a>, <a href="mailto:joelg@mit.edu">Email</a>, <a href="https://twitter.com/gustafjt">Twitter</a>
+      </p>
+      <p>
+        I'm a junior at MIT pursuing computer science and mathematics.
+        I want to make computing universally accessible as a medium and an art, design technical tools that empower normal people, and solve general AI.
+      </p>
+      <p>
+        That will probably take a while, so the intermediate plan is to hang out in
+        <span id="location">coffeshops</span>, sipping
+        <span id="beverage">chai latte</span> while listening to
+        <span id="music">Vampire Weekend</span> and reading
+        <span id="reading">Hacker News</span>.
+      </p>
 
-<p>
-  I'm a junior at MIT pursuing computer science and mathematics.
-  I want to make computing universally accessible as a medium and an art,
-  design technical tools that empower normal people, and solve general AI.
-</p>
-<p>
-  That will probably take a while, so the intermediate plan is to hang out
-  <span class="variable" id="location"></span>, sipping
-  <span class="variable" id="beverage"></span> while listening to
-  <span class="variable" id="music"></span> and reading
-  <span class="variable" id="reading"></span>.
-</p>
-<br><br>
+      <p>
+        Sometimes I have <a href="/ideas">ideas</a>, and sometimes I make <a href="/projects">projects</a>. Other times I write <a href="/about.html">about myself</a>.
+      </p>
 
-<ul class="list-posts">
-  {% for post in site.posts %}
-    {% unless post.categories contains "rambles" %}
-      {% include lists/post.html %}
-    {% endunless %}
-  {% endfor %}
-</ul>
+    </article>
+  </body>
+  <script>
+      // oho, you're very sneaky
+      // only 1337 haxx0rs know of "inspect element"
+      const variables = {
+          location: [
+              'in libraries',
+              'around public parks',
+              'in coffeshops',
+              'in bookstores',
+              'on rooftops'
+          ],
+          beverage: [
+              'chai latte',
+              'macchiato',
+              'hibiscus tea',
+              'black tea',
+              'kombucha'
+          ],
+          music: [
+              'Vampire Weekend',
+              'the Hamilton soundtrack',
+              'Radiohead',
+              'Ratatat',
+              'Daft Punk',
+              'LCD Soundsystem',
+              'Caravan Palace',
+              'Tame Impala',
+              'MGMT',
+              'The xx',
+              'Foster The People',
+              'Two Door Cinema Club',
+              'Grouplove',
+              'The Modern Lovers',
+              'STRFKR',
+              'fun.',
+              'Animal Collective'
+          ],
+          reading: [
+              'Noam Chomsky',
+              'Malcolm Gladwell',
+              'David Foster Wallace',
+              'Hacker News',
+              'Nate Silver',
+              'John Gruber',
+              'Marvin Minsky',
+              'Douglas Hofstadter',
+              'Don Norman',
+              'Seymour Papert'
+          ]
+      };
 
-<script src="{{ site.url }}/assets/js/index.js"></script>
+      const choose = o => o[Math.floor(Math.random() * o.length)];
+      const select = v => document.getElementById(v).textContent = choose(variables[v]);
+      Object.keys(variables).forEach(select);
+
+  </script>
+</html>
