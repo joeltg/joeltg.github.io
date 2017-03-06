@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>automaton</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="panel">
+        <h1>one-dimensional cellular automata</h1>
+        <table>
+            <tr id="labels"></tr>
+            <tr id="values"></tr>
+            <tr id="binary">
+                <td>
+                    <span>= </span><input type="number" title="r" id="r" min="0" max="255"/>
+                </td>
+            </tr>
+        </table>
+        <input type="range" title="n" id="n" min="1" max="64" value="1"/>
+    </div>
+</body>
+<style>
+    html, body {
+        margin: 0;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    #panel {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+    }
+    input {
+        margin: 0;
+    }
+    td {
+        padding: 0 4px;
+    }
+    #values td, #binary td {
+        text-align: center;
+    }
+    #r {
+        width: 48px;
+    }
+    #n {
+        width: 100%
+    }
+</style>
+<script>
+    const size = 16;
+    const {min, max} = Math;
+    const {innerWidth, innerHeight} = window;
+    const frame = {innerWidth, innerHeight};
+    const r = document.getElementById('r');
+    const n = document.getElementById('n');
+    const canvas = document.getElementById('canvas');
+    const labels = document.getElementById('labels');
+    const values = document.getElementById('values');
+    const binary = document.getElementById('binary');
+    const dom = name => document.createElement(name);
+    const pad = (i, l) => ('0000000' + i.toString(2)).slice(-l).split('').map(c => !!parseInt(c));
+    const state = Array.from(new Array(8)).map(i => Math.round(Math.random()));
+    const context = canvas.getContext('2d');
+    context.fillStyle = '#000000';
+    n.max = n.value = Math.floor(innerHeight / size) - 1;
+    n.addEventListener('input', e => get());
+    r.value = state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
+    r.addEventListener('input', ({target: {value}}) =>
+        pad(r.value = max(min(parseInt(value), 255), 0), 8).forEach((v, i) => update(i, v)) || get());
+
+    function draw(layer) {
+        const y = size * layer.length / 2;
+        layer.forEach(function(v, i) {
+            const x = (frame.innerWidth / 2) + (size * (i - layer.length / 2));
+            if (v) context.fillRect(x, y, size, size);
+        });
+    }
+
+    function render(layers) {
+        context.clearRect(0, 0, frame.innerWidth, frame.innerHeight);
+        layers.forEach(draw);
+    }
+    
+    function bst(n, i) {
+        if (n % 2 === 0) {
+            const h = 2 ** Math.floor(n / 2);
+            const remainder = i % h, quotient = Math.floor(i / h);
+            return [bst(Math.floor(n / 2), remainder), bst(Math.floor(n / 2), quotient)];
+        } else {
+            return i;
+        }
+    }
+   
+    class Rule {
+        constructor(rule) {
+            this.bst = bst(8, rule);
+        }
+        check(state) {
+            return state.reduce((a, v) => a[v], this.bst);
+        }
+    }
+    
+    class Layer extends Array {
+        constructor(...args) {
+            super(...args);
+        }
+        slice(start, end) {
+            if (start < 0) {
+                return new Array(-start).fill(0).concat(this.slice(0, end));
+            } else if (end > this.length) {
+                return this.slice(start, this.length - 1).concat(new Array(end - (this.length - 1)).fill(0));
+            } else return Array.prototype.slice.call(this, start, end);
+        }
+        next(rule) {
+            const length = this.length + 2;
+            return Layer.from({length}, (v, i) => this.slice(i-2, i+1)).map(state => rule.check(state));
+        }
+    }
+
+    function generate(n, r) {
+        const rule = new Rule(r);
+        return Array.from({length: n}, (v, i) => i).reduce((l, i) => l.concat([l[i].next(rule)]), [first_layer]);
+    }
+
+    const first_layer = new Layer(1).fill(1);
+
+    function get() {
+        // const {host} = location;
+        // fetch(`http://${host}/api?r=${r.value}&n=${n.value}`).then(r => r.json()).then(render);
+        render(generate(+n.value, +r.value));   
+    }
+
+    // create read-only, disabled checkbox
+    function box(checked) {
+        const input = dom('input');
+        input.onclick = e => false;
+        input.type = 'checkbox';
+        input.checked = checked;
+        return input;
+    }
+
+    function update(i, checked) {
+        values.children[i].firstChild.checked = checked;
+        binary.children[i].firstChild.textContent = state[i] = checked ? 1 : 0;
+        r.value = state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
+    }
+
+    // populate checkboxes in a td and append it to the #labels row
+    function attach(i) {
+        const labelsCell = dom('td');
+        pad(i, 3).forEach(checked => labelsCell.appendChild(box(checked)));
+        labels.appendChild(labelsCell);
+
+        const valuesCell = dom('td');
+        const value = dom('input');
+        value.type = 'checkbox';
+        value.onclick = ({target: {checked}}) => update(i, checked) || get();
+        value.checked = state[i] === 1;
+        valuesCell.appendChild(value);
+        values.appendChild(valuesCell);
+
+        const binaryCell = dom('td');
+        binaryCell.textContent = state[i];
+        binary.insertBefore(binaryCell, r.parentNode);
+    }
+
+    Array.from(new Array(8).keys()).forEach(attach);
+
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    window.addEventListener('resize', function() {
+        frame.width = window.innerWidth;
+        frame.heigh = window.innerHeight;
+
+        canvas.width = frame.width;
+        canvas.height = frame.height;
+    });
+
+    get();
+</script>
+</html>
