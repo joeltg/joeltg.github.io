@@ -18,6 +18,7 @@
             </tr>
         </table>
         <input type="range" title="n" id="n" min="1" max="64" value="1"/>
+        <input type="range" title="n" id="r_slider" min="1" max="256" value="1"/>
     </div>
 </body>
 <style>
@@ -69,6 +70,8 @@
     n.addEventListener('input', e => get());
     r.value = state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
     r.addEventListener('input', ({target: {value}}) =>
+        pad(r.value = max(min(parseInt(value), 255), 0), 8).forEach((v, i) => update(i, v)) || get());
+    r_slider.addEventListener('input', ({target: {value}}) =>
         pad(r.value = max(min(parseInt(value), 255), 0), 8).forEach((v, i) => update(i, v)) || get());
 
     function draw(layer) {
@@ -130,7 +133,7 @@
     function get() {
         // const {host} = location;
         // fetch(`http://${host}/api?r=${r.value}&n=${n.value}`).then(r => r.json()).then(render);
-        render(generate(+n.value, +r.value));   
+        render(generate(+n.value, +r.value));
     }
 
     // create read-only, disabled checkbox
