@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>automaton</title>
+    <title>automata</title>
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    <div id="panel">
+    <header>
         <h1>one-dimensional cellular automata</h1>
         <table>
             <tr id="labels"></tr>
-            <tr id="values"></tr>
+            <tr id="values">
+                <td>
+                    <input type="button" value="random" id="picker"/>
+                </td>
+            </tr>
             <tr id="binary">
                 <td>
-                    <span>= </span><input type="number" title="r" id="r" min="0" max="255"/>
+                    <input type="number" title="r" id="r" min="0" max="255"/>
                 </td>
             </tr>
         </table>
-        <input type="range" title="n" id="n" min="1" max="64" value="1"/>
-        <input type="range" title="n" id="r_slider" min="1" max="256" value="1"/>
+        <input type="range" min="0.5" max=6 step="0.5" value=3 title="zoom" id="zoomer"/>
     </div>
 </body>
 <style>
@@ -28,14 +31,37 @@
     }
     h1 {
         font-size: 18px;
+        margin: 4px;
     }
-    #panel {
+    table {
+        border-spacing: 0;
+    }
+    header {
         position: absolute;
         top: 4px;
         left: 4px;
     }
-    input {
-        margin: 0;
+    .box {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        -webkit-box-shadow:inset 0px 0px 0px 1px black;
+        -moz-box-shadow:inset 0px 0px 0px 1px black;
+        box-shadow:inset 0px 0px 0px 1px black;
+    }
+    .check {
+        width: 16px;
+        height: 16px;
+        -webkit-box-shadow:inset 0px 0px 0px 1px black;
+        -moz-box-shadow:inset 0px 0px 0px 1px black;
+        box-shadow:inset 0px 0px 0px 1px black;
+        -webkit-appearance: none;
+    }
+    .check:checked {
+        background: black;
+    }
+    .check:hover {
+        cursor: pointer;
     }
     td {
         padding: 0 4px;
@@ -46,63 +72,75 @@
     #r {
         width: 48px;
     }
-    #n {
-        width: 100%
-    }
 </style>
 <script>
-    const size = 16;
-    const {min, max} = Math;
-    const {innerWidth, innerHeight} = window;
-    const frame = {innerWidth, innerHeight};
+    const frame = {};
+    const {exp, log, min, max, round, random, floor, ceil} = Math;
     const r = document.getElementById('r');
-    const n = document.getElementById('n');
     const canvas = document.getElementById('canvas');
     const labels = document.getElementById('labels');
     const values = document.getElementById('values');
     const binary = document.getElementById('binary');
+    const picker = document.getElementById('picker');
+    const zoomer = document.getElementById('zoomer');
     const dom = name => document.createElement(name);
+
     const pad = (i, l) => ('0000000' + i.toString(2)).slice(-l).split('').map(c => !!parseInt(c));
-    const state = Array.from(new Array(8)).map(i => Math.round(Math.random()));
+
+    const state = Array.from({length: 8}, () => round(random()));
+
+    const fold = () => state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
+
     const context = canvas.getContext('2d');
     context.fillStyle = '#000000';
-    n.max = n.value = Math.floor(innerHeight / size) - 1;
-    n.addEventListener('input', e => get());
-    r.value = state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
-    r.addEventListener('input', ({target: {value}}) =>
-        pad(r.value = max(min(parseInt(value), 255), 0), 8).forEach((v, i) => update(i, v)) || get());
-    r_slider.addEventListener('input', ({target: {value}}) =>
-        pad(r.value = max(min(parseInt(value), 255), 0), 8).forEach((v, i) => update(i, v)) || get());
 
-    function draw(layer) {
-        const y = size * layer.length / 2;
-        layer.forEach(function(v, i) {
-            const x = (frame.innerWidth / 2) + (size * (i - layer.length / 2));
-            if (v) context.fillRect(x, y, size, size);
-        });
-    }
+    zoomer.addEventListener('input', function() {
+        frame.s = round(exp(+zoomer.value));
+        frame.n = ceil(innerHeight / frame.s);
+        ammo(frame.r);
+    });
 
-    function render(layers) {
-        context.clearRect(0, 0, frame.innerWidth, frame.innerHeight);
-        layers.forEach(draw);
-    }
-    
-    function bst(n, i) {
-        if (n % 2 === 0) {
-            const h = 2 ** Math.floor(n / 2);
-            const remainder = i % h, quotient = Math.floor(i / h);
-            return [bst(Math.floor(n / 2), remainder), bst(Math.floor(n / 2), quotient)];
+    picker.addEventListener('click', function() {
+        state.map(() => round(random())).forEach(update);
+        r.value = fold();
+        ammo(r.value);
+    });
+
+    r.addEventListener('input', function({target: {value}}) {
+        if (value !== '') {
+            const v = max(min(parseInt(value), 255), 0);
+            r.value = v;
+            pad(v, 8).forEach(update);
+            ammo(v);            
+        }
+    });
+
+    function ammo(r) {
+        if (r == frame.r) {
+            generate(frame.rule);
         } else {
-            return i;
+            history.replaceState({}, r.toString(), '?' + r);
+            frame.r = r;
+            frame.rule = new Rule(frame.r);
+            generate(frame.rule);
         }
     }
    
     class Rule {
         constructor(rule) {
-            this.bst = bst(8, rule);
+            this.tree = this.bst(8, rule);
+        }
+        bst(n, i) {
+            if (n % 2 === 0) {
+                const h = 2 ** floor(n / 2);
+                const remainder = i % h, quotient = floor(i / h);
+                return [this.bst(floor(n / 2), remainder), this.bst(floor(n / 2), quotient)];
+            } else {
+                return i;
+            }
         }
         check(state) {
-            return state.reduce((a, v) => a[v], this.bst);
+            return state.reduce((a, v) => a[v], this.tree);
         }
     }
     
@@ -114,7 +152,7 @@
             if (start < 0) {
                 return new Array(-start).fill(0).concat(this.slice(0, end));
             } else if (end > this.length) {
-                return this.slice(start, this.length - 1).concat(new Array(end - (this.length - 1)).fill(0));
+                return this.slice(start, this.length).concat(new Array(end - this.length).fill(0));
             } else return Array.prototype.slice.call(this, start, end);
         }
         next(rule) {
@@ -123,66 +161,82 @@
         }
     }
 
-    function generate(n, r) {
-        const rule = new Rule(r);
-        return Array.from({length: n}, (v, i) => i).reduce((l, i) => l.concat([l[i].next(rule)]), [first_layer]);
+    function draw(layer, rule) {
+        const {s, w} = frame;
+        const y = s * layer.length / 2;
+        layer.forEach((v, i) => v && context.fillRect(floor(w + (s * i) - y), floor(y), s, s));
+        return layer.next(rule);
+    }
+
+    function generate(rule) {
+        const {width, height} = canvas;
+        context.clearRect(0, 0, width, height);
+        const {n} = frame;
+        new Array(n).fill(rule).reduce(draw, first_layer);
     }
 
     const first_layer = new Layer(1).fill(1);
 
-    function get() {
-        // const {host} = location;
-        // fetch(`http://${host}/api?r=${r.value}&n=${n.value}`).then(r => r.json()).then(render);
-        render(generate(+n.value, +r.value));
-    }
-
-    // create read-only, disabled checkbox
     function box(checked) {
-        const input = dom('input');
-        input.onclick = e => false;
-        input.type = 'checkbox';
-        input.checked = checked;
-        return input;
+        const div = dom('span');
+        div.className = 'box';
+        if (checked) div.style.background = 'black';
+        return div;
     }
 
-    function update(i, checked) {
+    function update(checked, i) {
         values.children[i].firstChild.checked = checked;
         binary.children[i].firstChild.textContent = state[i] = checked ? 1 : 0;
-        r.value = state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
     }
 
-    // populate checkboxes in a td and append it to the #labels row
     function attach(i) {
         const labelsCell = dom('td');
-        pad(i, 3).forEach(checked => labelsCell.appendChild(box(checked)));
+        pad(i, 3).forEach(checked => labelsCell.appendChild(box(!checked)));
         labels.appendChild(labelsCell);
 
         const valuesCell = dom('td');
         const value = dom('input');
         value.type = 'checkbox';
-        value.onclick = ({target: {checked}}) => update(i, checked) || get();
+        value.className = 'check';
+        value.addEventListener('click', function({target: {checked}}) {
+            update(checked, i);
+            r.value = fold();
+            ammo(r.value);
+        });
         value.checked = state[i] === 1;
         valuesCell.appendChild(value);
-        values.appendChild(valuesCell);
+        values.insertBefore(valuesCell, picker.parentNode);
 
         const binaryCell = dom('td');
         binaryCell.textContent = state[i];
         binary.insertBefore(binaryCell, r.parentNode);
     }
 
-    Array.from(new Array(8).keys()).forEach(attach);
+    Array.from({length: 8}, (v, i) => i).forEach(attach);
 
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    function resize() {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        frame.w = innerWidth / 2;
+        frame.innerHeight = innerHeight;
+        
+        r.value = fold();
+        frame.s = round(exp(+zoomer.value));
+        frame.n = ceil(innerHeight / frame.s);
 
-    window.addEventListener('resize', function() {
-        frame.width = window.innerWidth;
-        frame.heigh = window.innerHeight;
+        ammo(r.value);
+    }
 
-        canvas.width = frame.width;
-        canvas.height = frame.height;
-    });
+    if (location.search) {
+        const search = location.search.substring(1);
+        const v = parseInt(search);
+        if (0 <= v && v <= 255) {
+            r.value = v;
+            pad(v, 8).forEach(update);
+        }
+    }
 
-    get();
+    window.addEventListener('resize', resize);
+    resize();
 </script>
 </html>
