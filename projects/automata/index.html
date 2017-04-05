@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>automata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <canvas id="canvas"></canvas>
@@ -22,7 +23,7 @@
             </tr>
         </table>
         <input type="range" min="0.5" max=6 step="0.5" value=3 title="zoom" id="zoomer"/>
-    </div>
+    </header>
 </body>
 <style>
     html, body {
@@ -45,16 +46,16 @@
         width: 16px;
         height: 16px;
         display: inline-block;
-        -webkit-box-shadow:inset 0px 0px 0px 1px black;
-        -moz-box-shadow:inset 0px 0px 0px 1px black;
-        box-shadow:inset 0px 0px 0px 1px black;
+        -webkit-box-shadow:inset 0 0 0 1px black;
+        -moz-box-shadow:inset 0 0 0 1px black;
+        box-shadow:inset 0 0 0 1px black;
     }
     .check {
         width: 16px;
         height: 16px;
-        -webkit-box-shadow:inset 0px 0px 0px 1px black;
-        -moz-box-shadow:inset 0px 0px 0px 1px black;
-        box-shadow:inset 0px 0px 0px 1px black;
+        -webkit-box-shadow:inset 0 0 0 1px black;
+        -moz-box-shadow:inset 0 0 0 1px black;
+        box-shadow:inset 0 0 0 1px black;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -74,10 +75,39 @@
     #r {
         width: 48px;
     }
+    #zoomer {
+        width: 100%;
+    }
+    @media (max-width: 600px) {
+        /*.check {*/
+            /*display: none;*/
+        /*}*/
+        .box {
+            display: none;
+        }
+        #values td {
+            display: none;
+        }
+        #values td:last-child {
+            display: table-cell;
+        }
+        #binary td {
+            display: none;
+        }
+        #binary td:last-child {
+            display: table-cell;
+        }
+        td {
+            padding: 0;
+        }
+        canvas {
+            margin-top: 96px;
+        }
+    }
 </style>
 <script>
     const frame = {};
-    const {exp, log, min, max, round, random, floor, ceil} = Math;
+    const {exp, min, max, round, random, floor, ceil} = Math;
     const r = document.getElementById('r');
     const canvas = document.getElementById('canvas');
     const labels = document.getElementById('labels');
@@ -102,10 +132,16 @@
         ammo(frame.r);
     });
 
-    picker.addEventListener('click', function() {
+    function pick() {
         state.map(() => round(random())).forEach(update);
         r.value = fold();
         ammo(r.value);
+    }
+
+    canvas.addEventListener('touchstart', pick);
+    picker.addEventListener('click', pick);
+    window.addEventListener('keydown', function({keyCode}) {
+        if (keyCode === 13) pick();
     });
 
     r.addEventListener('input', function({target: {value}}) {
@@ -118,7 +154,7 @@
     });
 
     function ammo(r) {
-        if (r == frame.r) {
+        if (r === frame.r) {
             generate(frame.rule);
         } else {
             history.replaceState({}, r.toString(), '?' + r);
@@ -188,7 +224,8 @@
 
     function update(checked, i) {
         values.children[i].firstChild.checked = checked;
-        binary.children[i].firstChild.textContent = state[i] = checked ? 1 : 0;
+        state[i] = checked ? 1 : 0;
+        binary.children[i].firstChild.textContent = state[i].toString();
     }
 
     function attach(i) {
