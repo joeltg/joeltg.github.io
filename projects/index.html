@@ -6,42 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/tufte.css">
 </head>
+<style>
+    #grid {
+        display: flex;
+        flex-wrap: wrap
+    }
+    #grid a {
+
+        margin: 4px;
+    }
+    #grid a img {
+        width: 320px;
+        height: 320px;
+
+        max-width: 320px;
+        max-height: 320px;
+
+        box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        border: 1px solid #111;
+        border-radius: 2px;
+    }
+    @media (max-width: 834px) {
+        #grid a img {
+            width: 128px;
+            height: 128px;
+        }
+    }
+</style>
 <body>
 <article>
     <h1>Projects</h1>
     <p><a href="/">Joel Gustafson</a></p>
     <section>
-        <h2><a href="/projects/mit-scheme-kernel">MIT Scheme Kernel</a></h2>
-        <p>I wrote an MIT Scheme Kernel for Jupyter notebooks.</p>
-    </section>
-    <section>
-        <h2><a href="/ozymandias">Ozymandias</a></h2>
-        <p>
-            Scheme is a beautiful language, but for those afraid of Emacs it can be difficult to use, and things that are difficult to use are difficult to learn.
-            Ozymandias is a modern MIT Scheme environment in the browser that tries its best to be friendly and usable.
-        </p>
-    </section>
-    <section>
-        <h2><a href="/projects/automata">One-dimensional Cellular Automata</a></h2>
-        <p>Stephen Wolfram would be proud.</p>
-    </section>
-    <section>
-        <h2><a href="/transclusion">HTML Transclusions</a></h2>
-        <p>WebComponents and HTML Imports are a poor man's iframe.</p>
-    </section>
-    <section>
-        <h2><a href="/projects/visual-history">Visual History</a></h2>
-        <p>
-            Modern browsers lose rich information when they compress browsing history into a linear stack, which makes backtracking from a forest of links surprisingly difficult.
-            We can do better.
-        </p>
-    </section>
-    <section>
-        <h2><a href="/projects/grasp">GRASP</a></h2>
-        <p>
-            It’s easy to look at lines of code and think you know what programming is, but text is only one of many possible representations.
-            GRASP visualizes Scheme ASTs with as little text as possible, using a force-directed 3D graph to organize the program’s structure.
-        </p>
+        <figure class="fullwidth">
+            <div id="grid">
+                <a href="/projects/automata"><img src="/assets/images/automata.png" /></a>
+                <a href="/projects/mit-scheme-kernel"><img src="/assets/images/jupyter.png"/></a>
+                <a href="/ozymandias"><img src="/assets/images/ozymandias.png"/></a>
+                <a href="/transclusion"><img src="/assets/images/transclusion.png"/></a>
+                <a href="/projects/visual-history"><img src="/assets/images/visual-history.png"/></a>
+                <a href="/projects/grasp"><img src="/assets/images/grasp.png"/></a>
+            </div>
+        </figure>
     </section>
 </article>
 </body>
