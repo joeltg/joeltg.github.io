@@ -29,8 +29,21 @@
         <priority>0.3</priority>
       
     </url>
-    
-  
+
+
+    <url>
+        <loc>http://joelgustafson.com/ideas/vsn-c-considered-harmful.html/</loc>
+
+        <lastmod>2017-05-25T00:00:00-05:00</lastmod>
+
+
+        <changefreq>monthly</changefreq>
+
+
+        <priority>0.5</priority>
+
+    </url>
+
     
     <url>
       <loc>http://joelgustafson.com/ideas/oracles-and-bicycles.html/</loc>
