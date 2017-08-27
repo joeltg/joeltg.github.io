@@ -4,6 +4,9 @@
 
 const data = [
     'Git',
+    'ZeroMQ',
+    'TFHE',
+    'PD',
     'MongoDB',
     'D3.js',
     'Three.js',
@@ -28,13 +31,20 @@ const data = [
     'Java',
     'Python',
     'Common Lisp',
+    'TypeScript',
+    'MathJS',
+    'Nom',
+    'contentEditable',
     'Bash',
     'WebComponents',
-    'WebAssembly'
+    'WebAssembly',
+    'Rust',
+    'IPFS'
 ];
 
 const container = document.getElementById('container');
 const aquarium = document.getElementById('aquarium');
+
 let width, height;
 
 function resize() {
@@ -44,9 +54,8 @@ function resize() {
     aquarium.setAttribute('height', height);
 }
 
-resize();
 window.addEventListener('resize', resize);
-
+resize();
 
 const get_x = () => Math.floor(Math.random() * (width - 48));
 const get_y = () => Math.floor(Math.random() * (height - 16));
@@ -55,13 +64,13 @@ d3.select(aquarium).selectAll('.fish').data(data).enter().append('text')
     .attr('class', 'fish')
     .attr('x', get_x)
     .attr('y', get_y)
-    .text(function(text) {return text})
+    .text(text => text)
     .each(function() {translate(d3.select(this))});
 
 function translate(selection) {
     selection.transition()
-        .duration(function() {return 2000 + (Math.random() * 3000)})
+        .duration(() => 2000 + (Math.random() * 3000))
         .attr('x', get_x)
         .attr('y', get_y)
-        .on('end', function() {translate(selection)});
+        .on('end', () => translate(selection));
 }
