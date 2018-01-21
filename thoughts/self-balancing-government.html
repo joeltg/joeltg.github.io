@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Self-balancing Government: Joel Gustafson</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="/styles/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/styles/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/styles/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/styles/favicons/manifest.json">
+    <meta name="theme-color" content="#fffff8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/tufte.css">
+</head>
+<body>
+<article>
+    <h1>Self-balancing Government</h1>
+    <p><a href="/">Joel Gustafson</a> / <a href="/thoughts">Thoughts</a></p>
+    <section>
+        <p>
+            The <a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Master Theorem</a> for solving recurrences has three cases:
+        </p>
+        <ol>
+            <li>The recurrence tree is top-heavy and almost all the work is done in the beginning</li>
+            <li>The recurrence tree is bottom-heavy and almost all the work is done at the end</li>
+            <li>The recurrence tree is magically balanced such that the work is divided evenly among all the layers of the tree</li>
+        </ol>
+        <p>
+            The third case is really profound, and it could have application in politics.
+            Modern democracies are like B-trees: short height, huge block size, wide spread.
+            This is simple, but doesn't do a very good job of distributing responsibility: presidents are elected on simple partisan issues because they're the ones that voters relate to.
+            Nodes have too high a branching factor to really be in touch with their constituent children, and there are too many constituent children in each block for any of them to feel like they really matter.
+        </p>
+        <p>
+            But instead imagine a government more like a BST or heap, with a magical logarithmic balance: each node only votes - and cares - for the nodes immediately above and below.
+            The top of the tree is not only indirect, but also distant: perhaps the president doesn't have to be such a big deal, since he's just dealing with super presidential things that don't directly concern or interest us.
+            Votes bubble up the tree, policies trickle down.
+            Politicians rise and fall via AVL rotations.
+        </p>
+    </section>
+</article>
+</body>
+</html>
