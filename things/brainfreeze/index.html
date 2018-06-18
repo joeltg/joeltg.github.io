@@ -94,7 +94,7 @@
                 <label for="mn-one" class="margin-toggle">⊕</label>
                 <input type="checkbox" id="mn-one" class="margin-toggle">
                 <span class="marginnote">
-                    "Isn't this what makfiles are supposed to replace?"
+                    "Isn't this what makefiles are supposed to replace?"
                     <br />
                     Yes.
                 </span>
@@ -108,7 +108,7 @@
                 <span class="marginnote">
                     This <code>tfhe_io.c</code> wrapper is actually <i>just</i> for I/O.
                     The TFHE functions to read and write ciphertexts and gate parameters to and from files takes <code>FILE*</code> objects, which I can't figure out how to pass into a <code>ctypes</code> function in Python.
-                    So <code>tfhe_io.c</code> has wrapper functions that take file paths as string literals, which gets compiled and then dynamically loaded in <code>tfhe_utils.py</code>.
+                    So <code>tfhe_io.c</code> has wrapper functions that take file paths as strings, which gets compiled and then dynamically loaded in <code>tfhe_utils.py</code>.
                     If anyone has a real solution to this, please tell me.
                 </span>
                 <pre class="code">git clone https://github.com/joeltg/brainfreeze
