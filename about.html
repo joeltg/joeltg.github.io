@@ -4,29 +4,15 @@
     <meta charset="UTF-8">
     <title>About: Joel Gustafson</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/styles/tufte.css">
-
-    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
-    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
-    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
-    <script src="https://d3js.org/d3-timer.v1.min.js"></script>
-    <script src="https://d3js.org/d3-transition.v1.min.js"></script>
-    <noscript>
-        <style>
-            #aquarium-section {
-                display: none;
-            }
-        </style>
-    </noscript>
+    <link rel="stylesheet" href="styles/tufte.css">
 </head>
 <body>
 <article>
     <h1>About</h1>
-    <p><a href="/">Joel Gustafson</a></p>
+    <p><a href="index.html">Joel Gustafson</a> / About</p>
     <section>
         <p>
-            I’m a senior at MIT pursuing computer science and mathematics.
+            Hi! I'm Joel.
         </p>
         <p>
             I care about a lot of Big Ideas, and want to make computing universally accessible to everyone as a medium and an art.
@@ -41,12 +27,15 @@
     <section>
         <h2>Work</h2>
         <p>
+            In 2018 I joined <a href="https://protocol.ai">Protocol Labs</a> as an independent researcher.
+        </p>
+        <p>
             In summer 2017 I worked on <a href="https://www.notion.so/">Notion</a>, a Lego-like composable productivity tool.
             I wrote a DSL and designed an editor for querying and computing on structured data.
             <label for="mn-notion" class="margin-toggle">⊕</label>
             <input type="checkbox" id="mn-notion" class="margin-toggle">
             <span class="marginnote">
-                <img src="/assets/images/notion.png" />
+                <img src="assets/images/notion.png" />
             </span>
         </p>
         <p>
@@ -55,7 +44,7 @@
             <label for="mn-ozymandias" class="margin-toggle">⊕</label>
             <input type="checkbox" id="mn-ozymandias" class="margin-toggle">
             <span class="marginnote">
-                <img src="/assets/images/ozymandias-2.png" />
+                <img src="assets/images/ozymandias-2.png" />
             </span>
         </p>
         <p>
@@ -66,13 +55,10 @@
     </section>
 
     <section>
-        <h2>Courses</h2>
+        <h2>Education</h2>
         <p>
-            Check out my <a href="https://courseroad.mit.edu/#joelg">complete road map</a>, complete with degree audit details.
-            I’m usually course 6-3 or 18C, depending on the phase of the moon and the observed states of entangled roommates.
-        </p>
-        <p>
-            Some highlights:
+            I graduated from MIT in 2018 with a BS in Mathematics with Computer Science.
+            You can check out all the classes I took on <a href="https://courseroad.mit.edu/#joelg">Courseroad</a>, but here are some highlights:
         </p>
         <ul>
             <li>Automata, Computability, and Complexity (Scott Aaronson)</li>
@@ -115,80 +101,6 @@
             <footer>Gerry Sussman</footer>
         </blockquote>
     </section>
-
-    <section id="aquarium-section">
-        <h2>Code Aquarium</h2>
-        <p>
-            An incomplete selection of battle scars:
-        </p>
-        <figure id="container" class="fullwidth" style="height: 25em; border: 2px solid #111; border-radius: 2px">
-            <svg id="aquarium"></svg>
-        </figure>
-    </section>
 </article>
 </body>
-<script defer>
-    const data = [
-        'Git',
-        'Jupyter',
-        'ZeroMQ',
-        'FHE',
-        'zk-SNARKs',
-        'PD',
-        'Max',
-        'D3.js',
-        'Three.js',
-        'React',
-        'Emacs',
-        'CRDTs',
-        'Eagle',
-        'Rhino',
-        'Unix',
-        'JavaScript',
-        'Scheme',
-        'Scala',
-        'Java',
-        'Python',
-        'Common Lisp',
-        'TypeScript',
-        'contentEditable',
-        'WebComponents',
-        'WebAssembly',
-        'Rust',
-        'IPFS'
-    ];
-
-    const container = document.getElementById('container');
-    const aquarium = document.getElementById('aquarium');
-
-    let width, height;
-
-    function resize() {
-        width = container.offsetWidth || 400 + 'px';
-        height = container.offsetHeight || 400 + 'px';
-        aquarium.setAttribute('width', width);
-        aquarium.setAttribute('height', height);
-    }
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    const get_x = () => Math.floor(Math.random() * (width - 48));
-    const get_y = () => Math.floor(Math.random() * (height - 16));
-
-    d3.select(aquarium).selectAll('.fish').data(data).enter().append('text')
-        .attr('class', 'fish')
-        .attr('x', get_x)
-        .attr('y', get_y)
-        .text(text => text)
-        .each(function() {translate(d3.select(this))});
-
-    function translate(selection) {
-        selection.transition()
-            .duration(() => 2000 + (Math.random() * 3000))
-            .attr('x', get_x)
-            .attr('y', get_y)
-            .on('end', () => translate(selection));
-    }
-</script>
 </html>

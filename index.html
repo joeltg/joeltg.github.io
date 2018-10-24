@@ -15,93 +15,12 @@
     <article>
       <h1>Joel Gustafson</h1>
       <p>
-        <a href="about.html">About</a>, <a href="https://github.com/joeltg">GitHub</a>, <a href="mailto:joelg@mit.edu">Email</a>, <a href="https://twitter.com/gustafjt">Twitter</a>
+        <a href="https://github.com/joeltg">GitHub</a> · <a href="mailto:joelg@mit.edu">Email</a> · <a href="https://twitter.com/gustafjt">Twitter</a>
       </p>
       <p>
-        I'm a senior at MIT pursuing computer science and mathematics.
-        I want to make computing universally accessible as a medium and an art, design technical tools that empower normal people, and shepherd humanity toward a stable hive mind.
+        I'm an independent researcher at <a href="https://protocol.ai">Protocol Labs</a> working on the <a href="https://underlay.mit.edu">Underlay Project</a> with the <a href="https://kfg.mit.edu">Knowledge Futures Group</a>.
+        When I was young I wanted to be a scientist and that's still the plan.
       </p>
-      <p>
-        That will probably take a while, so the intermediate plan is to hang out
-        <span id="location">in coffeshops</span>, sipping a
-        <span id="beverage">chai latte</span> while listening to
-        <span id="music">Vampire Weekend</span> and reading
-        <span id="reading">Hacker News</span>.
-      </p>
-
-      <p>
-        Sometimes I have <a href="thoughts">thoughts</a>, and sometimes I make <a href="things">things</a>.
-      </p>
-
     </article>
-    <script>
-      const variables = {
-          location: [
-              'in libraries',
-              'around parks',
-              'in coffeshops',
-              'in the woods',
-              'in bookstores',
-              'on rooftops'
-          ],
-          beverage: [
-              'chai latte',
-              'macchiato',
-              'hibiscus tea',
-              'black tea',
-              'kombucha',
-              'oatmeal stout',
-              'coffee porter',
-          ],
-          music: [
-              'Vampire Weekend',
-              'the Hamilton soundtrack',
-              'Radiohead',
-              'Ratatat',
-              'Daft Punk',
-              'LCD Soundsystem',
-              'Tame Impala',
-              'MGMT',
-              'The xx',
-              'Metronomy',
-              'The Modern Lovers',
-              'STRFKR',
-              'Animal Collective',
-              'Vulfpeck',
-              'Arcade Fire',
-              'Broken Bells',
-              'Bob Dylan',
-              'Paul Simon',
-              'The Flaming Lips',
-              'Rostam',
-              'of Montreal',
-              'Hot Chip',
-              'The Strokes',
-              'The Shins',
-              'Julian Casablancas',
-              'Talking Heads',
-              'Brian Eno',
-          ],
-          reading: [
-              'Noam Chomsky',
-              'Edward Tufte',
-              'David Foster Wallace',
-              'Hacker News',
-              'Nate Silver',
-              'John Gruber',
-              'Marvin Minsky',
-              'Douglas Hofstadter',
-              'Don Norman',
-              'Seymour Papert',
-              'Marshall McLuhan',
-              'Christopher Alexander',
-          ]
-      };
-
-      const choose = o => o[Math.floor(Math.random() * o.length)];
-      const select = v => document.getElementById(v).textContent = choose(variables[v]);
-      Object.keys(variables).forEach(select);
-
-    </script>
   </body>
 </html>
