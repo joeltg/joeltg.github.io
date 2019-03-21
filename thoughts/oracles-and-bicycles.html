@@ -1,96 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Oracles and Bicycles: Joel Gustafson</title>
-    <link rel="apple-touch-icon" sizes="76x76" href="../styles/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="../styles/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../styles/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="../styles/favicons/manifest.json">
-    <meta name="theme-color" content="#fffff8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/tufte.css">
-</head>
-<body>
-    <article>
-        <h1>Oracles and Bicycles</h1>
-        <p><a href="/">Joel Gustafson</a> / <a href="/thoughts">Thoughts</a></p>
-        <section>
-            <h2 id="levers">Levers</h2>
-            <p>There are three classes of levers, but some are more similar than others.</p>
-            <p>First-class levers balance the fulcrum between the effort and load, like this:</p>
-            <figure><img src="/assets/images/LeverFirstClass.png" /></figure>
-            <p>First-class levers use the pivot to change the mechanical advantage of the effort, and also the direction of the resultant force.</p>
-            <p>Second- and third-class levers look like this (respectively):</p>
-            <figure>
-                <img src="/assets/images/LeverSecondClass.png" />
-                <img src="/assets/images/LeverThirdClass.png" />
-            </figure>
-            <p>
-                Second- and third-class levers still change the input’s mechanical advantage, but don’t affect its direction.
-                In fact, the concepts of “input” and “output” aren’t very applicable here: first-class levers <em>react to input</em>, but these levers just transform a force that <em>passes through</em> them.
-            </p>
-        </section>
-        <section>
-            <h2 id="Google">Google</h2>
-            <p>
-                There are two kinds of Google searches.
-                This is (of course) a flagrant generalization, but we’ve all enjoyed a silent chuckle while watching a grandparent laboriously spell out “What is the weather like in Boston right now?” as we doodle “boston weather” into our phones under the table.
-                Even though they get the same result, it takes longer, and (more importantly) just <em>feels</em> wrong.
-                To us, it seems to betray a sort of naivety about what search engines are, and how to use them.
-                Google is an engine to be operated with keywords, not an oracle to be queried in complete, meticulously punctuated sentences.
-                Right?
-            </p>
-        </section>
-        <section>
-            <h2 id="Keyboards">Keyboards</h2>
-            <p>
-                As keyboards get smarter, “spellcheck” is becoming obsolete.
-                It’s not because we’re spelling better, but rather bypassing it altogether: autocomplete is letting people not even spell anything at all!
-                This is <em>awesome</em>.
-                Spellcheck, while better than nothing, embodies a very violent UX pattern.
-                It has no flow.
-                It interrupts.
-                It implies that misspelling a word is some sort of wrongdoing, instead of a natural part of the writing process.
-                It’s retroactive error correction and requires a deliberate action to dismiss.
-            </p>
-            <p>
-                This is in sharp contrast with autocomplete.
-                Instead of retroactive correction, autocomplete is proactive prediction, which is much less disruptive.
-                Autocomplete is a 5- to 10-character window into the future, and it’s constructive in every way that spellcheck is destructive.
-            </p>
-        </section>
-        <section>
-            <h2 id="oracles-and-bicycles">Oracles and Bicycles</h2>
-            <p>
-                So here’s the common thread: there’s a very qualitative distinction between agents that are “oracles” and tools that are “bicycles”.
-                Oracles are very Q&amp;A, very I/O, very call-and-response.
-                Bicycles are very direct, very fluid, very analog.
-                Bicycles expand the range of what a human can do; oracles do something that a human tells them to do.
-                Oracles receive a command, go do something else somewhere else, and maybe come back and return a result.
-                Bicycles integrate into our own selves.
-                Pedals are just extensions of our feet; racquets are extensions of our arms; search engines are extensions of our memories.
-                But oracles are their own “thing”, a independent entity, and a foreigner that has to be communicated <em>with</em>.
-            </p>
-            <p>
-                Sometimes this difference is a function of how information is displayed and how it reacts to the user.
-                Terminals and REPLs are inherently oracles; spreadsheets connect our fingertips directly to raw information.
-            </p>
-            <p>
-                Other times it’s just a difference in the conceptual model that users construct. Some people think of Google as an oracle; others as a bicycle.
-                Those who bicycle around Google aren’t just “better at Googling”; they have a fundamentally different view of what they're doing.
-            </p>
-            <p>
-                This isn’t to say that oracles are inherently wrong or that bicycles are always better.
-                But there’s a huge difference between truly <em>augmenting</em> a human and merely <em>interfacing</em> with one.
-                It’s important to know exacly which class of lever is appropriate for any given problem space.
-            </p>
-            <blockquote>
-                <p>“What a computer is to me is it’s the most remarkable tool that we’ve ever come up with, and it’s the equivalent of a bicycle for our minds.”</p>
-                <footer>Steve Jobs</footer>
-            </blockquote>
-            <figure><img style="width: 80%" src="/assets/images/bicycle.png" /></figure>
-        </section>
-    </article>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Oracles and Bicycles: Joel Gustafson</title>
+		<meta name="theme-color" content="#fffff8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/styles/tufte.css" />
+	</head>
+	<body>
+		<article>
+			<h1>Oracles and Bicycles</h1>
+			<p><a href="/">Joel Gustafson</a> / <a href="/thoughts">Thoughts</a></p>
+			<section>
+				<h2 id="levers">Levers</h2>
+				<p>
+					There are three classes of levers, but some are more similar than
+					others.
+				</p>
+				<p>
+					First-class levers balance the fulcrum between the effort and load,
+					like this:
+				</p>
+				<figure><img src="/assets/images/LeverFirstClass.png" /></figure>
+				<p>
+					First-class levers use the pivot to change the mechanical advantage of
+					the effort, and also the direction of the resultant force.
+				</p>
+				<p>Second- and third-class levers look like this (respectively):</p>
+				<figure>
+					<img src="/assets/images/LeverSecondClass.png" />
+					<img src="/assets/images/LeverThirdClass.png" />
+				</figure>
+				<p>
+					Second- and third-class levers still change the input’s mechanical
+					advantage, but don’t affect its direction. In fact, the concepts of
+					“input” and “output” aren’t very applicable here: first-class levers
+					<em>react to input</em>, but these levers just transform a force that
+					<em>passes through</em> them.
+				</p>
+			</section>
+			<section>
+				<h2 id="Google">Google</h2>
+				<p>
+					There are two kinds of Google searches. This is (of course) a flagrant
+					generalization, but we’ve all enjoyed a silent chuckle while watching
+					a grandparent laboriously spell out “What is the weather like in
+					Boston right now?” as we doodle “boston weather” into our phones under
+					the table. Even though they get the same result, it takes longer, and
+					(more importantly) just <em>feels</em> wrong. To us, it seems to
+					betray a sort of naivety about what search engines are, and how to use
+					them. Google is an engine to be operated with keywords, not an oracle
+					to be queried in complete, meticulously punctuated sentences. Right?
+				</p>
+			</section>
+			<section>
+				<h2 id="Keyboards">Keyboards</h2>
+				<p>
+					As keyboards get smarter, “spellcheck” is becoming obsolete. It’s not
+					because we’re spelling better, but rather bypassing it altogether:
+					autocomplete is letting people not even spell anything at all! This is
+					<em>awesome</em>. Spellcheck, while better than nothing, embodies a
+					very violent UX pattern. It has no flow. It interrupts. It implies
+					that misspelling a word is some sort of wrongdoing, instead of a
+					natural part of the writing process. It’s retroactive error correction
+					and requires a deliberate action to dismiss.
+				</p>
+				<p>
+					This is in sharp contrast with autocomplete. Instead of retroactive
+					correction, autocomplete is proactive prediction, which is much less
+					disruptive. Autocomplete is a 5- to 10-character window into the
+					future, and it’s constructive in every way that spellcheck is
+					destructive.
+				</p>
+			</section>
+			<section>
+				<h2 id="oracles-and-bicycles">Oracles and Bicycles</h2>
+				<p>
+					So here’s the common thread: there’s a very qualitative distinction
+					between agents that are “oracles” and tools that are “bicycles”.
+					Oracles are very Q&amp;A, very I/O, very call-and-response. Bicycles
+					are very direct, very fluid, very analog. Bicycles expand the range of
+					what a human can do; oracles do something that a human tells them to
+					do. Oracles receive a command, go do something else somewhere else,
+					and maybe come back and return a result. Bicycles integrate into our
+					own selves. Pedals are just extensions of our feet; racquets are
+					extensions of our arms; search engines are extensions of our memories.
+					But oracles are their own “thing”, a independent entity, and a
+					foreigner that has to be communicated <em>with</em>.
+				</p>
+				<p>
+					Sometimes this difference is a function of how information is
+					displayed and how it reacts to the user. Terminals and REPLs are
+					inherently oracles; spreadsheets connect our fingertips directly to
+					raw information.
+				</p>
+				<p>
+					Other times it’s just a difference in the conceptual model that users
+					construct. Some people think of Google as an oracle; others as a
+					bicycle. Those who bicycle around Google aren’t just “better at
+					Googling”; they have a fundamentally different view of what they're
+					doing.
+				</p>
+				<p>
+					This isn’t to say that oracles are inherently wrong or that bicycles
+					are always better. But there’s a huge difference between truly
+					<em>augmenting</em> a human and merely <em>interfacing</em> with one.
+					It’s important to know exacly which class of lever is appropriate for
+					any given problem space.
+				</p>
+				<blockquote>
+					<p>
+						“What a computer is to me is it’s the most remarkable tool that
+						we’ve ever come up with, and it’s the equivalent of a bicycle for
+						our minds.”
+					</p>
+					<footer>Steve Jobs</footer>
+				</blockquote>
+				<figure>
+					<img style="width: 80%" src="/assets/images/bicycle.png" />
+				</figure>
+			</section>
+		</article>
+	</body>
 </html>

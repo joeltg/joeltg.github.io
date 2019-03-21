@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>prototypical: Joel Gustafson</title>
-    <link rel="apple-touch-icon" sizes="76x76" href="../../styles/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="../../styles/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../../styles/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="../../styles/favicons/manifest.json">
-    <meta name="theme-color" content="#fffff8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../styles/tufte.css">
-</head>
-<style>
-    figure img {
-        border: 1px solid black;
-        border-radius: 2px;
-    }
-</style>
-<body>
-<article>
-    <h1>Prototypical</h1>
-    <p><a href="/">Joel Gustafson</a> / <a href="/things">Things</a> / Prototypical</p>
-    <p><a href="https://github.com/nDimensional/prototypical">GitHub</a>, <a href="https://ndimensional.github.io/prototypical/">Demo</a></p>
-    <section>
-        <p>Prototypical is a decentralized note-taking application. You can type things, save them, and share them with your friends.</p>
-        <figure>
-            <img src="demo.png">
-        </figure>
-        <p>
-            You can use markdown to make headers and style text, and also embed images with <code>![alt text](image url)</code>.
-            That's pretty cool.
-            You can also save your work (with Ctrl+S or Cmd-S), which changes the URL to be some scary hash thing. Then if you share that URL with someone else, they'll see the content that you saved by asking your computer for it! You can also open another hash with Cmd-O or Ctrl-O, or just by pasting the hash into the url bar.
-            It's magic.
-        </p>
-        <p>
-            You can also collaborate!
-            Cmd-Shift-S displays your document id, and Cmd-Shift-O lets you join others' documents by pasting in their id.
-            Prototypical uses Y.js for CRDTs so that changes never cause documents to diverge - and uses pubsub over IPFS to broadcast operations.
-            This means the latency is <em>super low</em> - low enough to type on one machine while looking at the document on another.
-            For now, you can't collaborate between two windows on the same computer - only between two physically different computers.
-            I could change that, but it would break other things that I like having around more.
-        </p>
-        <p>
-            The content that gets persisted to IFPS is pure HTML (i.e. not markdown, <code>"# Hello" => &lth1&gtHello&lt/h1&gt</code>) so when js-ipfs finishes circuit relays you can just cat a hash from the terminal or visit read-only pure-html content at an IPFS gateway (e.g. https://gateway.ipfs.io/ipfs/&lthash&gt).
-            Exciting!
-        </p>
-    </section>
-</article>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Prototypical: Joel Gustafson</title>
+		<meta name="theme-color" content="#fffff8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/styles/tufte.css" />
+	</head>
+	<style>
+		figure img {
+			border: 1px solid black;
+			border-radius: 2px;
+		}
+	</style>
+	<body>
+		<article>
+			<h1>Prototypical</h1>
+			<p>
+				<a href="/">Joel Gustafson</a> / <a href="/things">Things</a> /
+				Prototypical
+			</p>
+			<p>
+				<a href="https://github.com/nDimensional/prototypical">GitHub</a>,
+				<a href="https://ndimensional.github.io/prototypical/">Demo</a>
+			</p>
+			<section>
+				<p>
+					Prototypical is a decentralized note-taking application. You can type
+					things, save them, and share them with your friends.
+				</p>
+				<figure>
+					<img src="demo.png" />
+				</figure>
+				<p>
+					You can use markdown to make headers and style text, and also embed
+					images with <code>![alt text](image url)</code>. That's pretty cool.
+					You can also save your work (with Ctrl+S or Cmd-S), which changes the
+					URL to be some scary hash thing. Then if you share that URL with
+					someone else, they'll see the content that you saved by asking your
+					computer for it! You can also open another hash with Cmd-O or Ctrl-O,
+					or just by pasting the hash into the url bar. It's magic.
+				</p>
+				<p>
+					You can also collaborate! Cmd-Shift-S displays your document id, and
+					Cmd-Shift-O lets you join others' documents by pasting in their id.
+					Prototypical uses Y.js for CRDTs so that changes never cause documents
+					to diverge - and uses pubsub over IPFS to broadcast operations. This
+					means the latency is <em>super low</em> - low enough to type on one
+					machine while looking at the document on another. For now, you can't
+					collaborate between two windows on the same computer - only between
+					two physically different computers. I could change that, but it would
+					break other things that I like having around more.
+				</p>
+				<p>
+					The content that gets persisted to IFPS is pure HTML (i.e. not
+					markdown, <code>"# Hello" => &lth1&gtHello&lt/h1&gt</code>) so when
+					js-ipfs finishes circuit relays you can just cat a hash from the
+					terminal or visit read-only pure-html content at an IPFS gateway (e.g.
+					https://gateway.ipfs.io/ipfs/&lthash&gt). Exciting!
+				</p>
+			</section>
+		</article>
+	</body>
 </html>

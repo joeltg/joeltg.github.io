@@ -1,281 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>automata</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <canvas id="canvas"></canvas>
-    <header>
-        <h1>elementary cellular automata</h1>
-        <table>
-            <tr id="labels"></tr>
-            <tr id="values">
-                <td>
-                    <input type="button" value="random" id="picker"/>
-                </td>
-            </tr>
-            <tr id="binary">
-                <td>
-                    <input type="number" title="r" id="r" min="0" max="255"/>
-                </td>
-            </tr>
-        </table>
-        <input type="range" min="0.5" max=6 step="0.5" value=2 title="zoom" id="zoomer"/>
-    </header>
-</body>
-<style>
-    html, body {
-        margin: 0;
-        overflow: hidden;
-    }
-    h1 {
-        font-size: 18px;
-        margin: 4px;
-    }
-    table {
-        border-spacing: 0;
-    }
-    header {
-        position: absolute;
-        top: 4px;
-        left: 4px;
-    }
-    .box {
-        width: 16px;
-        height: 16px;
-        display: inline-block;
-        -webkit-box-shadow:inset 0 0 0 1px black;
-        -moz-box-shadow:inset 0 0 0 1px black;
-        box-shadow:inset 0 0 0 1px black;
-    }
-    .check {
-        width: 16px;
-        height: 16px;
-        -webkit-box-shadow:inset 0 0 0 1px black;
-        -moz-box-shadow:inset 0 0 0 1px black;
-        box-shadow:inset 0 0 0 1px black;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
-    .check:checked {
-        background: black;
-    }
-    .check:hover {
-        cursor: pointer;
-    }
-    td {
-        padding: 0 4px;
-    }
-    #values td, #binary td {
-        text-align: center;
-    }
-    #r {
-        width: 48px;
-    }
-    #zoomer {
-        width: 100%;
-    }
-    @media (max-width: 600px) {
-        /*.check {*/
-            /*display: none;*/
-        /*}*/
-        .box {
-            display: none;
-        }
-        #values td {
-            display: none;
-        }
-        #values td:last-child {
-            display: table-cell;
-        }
-        #binary td {
-            display: none;
-        }
-        #binary td:last-child {
-            display: table-cell;
-        }
-        td {
-            padding: 0;
-        }
-        canvas {
-            margin-top: 96px;
-        }
-    }
-</style>
-<script>
-    const frame = {};
-    const {exp, min, max, round, random, floor, ceil} = Math;
-    const r = document.getElementById('r');
-    const canvas = document.getElementById('canvas');
-    const labels = document.getElementById('labels');
-    const values = document.getElementById('values');
-    const binary = document.getElementById('binary');
-    const picker = document.getElementById('picker');
-    const zoomer = document.getElementById('zoomer');
-    const dom = name => document.createElement(name);
+	<head>
+		<meta charset="UTF-8" />
+		<title>automata</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<header>
+			<h1>elementary cellular automata</h1>
+			<table>
+				<tr id="labels"></tr>
+				<tr id="values">
+					<td>
+						<input type="button" value="random" id="picker" />
+					</td>
+				</tr>
+				<tr id="binary">
+					<td>
+						<input type="number" title="r" id="r" min="0" max="255" />
+					</td>
+				</tr>
+			</table>
 
-    const pad = (i, l) => ('0000000' + i.toString(2)).slice(-l).split('').map(c => !!parseInt(c));
+			<input
+				type="range"
+				min="0.5"
+				max="6"
+				step="0.5"
+				value="2"
+				title="zoom"
+				id="zoomer"
+			/>
+		</header>
+	</body>
+	<style>
+		html,
+		body {
+			margin: 0;
+			overflow: hidden;
+		}
+		h1 {
+			font-size: 18px;
+			margin: 4px;
+		}
+		table {
+			border-spacing: 0;
+		}
+		header {
+			position: absolute;
+			top: 4px;
+			left: 4px;
+		}
+		.box {
+			width: 16px;
+			height: 16px;
+			display: inline-block;
+			-webkit-box-shadow: inset 0 0 0 1px black;
+			-moz-box-shadow: inset 0 0 0 1px black;
+			box-shadow: inset 0 0 0 1px black;
+		}
+		.check {
+			width: 16px;
+			height: 16px;
+			-webkit-box-shadow: inset 0 0 0 1px black;
+			-moz-box-shadow: inset 0 0 0 1px black;
+			box-shadow: inset 0 0 0 1px black;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+		.check:checked {
+			background: black;
+		}
+		.check:hover {
+			cursor: pointer;
+		}
+		td {
+			padding: 0 4px;
+		}
+		#values td,
+		#binary td {
+			text-align: center;
+		}
+		#r {
+			width: 48px;
+		}
+		#zoomer {
+			width: 100%;
+		}
+		@media (max-width: 600px) {
+			/*.check {*/
+			/*display: none;*/
+			/*}*/
+			.box {
+				display: none;
+			}
+			#values td {
+				display: none;
+			}
+			#values td:last-child {
+				display: table-cell;
+			}
+			#binary td {
+				display: none;
+			}
+			#binary td:last-child {
+				display: table-cell;
+			}
+			td {
+				padding: 0;
+			}
+			canvas {
+				margin-top: 96px;
+			}
+		}
+	</style>
+	<script>
+		const frame = {}
+		const { exp, min, max, round, random, floor, ceil } = Math
+		const r = document.getElementById("r")
+		const canvas = document.getElementById("canvas")
+		const labels = document.getElementById("labels")
+		const values = document.getElementById("values")
+		const binary = document.getElementById("binary")
+		const picker = document.getElementById("picker")
+		const zoomer = document.getElementById("zoomer")
+		const dom = name => document.createElement(name)
 
-    const state = Array.from({length: 8}, () => round(random()));
+		const pad = (i, l) =>
+			("0000000" + i.toString(2))
+				.slice(-l)
+				.split("")
+				.map(c => !!parseInt(c))
 
-    const fold = () => state.map((v, i) => v * (2 ** (7 - i))).reduce((a, v) => a + v, 0);
+		const state = Array.from({ length: 8 }, () => round(random()))
 
-    const context = canvas.getContext('2d');
-    context.fillStyle = '#000000';
+		const fold = () =>
+			state.map((v, i) => v * 2 ** (7 - i)).reduce((a, v) => a + v, 0)
 
-    zoomer.addEventListener('input', function() {
-        frame.s = round(exp(+zoomer.value));
-        frame.n = ceil(innerHeight / frame.s);
-        ammo(frame.r);
-    });
+		const context = canvas.getContext("2d")
+		context.fillStyle = "#000000"
 
-    function pick() {
-        state.map(() => round(random())).forEach(update);
-        r.value = fold();
-        ammo(r.value);
-    }
+		zoomer.addEventListener("input", function() {
+			frame.s = round(exp(+zoomer.value))
+			frame.n = ceil(innerHeight / frame.s)
+			ammo(frame.r)
+		})
 
-    canvas.addEventListener('touchstart', pick);
-    picker.addEventListener('click', pick);
-    window.addEventListener('keydown', function({keyCode}) {
-        if (keyCode === 13) pick();
-    });
+		function pick() {
+			state.map(() => round(random())).forEach(update)
+			r.value = fold()
+			ammo(r.value)
+		}
 
-    r.addEventListener('input', function({target: {value}}) {
-        if (value !== '') {
-            const v = max(min(parseInt(value), 255), 0);
-            r.value = v;
-            pad(v, 8).forEach(update);
-            ammo(v);            
-        }
-    });
+		canvas.addEventListener("touchstart", pick)
+		picker.addEventListener("click", pick)
+		window.addEventListener("keydown", function({ keyCode }) {
+			if (keyCode === 13) pick()
+		})
 
-    function ammo(r) {
-        if (r === frame.r) {
-            generate(frame.rule);
-        } else {
-            history.replaceState({}, r.toString(), '?' + r);
-            frame.r = r;
-            frame.rule = new Rule(frame.r);
-            generate(frame.rule);
-        }
-    }
-   
-    class Rule {
-        constructor(rule) {
-            this.tree = this.bst(8, rule);
-        }
-        bst(n, i) {
-            if (n % 2 === 0) {
-                const h = 2 ** floor(n / 2);
-                const remainder = i % h, quotient = floor(i / h);
-                return [this.bst(floor(n / 2), remainder), this.bst(floor(n / 2), quotient)];
-            } else {
-                return i;
-            }
-        }
-        check(state) {
-            return state.reduce((a, v) => a[v], this.tree);
-        }
-    }
-    
-    class Layer extends Array {
-        constructor(...args) {
-            super(...args);
-        }
-        slice(start, end) {
-            if (start < 0) {
-                return new Array(-start).fill(0).concat(this.slice(0, end));
-            } else if (end > this.length) {
-                return this.slice(start, this.length).concat(new Array(end - this.length).fill(0));
-            } else return Array.prototype.slice.call(this, start, end);
-        }
-        next(rule) {
-            const length = this.length + 2;
-            return Layer.from({length}, (v, i) => this.slice(i-2, i+1)).map(state => rule.check(state));
-        }
-    }
+		r.addEventListener("input", function({ target: { value } }) {
+			if (value !== "") {
+				const v = max(min(parseInt(value), 255), 0)
+				r.value = v
+				pad(v, 8).forEach(update)
+				ammo(v)
+			}
+		})
 
-    function draw(layer, rule) {
-        const {s, w} = frame;
-        const y = s * layer.length / 2;
-        layer.forEach((v, i) => v && context.fillRect(floor(w + (s * i) - y), floor(y), s, s));
-        return layer.next(rule);
-    }
+		function ammo(r) {
+			if (r === frame.r) {
+				generate(frame.rule)
+			} else {
+				history.replaceState({}, r.toString(), "?" + r)
+				frame.r = r
+				frame.rule = new Rule(frame.r)
+				generate(frame.rule)
+			}
+		}
 
-    function generate(rule) {
-        const {width, height} = canvas;
-        context.clearRect(0, 0, width, height);
-        const {n} = frame;
-        new Array(n).fill(rule).reduce(draw, first_layer);
-    }
+		class Rule {
+			constructor(rule) {
+				this.tree = this.bst(8, rule)
+			}
+			bst(n, i) {
+				if (n % 2 === 0) {
+					const h = 2 ** floor(n / 2)
+					const remainder = i % h,
+						quotient = floor(i / h)
+					return [
+						this.bst(floor(n / 2), remainder),
+						this.bst(floor(n / 2), quotient),
+					]
+				} else {
+					return i
+				}
+			}
+			check(state) {
+				return state.reduce((a, v) => a[v], this.tree)
+			}
+		}
 
-    const first_layer = new Layer(1).fill(1);
+		class Layer extends Array {
+			constructor(...args) {
+				super(...args)
+			}
+			slice(start, end) {
+				if (start < 0) {
+					return new Array(-start).fill(0).concat(this.slice(0, end))
+				} else if (end > this.length) {
+					return this.slice(start, this.length).concat(
+						new Array(end - this.length).fill(0)
+					)
+				} else return Array.prototype.slice.call(this, start, end)
+			}
+			next(rule) {
+				const length = this.length + 2
+				return Layer.from({ length }, (v, i) => this.slice(i - 2, i + 1)).map(
+					state => rule.check(state)
+				)
+			}
+		}
 
-    function box(checked) {
-        const div = dom('span');
-        div.className = 'box';
-        if (checked) div.style.background = 'black';
-        return div;
-    }
+		function draw(layer, rule) {
+			const { s, w } = frame
+			const y = (s * layer.length) / 2
+			layer.forEach(
+				(v, i) => v && context.fillRect(floor(w + s * i - y), floor(y), s, s)
+			)
+			return layer.next(rule)
+		}
 
-    function update(checked, i) {
-        values.children[i].firstChild.checked = checked;
-        state[i] = checked ? 1 : 0;
-        binary.children[i].firstChild.textContent = state[i].toString();
-    }
+		function generate(rule) {
+			const { width, height } = canvas
+			context.clearRect(0, 0, width, height)
+			const { n } = frame
+			new Array(n).fill(rule).reduce(draw, first_layer)
+		}
 
-    function attach(i) {
-        const labelsCell = dom('td');
-        pad(i, 3).forEach(checked => labelsCell.appendChild(box(!checked)));
-        labels.appendChild(labelsCell);
+		const first_layer = new Layer(1).fill(1)
 
-        const valuesCell = dom('td');
-        const value = dom('input');
-        value.type = 'checkbox';
-        value.className = 'check';
-        value.addEventListener('click', function({target: {checked}}) {
-            update(checked, i);
-            r.value = fold();
-            ammo(r.value);
-        });
-        value.checked = state[i] === 1;
-        valuesCell.appendChild(value);
-        values.insertBefore(valuesCell, picker.parentNode);
+		function box(checked) {
+			const div = dom("span")
+			div.className = "box"
+			if (checked) div.style.background = "black"
+			return div
+		}
 
-        const binaryCell = dom('td');
-        binaryCell.textContent = state[i];
-        binary.insertBefore(binaryCell, r.parentNode);
-    }
+		function update(checked, i) {
+			values.children[i].firstChild.checked = checked
+			state[i] = checked ? 1 : 0
+			binary.children[i].firstChild.textContent = state[i].toString()
+		}
 
-    Array.from({length: 8}, (v, i) => i).forEach(attach);
+		function attach(i) {
+			const labelsCell = dom("td")
+			pad(i, 3).forEach(checked => labelsCell.appendChild(box(!checked)))
+			labels.appendChild(labelsCell)
 
-    function resize() {
-        canvas.width = innerWidth;
-        canvas.height = innerHeight;
-        frame.w = innerWidth / 2;
-        frame.innerHeight = innerHeight;
-        
-        r.value = fold();
-        frame.s = round(exp(+zoomer.value));
-        frame.n = ceil(innerHeight / frame.s);
+			const valuesCell = dom("td")
+			const value = dom("input")
+			value.type = "checkbox"
+			value.className = "check"
+			value.addEventListener("click", function({ target: { checked } }) {
+				update(checked, i)
+				r.value = fold()
+				ammo(r.value)
+			})
+			value.checked = state[i] === 1
+			valuesCell.appendChild(value)
+			values.insertBefore(valuesCell, picker.parentNode)
 
-        ammo(r.value);
-    }
+			const binaryCell = dom("td")
+			binaryCell.textContent = state[i]
+			binary.insertBefore(binaryCell, r.parentNode)
+		}
 
-    if (location.search) {
-        const search = location.search.substring(1);
-        const v = parseInt(search);
-        if (0 <= v && v <= 255) {
-            r.value = v;
-            pad(v, 8).forEach(update);
-        }
-    }
+		Array.from({ length: 8 }, (v, i) => i).forEach(attach)
 
-    window.addEventListener('resize', resize);
-    resize();
-</script>
+		function resize() {
+			canvas.width = innerWidth
+			canvas.height = innerHeight
+			frame.w = innerWidth / 2
+			frame.innerHeight = innerHeight
+
+			r.value = fold()
+			frame.s = round(exp(+zoomer.value))
+			frame.n = ceil(innerHeight / frame.s)
+
+			ammo(r.value)
+		}
+
+		if (location.search) {
+			const search = location.search.substring(1)
+			const v = parseInt(search)
+			if (0 <= v && v <= 255) {
+				r.value = v
+				pad(v, 8).forEach(update)
+			}
+		}
+
+		window.addEventListener("resize", resize)
+		resize()
+	</script>
 </html>
