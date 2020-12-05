@@ -1,0 +1,6 @@
+baseURL = "https://joelgustafson.com"
+languageCode = "en-us"
+title = "Joel Gustafson"
+
+[markup.goldmark.renderer]
+unsafe = true

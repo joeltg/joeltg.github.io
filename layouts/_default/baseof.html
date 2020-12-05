@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+		/>
+		{{- with .Title | default .Site.Title }}
+		<title>{{ . }}</title>
+		<meta property="og:title" content="{{ . }}" />
+		<meta name="twitter:title" content="{{ . | truncate 70 }}" />
+		{{- end }}
+		<link rel="canonical" href="{{ .Permalink | absLangURL }}" />
+		<link href="/css/tufte.css" rel="stylesheet" type="text/css" />
+		<link href="/css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<article>
+		<section>
+		{{ block "header" . }}
+			{{ partial "title" . }}
+			{{ block "links" . }}{{ end }}
+		{{ end }}
+		</section>
+		{{ block "main" . }}
+			{{.Content}}
+		{{ end }}
+		</article>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<h1>
+	<nav>
+	  {{ template "nav" (dict "p1" . "p2" .) }}
+	</nav>
+</h1>
+
+{{ define "nav" }}
+	{{ if .p1.Parent }}
+		{{ template "nav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+	{{ else if not .p1.IsHome }}
+		{{ template "nav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+	{{ end }}
+	{{ if eq .p1 .p2 }}
+		<span>{{ .p1.Title }}</span>
+	{{ else }}
+		<span><a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a></span>
+	{{ end }}
+{{ end }}

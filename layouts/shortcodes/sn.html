@@ -1,0 +1,11 @@
+{{ $snId := .Ordinal }}
+<label
+	for="sn-{{.Page.UniqueID}}-{{ $snId }}"
+	class="margin-toggle sidenote-number"
+></label>
+<input
+	type="checkbox"
+	id="sn-{{.Page.UniqueID}}-{{ $snId }}"
+	class="margin-toggle"
+/>
+<span class="sidenote">{{ .Inner }}</span>

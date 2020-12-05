@@ -1,0 +1,23 @@
+{{ define "links" }}
+	<ul class="links">
+		<li><a href="mailto:joelg@mit.edu">Email</a></li>
+		<li><a href="https://github.com/joeltg">GitHub</a></li>
+		<li><a href="https://twitter.com/gustafjt">Twitter</a></li>
+		<li><a href="https://www.are.na/joel-gustafson">Are.na</a></li>
+		<li><a href="Joel Gustafson.pdf">Resume</a></li>
+	</ul>
+{{ end }}
+
+{{ define "main" }}
+<section>
+
+	{{.Content}}
+	<p>
+		<ul class="nav">
+		{{ range .Pages }}
+			<li><a href="{{.Permalink}}">{{.Title}}</a></li>
+		{{ end }}
+		</ul>
+	</p>
+</section>
+{{ end }}

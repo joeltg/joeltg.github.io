@@ -1,0 +1,8 @@
+{{ $mnId := .Ordinal }}
+<label for="mn-{{.Page.UniqueID}}-{{ $mnId }}" class="margin-toggle">&#8853;</label>
+<input
+	type="checkbox"
+	id="mn-{{.Page.UniqueID}}-{{ $mnId }}"
+	class="margin-toggle"
+/>
+<span class="marginnote">{{ .Inner }}</span>
