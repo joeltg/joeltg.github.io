@@ -1,5 +1,5 @@
 ---
-title: "Repetition is the Shadow of Structure"
+title: "Repetition is the shadow of structure"
 date: 2019-11-02T18:44:00-04:00
 ---
 

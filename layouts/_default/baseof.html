@@ -18,14 +18,11 @@
 	</head>
 	<body>
 		<article>
-		<section>
 		{{ block "header" . }}
-			{{ partial "title" . }}
-			{{ block "links" . }}{{ end }}
+
 		{{ end }}
-		</section>
 		{{ block "main" . }}
-			{{.Content}}
+			{{ .Content }}
 		{{ end }}
 		</article>
 	</body>
