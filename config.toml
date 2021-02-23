@@ -1,6 +1,7 @@
 baseURL = "https://joelgustafson.com"
 languageCode = "en-us"
 title = "Joel Gustafson"
+publishDir = "docs"
 
 [markup.goldmark.renderer]
 unsafe = true
